@@ -6,8 +6,7 @@ import Footer from "./Footer";
 import { useNavigate } from "react-router-dom";
 import BlackWhiteGallery from "./BlackWhiteGallery";
 import InfiniteTiltSlider from "./InfiniteTiltSlider";
-import IMG_2020 from "../Images/IMG-20201219-WA0039.webp";
-
+import img10 from "../Images/img10.jpg";
 const SVGAccent = () => (
   <svg
     className="absolute top-2 right-2 w-16 h-16 text-gray-100 opacity-20"
@@ -150,7 +149,7 @@ const Projects = () => {
           viewport={{ once: true }}
         >
           <img
-            src={IMG_2020}
+            src={img10}
             alt="Eco Solar Advantage"
             className="w-full h-auto object-cover rounded-xl shadow-md"
           />
@@ -169,15 +168,25 @@ const Projects = () => {
               Why Choose Us
             </span>
           </div>
-          {/* We Provide Solar Solutions as per  your Requirements */}
           <h1 className="font-montserrat font-semibold text-4xl leading-tight text-gray-900 mb-4">
-            We Provide
-            <br />
-            Solar Solutions
-            <br />
-            as per your
-            <br />
-            Requirements
+            <motion.h1
+              className="font-montserrat font-semibold text-4xl leading-tight text-gray-900 mb-4"
+              animate={{
+                y: [0, -8, 0, 8, 0], // up & down bounce
+                scale: [1, 1.05, 1, 1.05, 1], // thoda zoom
+                rotate: [0, -1, 1, -1, 0], // halka sa dance/tilt
+              }}
+              transition={{
+                duration: 3, // total cycle time
+                repeat: Infinity, // infinite loop
+                ease: "easeInOut",
+              }}
+            >
+              We Provide Solar
+              <br /> Solutions
+              <br /> as per your
+              <br /> Requirements
+            </motion.h1>
           </h1>
           <p className="text-gray-500 text-sm max-w-md mb-8 leading-relaxed">
             At Divy Power, our mission is not just to install solar systems, but
