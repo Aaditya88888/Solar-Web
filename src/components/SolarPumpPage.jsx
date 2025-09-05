@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import Footer from "./Footer";
-import Lap from "../Images/IMG-20250805-WA0071(1).jpg";
+import Lap from "../Images/IMG-20250805-WA0071(1).webp";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },

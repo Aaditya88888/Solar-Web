@@ -3,7 +3,7 @@ import React from "react";
 import { Suspense, lazy } from "react";
 
 
-import DivyRedesign from "../Images/DivyRedesign.png";
+import DivyRedesign from "../Images/DivyRedesign.webp";
 
 import "./Home.css";
 

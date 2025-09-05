@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import MessageBubble2 from "./MessageBubble2";
-import solarChachaImg from "../Images/chacha.png";
-import roshniDidiImg from "../Images/didi.png";
+import solarChachaImg from "../Images/chacha.webp";
+import roshniDidiImg from "../Images/didi.webp";
 
 const conversationData = [
   { sender: "chacha", text: "Local jugaad se bijli nahi milti, sirf tension milta hai! Divy Solar se paaiye guarantee wali roshni aur chain ka jeevan!" },

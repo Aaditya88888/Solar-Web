@@ -1,13 +1,13 @@
 import React from "react";
 
-import L1 from '../Images/P1.jpg';
-import L2 from '../Images/P2.png';
-import L3 from '../Images/P3.png';
-import L4 from '../Images/P4.jpg';
-import L5 from '../Images/P5.png';
-import L6 from '../Images/P6.png';
-import L7 from '../Images/P7.jpg';
-import L8 from '../Images/P8.png';
+import L1 from '../Images/P1.webp';
+import L2 from '../Images/P2.webp';
+import L3 from '../Images/P3.webp';
+import L4 from '../Images/P4.webp';
+import L5 from '../Images/P5.webp';
+import L6 from '../Images/P6.webp';
+import L7 from '../Images/P7.webp';
+import L8 from '../Images/P8.webp';
 
 const logos = [L1, L2, L3, L4, L5, L6, L7, L8];
 

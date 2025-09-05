@@ -7,7 +7,7 @@
 // import { FiSearch } from 'react-icons/fi';
 // import { HiOutlineMenu, HiOutlineX } from 'react-icons/hi';
 // import { GiSolarPower } from 'react-icons/gi';
-// import solarlogo from '../Images/logo3.png'
+// import solarlogo from '../Images/logo3.webp'
 
 // const navLinks = [
 //   { name: 'Home', path: '/' },
@@ -139,7 +139,7 @@ import React, { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { FaPhoneAlt } from 'react-icons/fa';
 import { HiOutlineMenu, HiOutlineX } from 'react-icons/hi';
-import solarlogo from '../Images/logo3.png';
+import solarlogo from '../Images/logo3.webp';
 
 const navLinks = [
   { name: 'Home', path: '/' },

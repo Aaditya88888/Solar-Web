@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import Pro1 from "../Images/Pro1.jpg";
-import Pro2 from "../Images/Pro2.jpg";
-import Pro3 from "../Images/Pro3.png";
+import Pro1 from "../Images/Pro1.webp";
+import Pro2 from "../Images/Pro2.webp";
+import Pro3 from "../Images/Pro3.webp";
 import Footer from "./Footer";
 
 const ProjectDetails = () => {

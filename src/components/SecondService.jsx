@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import Footer from "./Footer";
-import jaquar_commecial from "../Images/jaquar_commecial.jpg";
+import jaquar_commecial from "../Images/jaquar_commecial.webp";
 
 // import { FaTools, FaCogs, FaRecycle, FaSun } from "react-icons/fa";
 

@@ -6,7 +6,7 @@ import Footer from "./Footer";
 import { useNavigate } from "react-router-dom";
 import BlackWhiteGallery from "./BlackWhiteGallery";
 import InfiniteTiltSlider from "./InfiniteTiltSlider";
-import IMG_2020 from "../Images/IMG-20201219-WA0039.jpg";
+import IMG_2020 from "../Images/IMG-20201219-WA0039.webp";
 
 const SVGAccent = () => (
   <svg

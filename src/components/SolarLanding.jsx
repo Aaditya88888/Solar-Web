@@ -17,7 +17,7 @@ import { IoIosArrowDown } from "react-icons/io";
 import { MdSolarPower, MdMemory } from "react-icons/md";
 import { GiLightningTrio, GiGroundSprout, GiWaterDrop } from "react-icons/gi";
 import { motion, AnimatePresence } from "framer-motion";
-import solarlogo from "../Images/logo2.png";
+import solarlogo from "../Images/logo2.webp";
 
 // Navigation Links
 const navLinks = [

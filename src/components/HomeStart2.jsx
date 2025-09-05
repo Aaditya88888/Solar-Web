@@ -1,5 +1,5 @@
 import React from 'react';
-import img1 from "../Images/Img1.png";
+import img1 from "../Images/Img1.webp";
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 

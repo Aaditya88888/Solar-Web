@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import ChatbotPopup from "./ChatbotPopup";
-import solarch from "../Images/chacha.png";
+import solarch from "../Images/chacha.webp";
 
 const messages = [
   "Solar se kharcha nahi, paiso ki bachat hoti hai!",
