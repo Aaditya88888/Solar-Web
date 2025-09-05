@@ -30,7 +30,7 @@ const SolarPortfolio = () => {
   };
 
   return (
-    <section className="min-h-screen px-4 py-10 bg-gradient-to-br from-white to-gray-100 shadow-lg GetFontSol md:px-12 lg:px-20 xl:px-32 2xl:px-52 -mt-[400px]">
+    <section className="min-h-screen px-4 py-10 bg-gradient-to-br from-white to-gray-100 shadow-lg GetFontSol md:px-12 lg:px-20 xl:px-32 2xl:px-52 -mt-[200px]">
       {/* Filter Buttons */}
       <div className="flex flex-wrap justify-center gap-4 mb-10">
         {categories.map((cat) => (
@@ -48,7 +48,7 @@ const SolarPortfolio = () => {
       </div>
 
       {/* Cards */}
-      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 px-4">
+      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 px-4 py-28">
         <AnimatePresence>
           {visibleProjects.map((project) => (
             <motion.div
