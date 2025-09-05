@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
+import Outdoor_living from "../Images/Outdoor_living.jpg";
 
 const reelsData = [
   {
     id: 1,
-    title: "Smart Home Automation",
+    title: "Connected Living",
     desc: "Control your entire home with smart technology and voice commands.",
     img: "https://images.unsplash.com/photo-1545209463-e2825498edbf?w=800&auto=format&fit=crop&q=60",
   },
@@ -23,17 +24,17 @@ const reelsData = [
     id: 4,
     title: "Outdoor Living Spaces",
     desc: "Create relaxing patios and gardens that extend your living area.",
-    img: "https://images.unsplash.com/photo-1509391366360-2e959784a276?w=800&auto=format&fit=crop&q=60",
+    img: Outdoor_living,
   },
   {
     id: 5,
-    title: "Luxury Interiors",
+    title: "Elegant Living",
     desc: "Experience elegance with high-end finishes and premium furniture.",
     img: "https://images.unsplash.com/photo-1624397640148-949b1732bb0a?w=800&auto=format&fit=crop&q=60",
   },
   {
     id: 6,
-    title: "Smart Security Systems",
+    title: "AI-Powered Security",
     desc: "Advanced security for your peace of mind 24/7.",
     img: "https://plus.unsplash.com/premium_photo-1668078530961-32f4a1107791?w=800&auto=format&fit=crop&q=60",
   },

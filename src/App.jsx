@@ -1,57 +1,55 @@
+import { Route, Routes } from "react-router-dom";
+import { Suspense, lazy } from "react";
 
-import Home from './components/Home'
-import { Route, Routes } from 'react-router-dom'
-import About from './components/About'
-import Services from './components/Services'
-import Projects from './components/Projects'
-import Product from './components/Product'
-import Workwithus from './components/Workwithus'
-import Contact from './components/Contact'
-// import Navbar2 from './components/Navbar2'
-import SolarPanelPage from './components/SolarPanelPage'
-import SolarPumpPage from './components/SolarPumpPage'
-import MicroInverter from './components/MicroInverter'
-import Earthing from './components/Earthing'
-import La from './components/La'
-import GasGenset from './components/GasGenset'
-import Diesel from './components/Diesel'
-import Cursor from './components/Cursor'
-import SocialIcons from './components/SocialIcons'
-import ScrollToTop from './components/ScrollToTop'
-import NewWorkWithUs from './components/NewWorkWithUs'
-import ProjectDetails from './components/ProjectDetails'
-import FiveService from './components/FiveService'
-import FirstService from './components/FirstService'
-import FourService from './components/FourService'
-import ThirdService from './components/ThirdService'
-import SecondService from './components/SecondService'
-import SolarLanding from './components/SolarLanding'
-import Career from './components/Career'
-import PrivacySection from './components/PrivacySection'
-import SolarArticle from './components/SolarArticle'
-import SustainableProfitability from './components/SustainableProfitability'
-import BecomeOurIndividualPartner from './components/BecomeOurIndividualPartner'
-import AddOurServices from './components/AddOurServices'
-import WhatsAppButton from './components/WhatsAppButton'
-
-
-
-
+// Lazy imports (code splitting)
+const Home = lazy(() => import("./components/Home"));
+const About = lazy(() => import("./components/About"));
+const Services = lazy(() => import("./components/Services"));
+const Projects = lazy(() => import("./components/Projects"));
+const Product = lazy(() => import("./components/Product"));
+const Workwithus = lazy(() => import("./components/Workwithus"));
+const Contact = lazy(() => import("./components/Contact"));
+const SolarPanelPage = lazy(() => import("./components/SolarPanelPage"));
+const SolarPumpPage = lazy(() => import("./components/SolarPumpPage"));
+const MicroInverter = lazy(() => import("./components/MicroInverter"));
+const Earthing = lazy(() => import("./components/Earthing"));
+const La = lazy(() => import("./components/La"));
+const GasGenset = lazy(() => import("./components/GasGenset"));
+const Diesel = lazy(() => import("./components/Diesel"));
+const Cursor = lazy(() => import("./components/Cursor"));
+const SocialIcons = lazy(() => import("./components/SocialIcons"));
+const ScrollToTop = lazy(() => import("./components/ScrollToTop"));
+const NewWorkWithUs = lazy(() => import("./components/NewWorkWithUs"));
+const ProjectDetails = lazy(() => import("./components/ProjectDetails"));
+const FiveService = lazy(() => import("./components/FiveService"));
+const FirstService = lazy(() => import("./components/FirstService"));
+const FourService = lazy(() => import("./components/FourService"));
+const ThirdService = lazy(() => import("./components/ThirdService"));
+const SecondService = lazy(() => import("./components/SecondService"));
+const SolarLanding = lazy(() => import("./components/SolarLanding"));
+const Career = lazy(() => import("./components/Career"));
+const PrivacySection = lazy(() => import("./components/PrivacySection"));
+const SolarArticle = lazy(() => import("./components/SolarArticle"));
+const SustainableProfitability = lazy(() =>
+  import("./components/SustainableProfitability")
+);
+const BecomeOurIndividualPartner = lazy(() =>
+  import("./components/BecomeOurIndividualPartner")
+);
+const AddOurServices = lazy(() => import("./components/AddOurServices"));
+const WhatsAppButton = lazy(() => import("./components/WhatsAppButton"));
 
 function App() {
-
-
   return (
-    <>
+    <Suspense fallback={<div className="text-center p-10">Loading...</div>}>
+      {/* Components always visible */}
       <SolarLanding />
       <Cursor />
-
-<WhatsAppButton />
-
+      <WhatsAppButton />
       <ScrollToTop />
 
+      {/* Routing setup */}
       <Routes>
-
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/services" element={<Services />} />
@@ -67,20 +65,34 @@ function App() {
         <Route path="/LA" element={<La />} />
         <Route path="/Diesel/Petrol Genset" element={<Diesel />} />
         <Route path="/ProjectDetails" element={<ProjectDetails />} />
-        <Route path="/Installation_&_Commissioning_(INC)" element={<FirstService />} />
-        <Route path="/Engineering_Procurement_and_Construction_(EPC)" element={<SecondService />} />
-        <Route path="/Operations_&_Maintenance_(O&M)" element={<ThirdService />} />
-        <Route path="/Annual_Maintenance_Contracts(AMC)" element={<FourService />} />
+        <Route
+          path="/Installation_&_Commissioning_(INC)"
+          element={<FirstService />}
+        />
+        <Route
+          path="/Engineering_Procurement_and_Construction_(EPC)"
+          element={<SecondService />}
+        />
+        <Route
+          path="/Operations_&_Maintenance_(O&M)"
+          element={<ThirdService />}
+        />
+        <Route
+          path="/Annual_Maintenance_Contracts(AMC)"
+          element={<FourService />}
+        />
         <Route path="/Health_Check_ups" element={<FiveService />} />
         <Route path="/privacy" element={<PrivacySection />} />
         <Route path="/Blog1" element={<SolarArticle />} />
         <Route path="/Blog2" element={<SustainableProfitability />} />
-         <Route path="/become-partner" element={<BecomeOurIndividualPartner />} />
+        <Route
+          path="/become-partner"
+          element={<BecomeOurIndividualPartner />}
+        />
         <Route path="/add-our-services" element={<AddOurServices />} />
       </Routes>
-
-    </>
-  )
+    </Suspense>
+  );
 }
 
-export default App
+export default App;

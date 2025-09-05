@@ -1,6 +1,11 @@
 // src/data/projectData.js
 import {
-  Building2, Home, Landmark, Globe, Store, LayoutGrid
+  Building2,
+  Home,
+  Landmark,
+  Globe,
+  Store,
+  LayoutGrid,
 } from "lucide-react";
 
 import Project1 from "../Images/Project1.jpg";
@@ -30,15 +35,15 @@ import gov5 from "../Images/gov5.JPG";
 import gove1 from "../Images/gove1.png";
 import gove2 from "../Images/gove2.png";
 import gove3 from "../Images/gove3.jpg";
-
+import ashish_jain_kavi_nagar_7kw_resedential from "../Images/ashish_jain_kavi_nagar_7kw_resedential.jpg";
+import res from "../Images/res.jpg";
 
 export const categories = [
   "All",
   "Residential",
   "Commercial",
-  "Govt Affiliates"
+  "Govt Affiliates",
 ];
-
 
 export const iconMap = {
   Residential: <Home className="text-blue-500 w-6 h-6" />,
@@ -54,105 +59,104 @@ export const projects = [
     title: "Ansal sonipoat",
     category: "Residential",
     kwp: "N/A",
-    image: Project1
+    image: Project1,
   },
   {
     id: 2,
     title: "BKT Bhiwandi",
     category: "Commercial",
     kwp: "N/A",
-    image: Project2
+    image: Project2,
   },
   {
     id: 3,
-    title: "Kumheera Net Zero Village",
+    title: "Kumhera Net Zero Village",
     category: "Govt Affiliates",
     kwp: "1440",
-    image: gove1
+    image: gove1,
   },
   {
     id: 4,
-    title: "Kumheera Net Zero Village",
+    title: "Kumhera Net Zero Village",
     category: "Govt Affiliates",
     kwp: "450",
-    image: gove2
+    image: gove2,
   },
   {
     id: 6,
     title: "LR College",
     category: "Commercial",
     kwp: "1000",
-    image: Project6
+    image: Project6,
   },
   {
     id: 7,
     title: "Orient System",
     category: "Commercial",
     kwp: "1450",
-    image: Project7
+    image: Project7,
   },
   {
     id: 8,
     title: "PVS Polymers",
     category: "Commercial",
     kwp: "100",
-    image: Project8
+    image: Project8,
   },
   {
     id: 9,
     title: "Rangeeli Mahal Barsana",
     category: "Residential",
     kwp: "100",
-    image: Project9
+    image: Project9,
   },
   {
     id: 10,
     title: "Build Bharat Expo",
     category: "Exhibitions and stalls",
     kwp: "N/A",
-    image: stall4
+    image: stall4,
   },
   {
     id: 11,
     title: "Utkarsh ke 8 varsh Kavi Nagar Event",
     category: "Exhibitions and stalls",
     kwp: "N/A",
-    image: stall7
+    image: stall7,
   },
   {
-  id: 12,
-  title: "Build Bharat Expo",
-  category: "Exhibitions and stalls",
-  kwp: "N/A",
-  image: so1
-},
-{
-  id: 13,
-  title: "Utkarsh ke 8 varsh Kavi Nagar Event",
-  category: "Exhibitions and stalls",
-  kwp: "N/A",
-  image: gove3
-},
-{
-  id: 14,
-  title: "MGR Exhibition",
-  category: "Exhibitions and stalls",
-  kwp: "N/A",
-  image: so3
-},
-{
-  id: 15,
-  title: "Rooftop",
-  category: "Residential",
-  kwp: "N/A",
-  image: so4
-},
-{
-  id: 16,
-  title: "OS cool Home",
-  category: "Commercial",
-  kwp: "N/A",
-  image: so5
-}
+    id: 12,
+    title: "Build Bharat Expo",
+    category: "Exhibitions and stalls",
+    kwp: "N/A",
+    image: so1,
+  },
+  {
+    id: 13,
+    title: "Utkarsh ke 8 varsh Kavi Nagar Event",
+    category: "Exhibitions and stalls",
+    kwp: "N/A",
+    image: gove3,
+  },
+  {
+    id: 14,
+    title: "MGR Exhibition",
+    category: "Exhibitions and stalls",
+    kwp: "N/A",
+    image: so3,
+  },
+  {
+    id: 15,
+    title: "Ashish Jain",
+    category: "Residential",
+    kwp: "N/A",
+    image: ashish_jain_kavi_nagar_7kw_resedential,
+  },
+  {
+    id: 16,
+    title: "OS cool Home",
+    category: "Commercial",
+    kwp: "N/A",
+    image: res,
+  },
 ];
-

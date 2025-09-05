@@ -6,6 +6,8 @@ import Footer from "./Footer";
 import { useNavigate } from "react-router-dom";
 import BlackWhiteGallery from "./BlackWhiteGallery";
 import InfiniteTiltSlider from "./InfiniteTiltSlider";
+import IMG_2020 from "../Images/IMG-20201219-WA0039.jpg";
+
 const SVGAccent = () => (
   <svg
     className="absolute top-2 right-2 w-16 h-16 text-gray-100 opacity-20"
@@ -13,7 +15,12 @@ const SVGAccent = () => (
     viewBox="0 0 24 24"
     stroke="currentColor"
   >
-    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 6v6l4 2" />
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth={1.5}
+      d="M12 6v6l4 2"
+    />
   </svg>
 );
 
@@ -22,10 +29,13 @@ const Projects = () => {
   const navigate = useNavigate();
 
   // Split projects
-  const exhibitionProjects = projects.filter(p => p.category === "Exhibitions and stalls");
-  const filtered = active === "All"
-    ? projects.filter(p => p.category !== "Exhibitions and stalls")
-    : projects.filter(p => p.category === active);
+  const exhibitionProjects = projects.filter(
+    (p) => p.category === "Exhibitions and stalls"
+  );
+  const filtered =
+    active === "All"
+      ? projects.filter((p) => p.category !== "Exhibitions and stalls")
+      : projects.filter((p) => p.category === active);
 
   const handleClick = () => {
     navigate("/ProjectDetails");
@@ -41,12 +51,16 @@ const Projects = () => {
 
         {/* Filter Buttons */}
         <div className="flex flex-wrap justify-center gap-4 mb-10">
-          {categories.map(cat => (
+          {categories.map((cat) => (
             <button
               key={cat}
               onClick={() => setActive(cat)}
               className={`flex items-center gap-2 px-4 py-2 rounded-full border transition duration-300 
-                ${active === cat ? "bg-green-800 text-white" : "bg-gray-100 hover:bg-blue-100 text-gray-700"}`}
+                ${
+                  active === cat
+                    ? "bg-green-800 text-white"
+                    : "bg-gray-100 hover:bg-blue-100 text-gray-700"
+                }`}
             >
               <span className="text-sm font-medium">{cat}</span>
             </button>
@@ -56,7 +70,7 @@ const Projects = () => {
         {/* Main Projects Grid */}
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 px-4">
           <AnimatePresence>
-            {filtered.map(project => (
+            {filtered.map((project) => (
               <motion.div
                 key={project.id}
                 layout
@@ -73,25 +87,29 @@ const Projects = () => {
                   className="rounded-xl mb-4 w-full h-48 object-cover"
                 />
                 <div className="flex items-center justify-between mb-3">
-                  <div className="text-blue-500">{iconMap[project.category]}</div>
+                  <div className="text-blue-500">
+                    {iconMap[project.category]}
+                  </div>
                   <span className="text-xs bg-blue-50 text-blue-600 px-2 py-1 rounded-full">
                     {project.category}
                   </span>
                 </div>
-                <h2 className="text-lg font-semibold text-gray-800 mb-2">{project.title}</h2>
+                <h2 className="text-lg font-semibold text-gray-800 mb-2">
+                  {project.title}
+                </h2>
               </motion.div>
             ))}
           </AnimatePresence>
         </div>
       </section>
 
-        <section className="max-w-7xl mx-auto px-6 py-16 mt-10 GetFontSol">
+      <section className="max-w-7xl mx-auto px-6 py-16 mt-10 GetFontSol">
         <h2 className="text-3xl font-bold text-center text-green-800 mb-10">
           Exhibitions and Stalls
         </h2>
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 px-4">
           <AnimatePresence>
-            {exhibitionProjects.map(project => (
+            {exhibitionProjects.map((project) => (
               <motion.div
                 key={project.id}
                 layout
@@ -113,7 +131,9 @@ const Projects = () => {
                     {project.category}
                   </span>
                 </div>
-                <h2 className="text-lg font-semibold text-gray-800 mb-2">{project.title}</h2>
+                <h2 className="text-lg font-semibold text-gray-800 mb-2">
+                  {project.title}
+                </h2>
               </motion.div>
             ))}
           </AnimatePresence>
@@ -130,7 +150,7 @@ const Projects = () => {
           viewport={{ once: true }}
         >
           <img
-            src="https://storage.googleapis.com/a1aa/image/6d520b5b-2774-4936-d690-f58274af3ff3.jpg"
+            src={IMG_2020}
             alt="Eco Solar Advantage"
             className="w-full h-auto object-cover rounded-xl shadow-md"
           />
@@ -149,16 +169,19 @@ const Projects = () => {
               Why Choose Us
             </span>
           </div>
+          {/* We Provide Solar Solutions as per  your Requirements */}
           <h1 className="font-montserrat font-semibold text-4xl leading-tight text-gray-900 mb-4">
-            We Provide Eco<br />
-            Solar<br />
-            Advantage<br />
-            Services
+            We Provide
+            <br />
+            Solar Solutions
+            <br />
+            as per your
+            <br />
+            Requirements
           </h1>
           <p className="text-gray-500 text-sm max-w-md mb-8 leading-relaxed">
-            Feasibility Assessments: Conducting comprehensive studies to evaluate
-            the viability of hydropower projects based on water resources, terrain,
-            and environmental factors.
+            At Divy Power, our mission is not just to install solar systems, but
+            to create a lasting impact through sustainable energy solutions.
           </p>
           <motion.button
             whileTap={{ scale: 0.97 }}
@@ -172,17 +195,16 @@ const Projects = () => {
       </section>
 
       {/* Exhibitions and Stalls Section */}
-    
 
       {/* Gallery */}
       <section className="max-w-7xl mx-auto px-6 py-12 text-center bg-gray-50 rounded-xl shadow-sm my-10">
         <Gallery />
       </section>
-       <section>
-        <InfiniteTiltSlider/>
+      <section>
+        <InfiniteTiltSlider />
       </section>
       <section>
-        <BlackWhiteGallery/>
+        <BlackWhiteGallery />
       </section>
 
       {/* Footer */}
