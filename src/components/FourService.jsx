@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import Footer from "./Footer";
-import amc_image from "../Images/AMC_image.jpg";
+import amc_image from "../Images/AMC_image.webp";
 const services = [
   {
     label: "Installation & Commissioning",

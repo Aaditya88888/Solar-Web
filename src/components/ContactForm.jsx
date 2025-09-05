@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import solarg from "../Images/SolarChahaFront.png";
+import solarg from "../Images/SolarChahaFront.webp";
 import axios from "axios";
 import Loader from "../Loader";
 import { ToastContainer, toast } from "react-toastify";

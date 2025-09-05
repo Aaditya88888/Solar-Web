@@ -1,6 +1,6 @@
 import React from 'react';
-import background from "../Images/home.png";
-import family from "../Images/j2.png";
+import background from "../Images/home.webp";
+import family from "../Images/j2.webp";
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 

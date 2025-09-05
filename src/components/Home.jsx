@@ -5,6 +5,8 @@ import "aos/dist/aos.css";
 import { motion } from "framer-motion";
 
 import DivyRedesign from "../Images/DivyRedesign.png";
+import DivyRedesign from "../Images/DivyRedesign.webp";
+
 import "./Home.css";
 
 const Dashboard = lazy(() => import("./Dashboard"));

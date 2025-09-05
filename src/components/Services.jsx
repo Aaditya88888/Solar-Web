@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import solar from "../Images/Solar3.jpg";
-import localImage from "../Images/Sv.JPG";
+import solar from "../Images/Solar3.webp";
+import localImage from "../Images/Sv.webp";
 import {
   FaTools,
   FaSolarPanel,

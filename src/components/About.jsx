@@ -9,8 +9,8 @@ import Footer from "./Footer";
 import CompanySection from "./CompanySection";
 import ChatUI4 from "./ChatUI4";
 
-import sunImage from "../Images/didi.png";
-import sunPhoto from "../Images/chacha.png";
+import sunImage from "../Images/didi.webp";
+import sunPhoto from "../Images/chacha.webp";
 import ScrollStackingCards from "./ScrollStackingCards"; // <-- Imported here
 import "./ScrollStackingCards.css"; // <-- Include CSS
 import HoverVideoCard2 from "./HoverVideoCard2";
@@ -18,10 +18,10 @@ import HoverVideoCard3 from "./HoverVideoCard3";
 import "./Home.css"; // Ensure this CSS file is imported for styles
 import HoverVideoCard from "./HoverVideoCard";
 import ImageWithOverlay from "./ImageWithOverlay";
-import rajbeer_vasundra_4kw_res from "../Images/rajbeer_vasundra_4kw_res.jpg";
-import KW_sangwan_res from "../Images/10_KW_sangwan_res.jpg";
-import years_25 from "../Images/years_25.png";
-import IMG_3609 from "../Images/IMG_3609.jpg";
+import rajbeer_vasundra_4kw_res from "../Images/rajbeer_vasundra_4kw_res.webp";
+import KW_sangwan_res from "../Images/10_KW_sangwan_res.webp";
+import years_25 from "../Images/years_25.webp";
+import IMG_3609 from "../Images/IMG_3609.webp";
 
 const aboutUsContent = [
   {

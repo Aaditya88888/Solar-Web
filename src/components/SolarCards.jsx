@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Blog1 from '../Images/Blog1.jpg'
-import Blog2 from '../Images/Blog2.jpg'
+import Blog1 from '../Images/Blog1.webp'
+import Blog2 from '../Images/Blog2.webp'
 
 
 const cardData = [

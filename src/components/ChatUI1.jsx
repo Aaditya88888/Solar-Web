@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import MessageBubble1 from "./MessageBubble1";
-import solarChachaImg from "../Images/chacha.png";
-import roshniDidiImg from "../Images/didi.png";
+import solarChachaImg from "../Images/chacha.webp";
+import roshniDidiImg from "../Images/didi.webp";
 import HoverVideoCard from "./HoverVideoCard";
 
 const conversationData = [

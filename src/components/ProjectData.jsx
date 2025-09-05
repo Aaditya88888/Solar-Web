@@ -8,35 +8,35 @@ import {
   LayoutGrid,
 } from "lucide-react";
 
-import Project1 from "../Images/Project1.jpg";
-import Project2 from "../Images/Project2.jpg";
-import Project3 from "../Images/Project3.jpeg";
-import Project4 from "../Images/Project4.jpeg";
-import Project5 from "../Images/Project5.JPG";
-import Project6 from "../Images/Project6.jpg";
-import Project7 from "../Images/Project7.jpg";
-import Project8 from "../Images/Project8.jpg";
-import Project9 from "../Images/Project9.jpg";
-import Project10 from "../Images/Project10.jpg";
-import Project11 from "../Images/Project11.jpg";
-import stall4 from "../Images/stall4.JPG";
-import stall7 from "../Images/stall7.JPG";
-import stall8 from "../Images/stall8.JPG";
-import so1 from "../Images/so1.JPG";
-import so2 from "../Images/so2.JPG";
-import so3 from "../Images/so3.JPG";
-import so4 from "../Images/so4.jpg";
-import so5 from "../Images/so5.jpg";
-import gov1 from "../Images/gov1.JPG";
-import gov2 from "../Images/gov2.JPG";
-import gov3 from "../Images/gov3.JPG";
-import gov4 from "../Images/gov4.JPG";
-import gov5 from "../Images/gov5.JPG";
-import gove1 from "../Images/gove1.png";
-import gove2 from "../Images/gove2.png";
-import gove3 from "../Images/gove3.jpg";
-import ashish_jain_kavi_nagar_7kw_resedential from "../Images/ashish_jain_kavi_nagar_7kw_resedential.jpg";
-import res from "../Images/res.jpg";
+import Project1 from "../Images/Project1.webp";
+import Project2 from "../Images/Project2.webp";
+import Project3 from "../Images/Project3.webp";
+import Project4 from "../Images/Project4.webp";
+import Project5 from "../Images/Project5.webp";
+import Project6 from "../Images/Project6.webp";
+import Project7 from "../Images/Project7.webp";
+import Project8 from "../Images/Project8.webp";
+import Project9 from "../Images/Project9.webp";
+import Project10 from "../Images/Project10.webp";
+import Project11 from "../Images/Project11.webp";
+import stall4 from "../Images/stall4.webp";
+import stall7 from "../Images/stall7.webp";
+import stall8 from "../Images/stall8.webp";
+import so1 from "../Images/so1.webp";
+import so2 from "../Images/so2.webp";
+import so3 from "../Images/so3.webp";
+import so4 from "../Images/so4.webp";
+import so5 from "../Images/so5.webp";
+import gov1 from "../Images/gov1.webp";
+import gov2 from "../Images/gov2.webp";
+import gov3 from "../Images/gov3.webp";
+import gov4 from "../Images/gov4.webp";
+import gov5 from "../Images/gov5.webp";
+import gove1 from "../Images/gove1.webp";
+import gove2 from "../Images/gove2.webp";
+import gove3 from "../Images/gove3.webp";
+import ashish_jain_kavi_nagar_7kw_resedential from "../Images/ashish_jain_kavi_nagar_7kw_resedential.webp";
+import res from "../Images/res.webp";
 
 export const categories = [
   "All",

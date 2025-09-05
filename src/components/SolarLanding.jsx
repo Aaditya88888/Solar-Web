@@ -17,7 +17,7 @@ import { IoIosArrowDown } from "react-icons/io";
 import { MdSolarPower, MdMemory } from "react-icons/md";
 import { GiLightningTrio, GiGroundSprout, GiWaterDrop } from "react-icons/gi";
 import { motion, AnimatePresence } from "framer-motion";
-import solarlogo from "../Images/logo2.png";
+import solarlogo from "../Images/logo2.webp";
 
 // Navigation Links
 const navLinks = [
@@ -103,6 +103,7 @@ export default function SolarLanding() {
   const [mobileDropdown, setMobileDropdown] = useState(null);
   const location = useLocation();
   const dropdownRef = useRef(null);
+  const navRef = useRef(null);
 
   // Sticky navbar effect
   useEffect(() => {
@@ -118,9 +119,12 @@ export default function SolarLanding() {
     setMobileDropdown(null);
   }, [location.pathname]);
 
-  // Close desktop dropdown if mouse leaves menu
+  // Close desktop dropdown only if mouse leaves BOTH the nav area and the dropdown panel
   const closeDropdownOnOutsideHover = (e) => {
-    if (dropdownRef.current && !dropdownRef.current.contains(e.relatedTarget)) {
+    const next = e.relatedTarget;
+    const overDropdown = dropdownRef.current && next && dropdownRef.current.contains(next);
+    const overNav = navRef.current && next && navRef.current.contains(next);
+    if (!overDropdown && !overNav) {
       setDesktopDropdown(null);
     }
   };
@@ -143,7 +147,7 @@ export default function SolarLanding() {
         </Link>
 
         {/* Desktop Menu */}
-        <nav className="hidden md:flex items-center gap-8 text-base font-medium">
+        <nav ref={navRef} className="hidden md:flex items-center gap-8 text-base font-medium">
           {navLinks.map((link) =>
             link.dropdown ? (
               <div
@@ -169,6 +173,7 @@ export default function SolarLanding() {
               <NavLink
                 key={link.name}
                 to={link.path}
+                onMouseEnter={() => setDesktopDropdown(null)}
                 className={({ isActive }) =>
                   isActive
                     ? "text-orange-500 font-semibold"

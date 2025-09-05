@@ -1,12 +1,12 @@
 import { motion } from 'framer-motion';
-import e1 from "../Images/e1.JPG";
-import e2 from "../Images/e2.JPG";
-import e3 from "../Images/e3.JPG";
-import e4 from "../Images/e4.JPG";
-import e5 from "../Images/e5.JPG";
-import e6 from "../Images/e6.jpg";
-import e7 from "../Images/e7.jpg";
-import e8 from "../Images/e8.JPG";
+import e1 from "../Images/e1.webp";
+import e2 from "../Images/e2.webp";
+import e3 from "../Images/e3.webp";
+import e4 from "../Images/e4.webp";
+import e5 from "../Images/e5.webp";
+import e6 from "../Images/e6.webp";
+import e7 from "../Images/e7.webp";
+import e8 from "../Images/e8.webp";
 
 const images = [
   {
