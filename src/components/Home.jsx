@@ -1,6 +1,5 @@
 import React from "react";
 
-import { Suspense, lazy } from "react";
 
 
 import DivyRedesign from "../Images/DivyRedesign.webp";
@@ -10,7 +9,6 @@ import "./Home.css";
 // import { FaRobot } from "react-icons/fa";
 
 
-const Dashboard = lazy(() => import("./Dashboard"));
 import { useState } from "react";
 
 
@@ -30,7 +28,7 @@ import ChatUI1 from "./ChatUI1";
 
 
 import PageOne from "./PageOne";
-import { Link, Links } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Conversation from "./Conversation";
 import HomeStart2 from "./HomeStart2";
 import HoverVideoCard1 from "./HoverVideoCard1";
@@ -95,7 +93,7 @@ function Home() {
   };
 
   return (
-    <div className=" relative  max-w-full  mx-auto">
+    <div className="relative max-w-full mx-auto overflow-x-hidden">
       <ChatbotToggle />
       <div>
         <section className="About">
@@ -109,13 +107,11 @@ function Home() {
       <section>
         <Conversation />
       </section>
-      <Suspense fallback={<div></div>}>
-
-      </Suspense>
+      
 
 
 
-      <section className=" -mt-72  md:-mt-72 lg:-mt-72 xl:-mt-72 2xl:-mt-[500px]  m-10">
+      <section className="mt-6 md:mt-10 lg:mt-12 px-4 md:px-6">
         {/* <ChartCard /> */}
       </section>
       <section className="About mt-24">
@@ -123,8 +119,8 @@ function Home() {
 
       </section>
       
-      <section className=" h-72">
-        <div className="text-center About1  py-6 mb-10  mt-[600px] lg:-mt-48 xl:-mt-28 2xl:-mt-24 md:-mt-56 ">
+      <section>
+        <div className="text-center About1 py-10 md:py-12 mb-8 mt-8 md:mt-12">
           <button className="bg-[#E50C0C] hover:bg-red-700 text-white font-bold py-3 px-8 rounded-full text-lg transition duration-300">
             <Link to="./contact">Adhik jaankari ke liye click krein</Link>
           </button>
@@ -135,7 +131,7 @@ function Home() {
       <section className="About">
         <SolarSolutions />
       </section>
-      <section className=" mt-20 About1">
+      <section className="mt-16 md:mt-20 About1 px-4 md:px-6">
         <ContactForm />
       </section>
 
@@ -145,15 +141,15 @@ function Home() {
       <section className="About">
         <ChatUI1 />
       </section>
-      <section className="bg-green-800  About  -mt-0 md:-mt-0 lg:-mt-0 xl:-mt-0 2xl:-mt-[10px]">
+      <section className="bg-green-800 About mt-0">
 
         <SolarProduct />
       </section>
 
-      <section className=" mt-10 animate-float">
-        <img src={DivyRedesign} />
+      <section className="mt-10 md:mt-12 animate-float px-4">
+        <img src={DivyRedesign} className="w-full h-auto max-w-5xl mx-auto" />
       </section>
-      <section className=" mt-36 md:mt-20 lg:mt-20 xl:mt-20 2xl:mt-20  About1">
+      <section className="mt-16 md:mt-20 About1 px-4 md:px-6">
         <FiguringOut1 />
       </section>
       <section className=" mt-16 About1">
@@ -162,16 +158,16 @@ function Home() {
 
 
       </section>
-      <section className=" -mt-96">
+      <section className="mt-12 md:mt-16">
          <RatingWorks/>
       </section>
 
-      <section className="bg-[#f8f7f0] About1 mt-96 md:mt-96 lg:mt-96 xl:mt-96 2xl:mt-[430px]">
+      <section className="bg-[#f8f7f0] About1 mt-12 md:mt-16">
         <SolarPortfolio />
         <HoverVideoCard1 />
 
 
-        <section className="About1 mt-20 2xl:mt-60">
+        <section className="About1 mt-10 md:mt-16">
           <FaqSection />
         </section>
 
@@ -179,7 +175,7 @@ function Home() {
 
        
       
-        <section className=" About -mt-11">
+        <section className="About mt-12">
           <Footer />
         </section>
       </section>
