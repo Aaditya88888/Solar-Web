@@ -37,7 +37,6 @@ const FiguringOut = () => {
   const [playingIndex, setPlayingIndex] = useState(null);
 
   const handlePlayPause = (index) => {
-    // Pause all other videos
     videoRefs.current.forEach((video, i) => {
       if (i !== index && video && !video.paused) {
         video.pause();
@@ -61,12 +60,12 @@ const FiguringOut = () => {
           Figuring out with DIVY with Architects
         </h2>
 
-        {/* Mobile: Grid 3 cols | Desktop: One centered row */}
-        <div className="grid grid-cols-3 sm:grid-cols-3 md:flex md:justify-center gap-4">
+        {/* Horizontal scroll container */}
+        <div className="flex gap-4 overflow-x-auto py-2 scrollbar-hide px-2">
           {teamMembers.map((member, index) => (
             <div
               key={index}
-              className="bg-[#787878] shadow-md p-2 rounded-lg hover:shadow-lg transition-all w-full sm:w-full md:w-[180px] flex-shrink-0"
+              className="bg-[#787878] shadow-md p-2 rounded-lg hover:shadow-xl hover:scale-105 transition-all duration-300 flex-shrink-0 w-[180px]"
             >
               <div className="relative overflow-hidden rounded-lg">
                 <video
@@ -77,7 +76,7 @@ const FiguringOut = () => {
                 />
                 <button
                   onClick={() => handlePlayPause(index)}
-                  className="absolute bottom-2 left-1/2 transform -translate-x-1/2 bg-[#787878] text-white p-2 rounded-full hover:bg-[#787878] transition"
+                  className="absolute bottom-2 left-1/2 transform -translate-x-1/2 bg-[#787878] text-white p-2 rounded-full hover:bg-[#555] transition"
                 >
                   {playingIndex === index ? (
                     <FaPause size={12} />

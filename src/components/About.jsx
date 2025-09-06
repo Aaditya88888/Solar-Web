@@ -16,9 +16,6 @@ const ChatUI4 = lazy(() => import("./ChatUI4"));
 const CompanySection = lazy(() => import("./CompanySection"));
 const FiguringOut = lazy(() => import("./FiguringOut"));
 const Footer = lazy(() => import("./Footer"));
-import img1 from "../Images/img1.webp";
-import img2 from "../Images/img2.jpg";
-import img3 from "../Images/img3.png";
 // Animation Variants
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },

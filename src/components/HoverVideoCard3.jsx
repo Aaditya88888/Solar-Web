@@ -57,14 +57,14 @@ const HoverVideoCard3 = () => {
         </h2>
 
         {/* Horizontal Carousel */}
-        <div className="overflow-x-auto flex snap-x snap-mandatory scrollbar-hide gap-4">
+        <div className="overflow-x-auto flex snap-x snap-mandatory scrollbar-hide gap-4 py-2">
           {reelsData.map((reel, index) => (
             <div
               key={index}
-              className="flex-shrink-0 snap-start rounded-lg shadow-md bg-[#787878] p-2"
+              className="flex-shrink-0 snap-start rounded-lg shadow-md bg-[#787878] p-2 hover:shadow-xl hover:scale-105 transition-all duration-300"
               style={{
                 width: "100%", // mobile: full width
-                maxWidth: "250px", // laptop/desktop: multiple cards fit
+                maxWidth: "250px", // desktop: multiple cards fit
               }}
             >
               <div className="relative overflow-hidden rounded-lg aspect-[9/16]">
@@ -76,7 +76,7 @@ const HoverVideoCard3 = () => {
                 />
                 <button
                   onClick={() => handlePlayPause(index)}
-                  className="absolute bottom-2 left-1/2 transform -translate-x-1/2 bg-[#787878] text-white p-2 rounded-full hover:bg-[#787878] transition"
+                  className="absolute bottom-2 left-1/2 transform -translate-x-1/2 bg-[#787878] text-white p-2 rounded-full hover:bg-[#555] transition"
                 >
                   {playingIndex === index ? (
                     <FaPause size={12} />
