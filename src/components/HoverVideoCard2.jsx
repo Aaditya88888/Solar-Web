@@ -1,5 +1,6 @@
 import { useRef, useState } from "react";
 import { FaPlay, FaPause } from "react-icons/fa"; // Play / Pause icons
+import { motion } from "framer-motion";
 
 const reelsData = [
   {
@@ -52,27 +53,38 @@ const HoverVideoCard2 = () => {
   return (
     <section className="bg-white py-8 px-4 sm:px-6 lg:px-12 w-full">
       <div className="max-w-[100%] mx-auto">
-        <h2 className="text-center text-xl sm:text-2xl md:text-3xl font-bold text-green-800 mb-8 ">
+        <h2 className="text-center text-xl sm:text-2xl md:text-3xl font-bold text-green-800 mb-8">
           Our Founder Philosophy
         </h2>
 
-        {/* Mobile: Grid 3 cols, Desktop: Centered row */}
-        <div className="grid grid-cols-3 sm:grid-cols-3 md:flex md:justify-center gap-4">
+        {/* Horizontal Carousel */}
+        <div className="overflow-x-auto flex snap-x snap-mandatory scrollbar-hide gap-4">
           {reelsData.map((reel, index) => (
-            <div
+            <motion.div
               key={index}
-              className="bg-[#787878] shadow-md p-2 rounded-lg hover:shadow-lg transition-all w-full sm:w-full md:w-[170px] flex-shrink-0"
+              className="flex-shrink-0 snap-start rounded-lg shadow-md bg-[#787878] p-2 cursor-pointer"
+              style={{
+                width: "100%",
+                maxWidth: "170px",
+              }}
+              whileHover={{
+                scale: 1.05,
+                boxShadow: "0px 15px 25px rgba(0,0,0,0.3)",
+              }}
+              transition={{ type: "spring", stiffness: 300, damping: 20 }}
             >
               <div className="relative overflow-hidden rounded-lg aspect-square">
-                <video
+                <motion.video
                   ref={(el) => (videoRefs.current[index] = el)}
                   src={reel.reel}
                   className="w-full h-full object-cover"
                   playsInline
+                  whileHover={{ scale: 1.1, filter: "brightness(1.2)" }}
+                  transition={{ duration: 0.3 }}
                 />
                 <button
                   onClick={() => handlePlayPause(index)}
-                  className="absolute bottom-2 left-1/2 transform -translate-x-1/2 bg-[#787878] text-white p-2 rounded-full hover:bg-[#787878] transition"
+                  className="absolute bottom-2 left-1/2 transform -translate-x-1/2 bg-[#787878] text-white p-2 rounded-full hover:bg-[#555] transition"
                 >
                   {playingIndex === index ? (
                     <FaPause size={12} />
@@ -81,12 +93,10 @@ const HoverVideoCard2 = () => {
                   )}
                 </button>
               </div>
-
-              {/* Text under video */}
               <p className="mt-2 text-[10px] sm:text-xs text-gray-100 text-center font-medium">
                 {reel.role}
               </p>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

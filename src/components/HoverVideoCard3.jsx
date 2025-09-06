@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import { FaPlay, FaPause } from "react-icons/fa"; // Icons
+import { FaPlay, FaPause } from "react-icons/fa";
 
 const reelsData = [
   {
@@ -50,24 +50,28 @@ const HoverVideoCard3 = () => {
   };
 
   return (
-    <section className="bg-white py-10 px-4 sm:px-6 lg:px-12 w-full">
+    <section className="bg-white py-10 px-4 sm:px-6 lg:px-12 w-full mt-24">
       <div className="max-w-[100%] mx-auto">
         <h2 className="text-center text-xl sm:text-2xl md:text-3xl font-bold text-green-800 mb-8">
           Growth At Divy
         </h2>
 
-        {/* Mobile: 3-cols grid | Desktop: Centered row */}
-        <div className="grid grid-cols-3 sm:grid-cols-3 md:flex md:justify-center gap-4">
+        {/* Horizontal Carousel */}
+        <div className="overflow-x-auto flex snap-x snap-mandatory scrollbar-hide gap-4">
           {reelsData.map((reel, index) => (
             <div
               key={index}
-              className="bg-[#787878] shadow-md p-2 rounded-lg hover:shadow-lg transition-all w-full sm:w-full md:w-[180px] flex-shrink-0"
+              className="flex-shrink-0 snap-start rounded-lg shadow-md bg-[#787878] p-2"
+              style={{
+                width: "100%", // mobile: full width
+                maxWidth: "250px", // laptop/desktop: multiple cards fit
+              }}
             >
-              <div className="relative overflow-hidden rounded-lg">
+              <div className="relative overflow-hidden rounded-lg aspect-[9/16]">
                 <video
                   ref={(el) => (videoRefs.current[index] = el)}
                   src={reel.reel}
-                  className="w-full aspect-[9/16] object-cover"
+                  className="w-full h-full object-cover"
                   playsInline
                 />
                 <button

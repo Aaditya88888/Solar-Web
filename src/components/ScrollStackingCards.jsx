@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { motion, useAnimation, useInView } from "framer-motion";
 import "./ScrollStackingCards.css";
 
 const ScrollStackingCards = ({ content }) => {
@@ -53,9 +54,7 @@ const ScrollStackingCards = ({ content }) => {
               <h4 className="About text-[14px]">{card.subheading}</h4>
               <ul>
                 {card.points.map((point, idx) => (
-                  <li className="About text-[16px]" key={idx}>
-                    {point}
-                  </li>
+                  <AnimatedPoint key={idx} text={point} index={idx} />
                 ))}
               </ul>
             </div>
@@ -63,6 +62,57 @@ const ScrollStackingCards = ({ content }) => {
         );
       })}
     </div>
+  );
+};
+
+// AnimatedPoint Component
+const AnimatedPoint = ({ text, index }) => {
+  const ref = useRef(null);
+  const controls = useAnimation();
+  const inView = useInView(ref, { once: false });
+  const isDesktop = window.innerWidth >= 1024; // Only desktop animation
+
+  useEffect(() => {
+    if (isDesktop) {
+      if (inView) {
+        controls.start({
+          x: 0,
+          opacity: 1,
+          transition: {
+            type: "spring",
+            stiffness: 200,
+            damping: 20,
+            duration: 0.5,
+            delay: index * 0.15, // stagger effect
+          },
+        });
+      } else {
+        controls.start({ x: -50, opacity: 0 });
+      }
+    } else {
+      // Mobile fallback
+      controls.start({ x: 0, opacity: 1 });
+    }
+  }, [inView, controls, index, isDesktop]);
+
+  return (
+    <motion.li
+      ref={ref}
+      initial={{ x: -50, opacity: 0 }}
+      animate={controls}
+      whileHover={
+        isDesktop
+          ? {
+              scale: 1.1,
+              color: ["#ff4d4d", "#ffa64d", "#4dff88"],
+              transition: { duration: 1, repeat: Infinity },
+            }
+          : {}
+      }
+      className="About text-[16px] transition-all cursor-pointer"
+    >
+      {text}
+    </motion.li>
   );
 };
 

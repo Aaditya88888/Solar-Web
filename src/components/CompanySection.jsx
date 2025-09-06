@@ -51,11 +51,13 @@ const CompanySection = () => {
 
       <div className="flex flex-col lg:flex-row items-center gap-10">
         {/* Left Image */}
-        <div className="w-full lg:w-1/2">
-          <img
+        <div className="w-full lg:w-1/2 overflow-hidden rounded-2xl">
+          <motion.img
             src="https://storage.googleapis.com/a1aa/image/b08acab3-6b8b-47a9-3cc6-092bfccc4ded.jpg"
             alt="Solar panels"
-            className="rounded-2xl shadow-lg object-cover w-full max-h-[400px] sm:max-h-[480px]"
+            className="w-full max-h-[400px] sm:max-h-[480px] object-cover"
+            whileHover={{ scale: 1.05 }}
+            transition={{ duration: 0.5, ease: "easeInOut" }}
           />
         </div>
 
@@ -69,27 +71,16 @@ const CompanySection = () => {
             Save The Environment
           </h3>
 
-          {/* Tabs with subtle infinite animation */}
+          {/* Tabs */}
           <div className="flex About flex-wrap justify-center lg:justify-start gap-3 sm:gap-4 mb-6">
             {Object.keys(tabLabels).map((key) => (
-              <motion.button
+              <button
                 key={key}
                 className={tabStyle(key)}
                 onClick={() => setActiveTab(key)}
-                animate={{
-                  y: [0, -4, 0],
-                  rotate: [0, 2, -2, 0],
-                }}
-                transition={{
-                  duration: 2,
-                  repeat: Infinity,
-                  repeatType: "loop",
-                  ease: "easeInOut",
-                }}
-                whileHover={{ scale: 1.05 }}
               >
                 {tabLabels[key]}
-              </motion.button>
+              </button>
             ))}
           </div>
 
@@ -106,7 +97,7 @@ const CompanySection = () => {
               <p className="mb-6 About">{activeContent.text}</p>
 
               <div className="flex flex-col sm:flex-row items-center gap-4">
-                {/* Play Button */}
+                {/* Play Button with Infinite Animation */}
                 <motion.div
                   className="relative w-full sm:w-28 h-36 rounded-xl overflow-hidden cursor-pointer"
                   onClick={() => setShowVideo(true)}
