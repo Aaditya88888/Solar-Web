@@ -5,8 +5,8 @@ import Footer from "./Footer";
 import CompanySection from "./CompanySection";
 import ChatUI4 from "./ChatUI4";
 
-import sunImage from "../Images/didi.png";
-import sunPhoto from "../Images/chacha.png";
+import sunImage from "../Images/didi.webp";
+import sunPhoto from "../Images/chacha.webp";
 import ScrollStackingCards from "./ScrollStackingCards";
 import "./ScrollStackingCards.css";
 import HoverVideoCard2 from "./HoverVideoCard2";
