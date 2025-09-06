@@ -45,8 +45,18 @@ const ContactForm = () => {
     }
   };
 
+  // ✅ Custom login to open Gmail compose
+  const handleEmailClick = () => {
+    const gmailUrl =
+      "https://mail.google.com/mail/?view=cm&fs=1&to=sales@divypower.com";
+    window.open(gmailUrl, "_blank"); // Open Gmail in new tab
+  };
+
   return (
-    <main className="bg-gray-900 px-4 sm:px-8 md:px-16 py-20 -mt-16 About max-h-auto">
+    <main
+      className="bg-gray-900 px-4 sm:px-8 md:px-16 py-20 -mt-16 About max-h-auto"
+      style={{ transform: "translateY(-100px)" }}
+    >
       <ToastContainer position="top-right" autoClose={3000} />
 
       {/* Heading */}
@@ -141,14 +151,15 @@ const ContactForm = () => {
               Nai Basti Dundaher Ghaziabad, <br />
               Uttar Pradesh 201001
             </p>
+            {/* ✅ Fixed Email Section with Gmail login */}
             <p className="flex items-center justify-center md:justify-start gap-3">
-              <i className="fas fa-envelope text-green-800"></i>
-              <a
-                className="font-semibold hover:text-[#3a8e3a]"
-                href="mailto:sales@divypower.com"
+              <span className="text-green-800">📧</span>
+              <button
+                onClick={handleEmailClick}
+                className="font-semibold hover:text-[#3a8e3a] underline"
               >
                 sales@divypower.com
-              </a>
+              </button>
             </p>
           </div>
 

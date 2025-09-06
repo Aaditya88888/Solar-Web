@@ -4,7 +4,6 @@ import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-// ✅ Lazy load heavy component
 const ElectricitySavedCard = lazy(() => import("./ElectricitySavedCard"));
 
 const containerVariants = {
@@ -46,7 +45,6 @@ const SolarCostCalculator = () => {
       toast.success("Calculation successful!");
       setFormData({ bill: "" });
     } catch (error) {
-      const msg = error.response?.data?.error || error.message;
       toast.error("Please provide valid Electricity Bill");
     } finally {
       setLoading(false);
@@ -60,88 +58,105 @@ const SolarCostCalculator = () => {
 
   return (
     <motion.div
-      className="bg-[#F8F7F0] GetFontSol px-4 md:px-10 lg:px-16 py-10"
+      className="bg-[#F8F7F0] GetFontSol px-4 sm:px-6 md:px-10 lg:px-16 py-8 sm:py-10"
       initial="hidden"
       whileInView="show"
       viewport={{ once: true, amount: 0.3 }}
       variants={containerVariants}
     >
-      <motion.div className="text-center mb-8 " variants={cardVariants}>
-        <h1 className="text-xl sm:text-2xl md:text-xl font-bold text-[#E50C0C] leading-snug max-w-5xl mx-auto">
+      {/* Heading */}
+      <motion.div className="text-center mb-6 sm:mb-8" variants={cardVariants}>
+        <h1 className="text-lg sm:text-xl md:text-2xl font-bold text-[#E50C0C] leading-snug max-w-3xl sm:max-w-5xl mx-auto">
           Aaj hi Solar Lagwao, environment bachao <br />
           aur agle 5 saal me 3 lakh se jyada apne electricity bills par bhi
           Bachao
         </h1>
       </motion.div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
-        {/* Info Card - Blue Theme */}
+      {/* Cards Grid */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 w-full">
+        {/* Info Card */}
         <motion.section
-          className="bg-[#111827] rounded-xl px-6 py-5 h-full flex flex-col hover:shadow-xl transition"
+          className="bg-[#111827] rounded-xl px-4 sm:px-6 py-4 sm:py-5 flex flex-col transition shadow-md flex-1 min-h-[320px] sm:min-h-[300px]"
           variants={cardVariants}
+          whileHover={{
+            scale: 1.05,
+            boxShadow: "0px 15px 30px rgba(0,0,0,0.2)",
+          }}
         >
-          <h2 className="text-xl font-semibold text-white mb-3">
+          <h2 className="text-base sm:text-lg font-semibold text-white mb-2 sm:mb-3">
             Power Your Home With Solar
           </h2>
-          <p className="text-white text-sm leading-relaxed mb-3">
+          <p className="text-white text-xs sm:text-sm leading-relaxed mb-3">
             Discover how affordable solar can be. Enter your details below to
             get your personalized cost estimate and start saving!
           </p>
-          <ul className="list-disc list-inside text-white text-sm space-y-1.5 mb-5">
+          <ul className="list-disc list-inside text-white text-xs sm:text-sm space-y-1 mb-4 sm:mb-5">
             <li>Reduce your carbon footprint</li>
             <li>Lock in energy savings</li>
             <li>Maximize your roof potential</li>
           </ul>
-          <div className="flex flex-wrap gap-4 mt-auto">
-            <div className="flex items-center space-x-3">
-              <i className="fas fa-solar-panel text-white text-xl"></i>
+          <div className="flex flex-wrap gap-3 mt-auto">
+            <div className="flex items-center space-x-2">
+              <i className="fas fa-solar-panel text-white text-lg sm:text-xl"></i>
               <div>
-                <p className="text-white font-semibold text-base">2500+</p>
-                <p className="text-white text-xs">Systems Installed</p>
+                <p className="text-white font-semibold text-sm sm:text-base">
+                  2500+
+                </p>
+                <p className="text-white text-xs sm:text-sm">
+                  Systems Installed
+                </p>
               </div>
             </div>
-            <div className="flex items-center space-x-3">
-              <i className="fas fa-leaf text-white text-xl"></i>
+            <div className="flex items-center space-x-2">
+              <i className="fas fa-leaf text-white text-lg sm:text-xl"></i>
               <div>
-                <p className="text-white font-semibold text-base">45%</p>
-                <p className="text-white text-xs">Avg. Savings</p>
+                <p className="text-white font-semibold text-sm sm:text-base">
+                  45%
+                </p>
+                <p className="text-white text-xs sm:text-sm">Avg. Savings</p>
               </div>
             </div>
           </div>
         </motion.section>
 
-        {/* Calculator or Results - Red Theme */}
+        {/* Calculator Card */}
         <motion.section
-          className="bg-red-200 rounded-xl px-6 py-5 h-full flex flex-col hover:shadow-xl transition "
+          className="bg-red-200 rounded-xl px-4 sm:px-6 py-4 sm:py-5 flex flex-col transition shadow-md flex-1 min-h-[320px] sm:min-h-[300px]"
           variants={cardVariants}
+          whileHover={{
+            scale: 1.05,
+            boxShadow: "0px 15px 30px rgba(0,0,0,0.2)",
+          }}
         >
           {!showResults ? (
             <>
-              <p className="text-red-700 text-xs uppercase tracking-widest mb-1 flex items-center space-x-2">
+              <p className="text-red-700 text-xs sm:text-sm uppercase tracking-widest mb-1 flex items-center space-x-2">
                 <span className="w-2 h-2 rounded-full bg-red-600 inline-block"></span>
-                <span className="text-lg">Solar Cost Calculator</span>
+                <span className="text-sm sm:text-base">
+                  Solar Cost Calculator
+                </span>
               </p>
-              <h3 className="text-xl font-semibold text-red-900 mb-4">
+              <h3 className="text-base sm:text-lg font-semibold text-red-900 mb-3 sm:mb-4">
                 Monthly Electricity Bill
               </h3>
               <form
-                className="space-y-3 text-sm text-gray-700 flex-1 flex flex-col justify-between"
+                className="space-y-2 sm:space-y-3 text-xs sm:text-sm text-gray-700 flex-1 flex flex-col justify-between"
                 onSubmit={handleSubmit}
               >
                 <div>
-                  <div className="flex items-center border border-red-300 rounded-full px-4 py-2 bg-white hover:shadow-md transition">
-                    <i className="fas fa-bolt text-red-600 mr-3"></i>
+                  <div className="flex items-center border border-red-300 rounded-full px-2 sm:px-3 py-1.5 sm:py-2 bg-white hover:shadow-md transition">
+                    <i className="fas fa-bolt text-red-600 mr-2 sm:mr-3"></i>
                     <input
                       name="bill"
                       type="text"
                       value={formData.bill}
                       onChange={handleChange}
-                      placeholder="Enter Your Electricity Bill Value (₹)"
-                      className="w-full outline-none text-gray-700 placeholder-gray-500 bg-transparent text-sm"
+                      placeholder="Enter Your Electricity Bill (₹)"
+                      className="w-full outline-none text-gray-700 placeholder-gray-500 bg-transparent text-xs sm:text-sm"
                     />
                   </div>
                 </div>
-
                 <motion.button
                   type="submit"
                   disabled={loading}
@@ -149,7 +164,7 @@ const SolarCostCalculator = () => {
                   whileTap={{ scale: loading ? 1 : 0.97 }}
                   className={`w-full ${
                     loading ? "bg-gray-400" : "bg-red-600 hover:bg-red-500"
-                  } text-white font-bold rounded-full py-2.5 mt-3 transition text-sm`}
+                  } text-white font-bold rounded-full py-2 sm:py-2.5 mt-2 sm:mt-3 transition text-xs sm:text-sm`}
                 >
                   {loading ? "Calculating..." : "Calculate Cost"}
                 </motion.button>
@@ -157,10 +172,10 @@ const SolarCostCalculator = () => {
             </>
           ) : (
             <>
-              <h3 className="text-xl font-semibold text-red-900 mb-4">
+              <h3 className="text-base sm:text-lg font-semibold text-red-900 mb-3 sm:mb-4">
                 Estimated Results
               </h3>
-              <ul className="text-sm text-gray-700 space-y-2">
+              <ul className="text-xs sm:text-sm text-gray-700 space-y-1.5 sm:space-y-2">
                 <li>
                   <strong>Monthly Saving:</strong> ₹{results.monthly_saving}
                 </li>
@@ -182,7 +197,7 @@ const SolarCostCalculator = () => {
               </ul>
               <button
                 onClick={handleCancel}
-                className="w-full mt-4 bg-red-600 hover:bg-red-500 text-white font-semibold rounded-full py-2 text-sm transition"
+                className="w-full mt-2 sm:mt-4 bg-red-600 hover:bg-red-500 text-white font-semibold rounded-full py-2 sm:py-2.5 text-xs sm:text-sm transition"
               >
                 Reset
               </button>
@@ -190,12 +205,16 @@ const SolarCostCalculator = () => {
           )}
         </motion.section>
 
-        {/* Saved Impact - Blue Theme */}
+        {/* Saved Impact Card */}
         <motion.section
-          className="rounded-xl flex justify-center items-center h-full transition"
+          className="rounded-xl flex items-center justify-center transition shadow-md flex-1 min-h-[320px] sm:min-h-[300px]"
           variants={cardVariants}
+          whileHover={{
+            scale: 1.05,
+            boxShadow: "0px 15px 30px rgba(0,0,0,0.2)",
+          }}
         >
-          <div className="h-full w-full flex">
+          <div className="w-full h-full flex items-center justify-center p-2 sm:p-4">
             <Suspense fallback={<div></div>}>
               <ElectricitySavedCard />
             </Suspense>

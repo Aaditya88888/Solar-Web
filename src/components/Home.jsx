@@ -37,7 +37,7 @@ function Home() {
   };
 
   return (
-    <div className="relative max-w-full mx-auto">
+    <div className="relative max-w-full mx-auto overflow-x-hidden">
       {/* ChatbotToggle stays here */}
       <Suspense fallback={<div></div>}>
         <ChatbotToggle />
@@ -55,59 +55,62 @@ function Home() {
 
         {/* Conversation Section */}
         <Suspense fallback={<div></div>}>
-          <section>
+          <section className="px-4 sm:px-6 lg:px-12">
             <Conversation />
           </section>
         </Suspense>
 
         <Suspense fallback={<div></div>} />
 
-        {/* Calculator Section */}
+        {/* Solar Cost Calculator Section (Moved Up by 100px) */}
         <Suspense fallback={<div></div>}>
-          <section className="About mt-24">
+          <section
+            className="mt-24 px-4 sm:px-6 lg:px-12 relative"
+            style={{ transform: "translateY(-450px)" }}
+          >
             <SolarCostCalculator />
+
+            {/* Button Below the Calculator */}
+            <div className="flex justify-center mt-10">
+              <Link to="./contact">
+                <button className="bg-gradient-to-r from-red-500 to-red-700 hover:from-red-600 hover:to-red-800 text-white font-bold py-4 px-8 sm:px-10 rounded-full text-base sm:text-lg shadow-lg transition-transform duration-300 hover:scale-105 hover:shadow-2xl">
+                  Adhik jaankari ke liye click krein
+                </button>
+              </Link>
+            </div>
           </section>
         </Suspense>
 
-        {/* CTA Button */}
-        <section className="h-72">
-          <div className="text-center About1 py-6 mb-10 mt-[600px] lg:-mt-48 xl:-mt-28 2xl:-mt-24 md:-mt-56">
-            <button className="bg-[#E50C0C] hover:bg-red-700 text-white font-bold py-3 px-8 rounded-full text-lg transition-transform duration-300 hover:scale-105">
-              <Link to="./contact">Adhik jaankari ke liye click krein</Link>
-            </button>
-          </div>
-        </section>
-
         {/* Solar Solutions Section */}
         <Suspense fallback={<div></div>}>
-          <section className="About">
+          <section
+            className="About px-4 sm:px-6 lg:px-12"
+            style={{ transform: "translateY(-250px)" }}
+          >
             <SolarSolutions />
           </section>
         </Suspense>
 
         {/* Contact Form */}
         <Suspense fallback={<div></div>}>
-          <section className="mt-20 About1">
+          <section className="mt-20 About1 px-4 sm:px-6 lg:px-12">
             <ContactForm />
           </section>
         </Suspense>
 
         {/* PageOne & ChatUI */}
         <Suspense fallback={<div></div>}>
-          <section className="About">
+          <section className="About px-4 sm:px-6 lg:px-12">
             <PageOne />
           </section>
-          <section className="About">
+          <section className="About px-4 sm:px-6 lg:px-12">
             <ChatUI1 />
           </section>
         </Suspense>
 
         {/* Products Section */}
         <Suspense fallback={<div></div>}>
-          <section className="bg-green-800 py-16 px-4 lg:px-16">
-            <h2 className="text-3xl font-bold text-center text-white mb-10">
-              Our Products
-            </h2>
+          <section className="bg-gray-900 py-16 px-4 sm:px-6 lg:px-16">
             <div className="flex flex-col gap-8 max-w-5xl mx-auto">
               <div className="bg-white rounded-2xl shadow-lg overflow-hidden cursor-pointer w-full transition-transform duration-300 hover:scale-105">
                 <SolarProduct />
@@ -117,31 +120,44 @@ function Home() {
         </Suspense>
 
         {/* Floating Image */}
-        <section className="mt-10 animate-float">
-          <img src={DivyRedesign} alt="Design" />
+        <section className="mt-10 animate-float flex justify-center px-4">
+          <img
+            src={DivyRedesign}
+            alt="Design"
+            className="w-full max-w-xs sm:max-w-md md:max-w-lg lg:max-w-xl"
+          />
         </section>
 
         {/* Other Sections */}
         <Suspense fallback={<div></div>}>
-          <section className="mt-36 About1">
+          <section className="mt-20 sm:mt-28 md:mt-36 About1 px-4 sm:px-6 lg:px-12">
             <FiguringOut1 />
           </section>
-          <section className="mt-16 About1">
+          <section className="mt-10 sm:mt-12 md:mt-16 About1 px-4 sm:px-6 lg:px-12">
             <ExactMatchPage1 />
           </section>
-          <section className="-mt-96">
+          <section className="-mt-40 sm:-mt-60 md:-mt-72 lg:-mt-96 px-4 sm:px-6 lg:px-12">
             <RatingWorks />
           </section>
         </Suspense>
       </div>
 
-      {/* Footer stays at the bottom */}
-      <Suspense fallback={<div></div>}>
-        <Footer />
-      </Suspense>
+      <section
+        style={{ transform: "translateY(-300px)" }}
+        className="bg-[#f8f7f0] About1 mt-96 md:mt-96 lg:mt-96 xl:mt-96 2xl:mt-[430px]"
+      >
+        <SolarPortfolio />
+        <HoverVideoCard1 />
 
+        <section className="About1 mt-20 2xl:mt-60">
+          <FaqSection />
+        </section>
+      </section>
       {/* React Router Outlet for nested routes */}
       <Outlet />
+      <section className=" About -mt-11">
+        <Footer />
+      </section>
     </div>
   );
 }
