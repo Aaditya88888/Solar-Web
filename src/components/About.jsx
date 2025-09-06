@@ -7,6 +7,9 @@ import ChatUI4 from "./ChatUI4";
 
 import sunImage from "../Images/didi.webp";
 import sunPhoto from "../Images/chacha.webp";
+import img1 from "../Images/img1.webp";
+import img2 from "../Images/img2.webp";
+import img3 from "../Images/img3.webp";
 import ScrollStackingCards from "./ScrollStackingCards";
 import "./ScrollStackingCards.css";
 import HoverVideoCard2 from "./HoverVideoCard2";
