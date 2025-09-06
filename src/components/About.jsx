@@ -6,6 +6,7 @@ import sunImage from "../Images/didi.webp";
 import sunPhoto from "../Images/chacha.webp";
 import "./Home.css";
 import ImageWithOverlay from "./ImageWithOverlay";
+<<<<<<< HEAD
 
 // Lazy load heavy components
 const ScrollStackingCards = lazy(() => import("./ScrollStackingCards"));
@@ -17,6 +18,20 @@ const ChatUI4 = lazy(() => import("./ChatUI4"));
 const CompanySection = lazy(() => import("./CompanySection"));
 const FiguringOut = lazy(() => import("./FiguringOut"));
 const Footer = lazy(() => import("./Footer"));
+=======
+import img1 from "../Images/img1.webp";
+import img2 from "../Images/img2.jpg";
+import img3 from "../Images/img3.png";
+// Animation Variants
+const fadeUp = {
+  hidden: { opacity: 0, y: 40 },
+  visible: (i = 0) => ({
+    opacity: 1,
+    y: 0,
+    transition: { delay: i * 0.2, duration: 0.8, ease: "easeOut" },
+  }),
+};
+>>>>>>> c863a34105af611f257bb4726b6169a3cd749976
 
 // About content
 const aboutUsContent = [

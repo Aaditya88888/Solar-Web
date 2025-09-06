@@ -94,7 +94,7 @@ function HomeStart2() {
 
               {/* Stats */}
               <motion.div
-                className="flex  gap-x-20 gap-y-6 mt-5 max-w-[420px]"
+                className="flex gap-x-20 gap-y-6 mt-5 max-w-[420px]"
                 variants={fadeUp}
               >
                 <div>
@@ -109,12 +109,36 @@ function HomeStart2() {
                 </div>
               </motion.div>
 
+              {/* Animated Button */}
               <motion.button
-                whileHover={{ scale: 1.05 }}
+                whileHover={{
+                  scale: 1.1,
+                  rotate: -1,
+                  boxShadow: "0px 0px 25px rgba(229,12,12,0.6)",
+                }}
                 whileTap={{ scale: 0.95 }}
-                className="bg-[#E50C0C] text-white mt-10 font-semibold rounded-full py-3 px-8 w-full max-w-[190px] transition"
+                animate={{
+                  scale: [1, 1.05, 1],
+                  boxShadow: [
+                    "0px 0px 0px rgba(229,12,12,0.0)",
+                    "0px 0px 20px rgba(229,12,12,0.6)",
+                    "0px 0px 0px rgba(229,12,12,0.0)",
+                  ],
+                }}
+                transition={{
+                  duration: 2,
+                  repeat: Infinity,
+                  repeatType: "loop",
+                }}
+                className="relative bg-[#E50C0C] text-white mt-10 font-semibold rounded-full py-3 px-8 w-full max-w-[190px] 
+                           transition duration-300 ease-in-out overflow-hidden"
               >
-                <Link to={"/about"}>Know More</Link>
+                {/* Background Shine Effect */}
+                <span className="absolute inset-0 bg-gradient-to-r from-red-500 via-orange-500 to-yellow-500 opacity-0 hover:opacity-100 transition-opacity duration-500 rounded-full"></span>
+
+                <Link to={"/about"} className="relative z-10">
+                  Know More
+                </Link>
               </motion.button>
             </motion.div>
           </motion.div>
@@ -129,11 +153,11 @@ function HomeStart2() {
           viewport={{ once: true }}
         >
           <div className="bg-[#E50C0C] flex justify-center items-center h-[370px] p-4">
-            <div className="max-w-5xl  w-full text-center ">
+            <div className="max-w-5xl w-full text-center">
               <motion.img
                 src={img1}
                 alt="Cartoon sun characters"
-                className="mx-auto -mt-24 mb-6 max-w-full h-auto "
+                className="mx-auto -mt-24 mb-6 max-w-full h-auto"
                 width="400"
                 height="300"
                 initial={{ scale: 0.7, opacity: 0 }}

@@ -1,18 +1,21 @@
-import { useEffect, useState } from "react";
-import Outdoor_living from "../Images/Outdoor_living.webp";
+import React, { useEffect, useState } from "react";
+import outdoor from "../Images/outdoor.webp";
+import solarLight from "../Images/solarLight.webp";
+import sustainable from "../Images/sustainable.webp";
+import solarRooftop from "../Images/solarRooftop.webp";
 
 const reelsData = [
   {
     id: 1,
-    title: "Connected Living",
-    desc: "Control your entire home with smart technology and voice commands.",
-    img: "https://images.unsplash.com/photo-1545209463-e2825498edbf?w=800&auto=format&fit=crop&q=60",
+    title: "Solar Rooftop Systems",
+    desc: "High-efficiency rooftop PV solutions for homes and businesses.",
+    img: solarRooftop,
   },
   {
     id: 2,
     title: "Sustainable Building",
     desc: "Eco-friendly materials and solar panels for a greener future.",
-    img: "https://images.unsplash.com/photo-1497440001374-f26997328c1b?w=800&auto=format&fit=crop&q=60",
+    img: sustainable,
   },
   {
     id: 3,
@@ -24,19 +27,19 @@ const reelsData = [
     id: 4,
     title: "Outdoor Living Spaces",
     desc: "Create relaxing patios and gardens that extend your living area.",
-    img: Outdoor_living,
+    img: outdoor,
   },
   {
     id: 5,
-    title: "Elegant Living",
-    desc: "Experience elegance with high-end finishes and premium furniture.",
+    title: "Commercial Solar Solutions",
+    desc: "Reduce energy costs with reliable and scalable commercial solar.",
     img: "https://images.unsplash.com/photo-1624397640148-949b1732bb0a?w=800&auto=format&fit=crop&q=60",
   },
   {
     id: 6,
-    title: "AI-Powered Security",
-    desc: "Advanced security for your peace of mind 24/7.",
-    img: "https://plus.unsplash.com/premium_photo-1668078530961-32f4a1107791?w=800&auto=format&fit=crop&q=60",
+    title: "Solar Street Lighting",
+    desc: "All-in-one solar street lights for roads, campuses, and societies.",
+    img: solarLight,
   },
 ];
 

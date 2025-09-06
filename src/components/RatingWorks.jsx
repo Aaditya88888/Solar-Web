@@ -70,7 +70,10 @@ const RatingWorks = () => {
   };
 
   return (
-    <section className="GetFontSol relative bg-[#0c2340] rounded-[40px_0_40px_0] max-w-[1200px] mx-auto mt-10 px-4 sm:px-6 md:px-12 py-12 md:py-16 overflow-hidden text-white">
+    <section
+      style={{ transform: "translateY(-230px)" }}
+      className="GetFontSol relative bg-[#0c2340] rounded-[40px_0_40px_0] max-w-[1200px] mx-auto mt-10 px-4 sm:px-6 md:px-12 py-12 md:py-16 overflow-hidden text-white"
+    >
       {/* Background */}
       <img
         src="https://storage.googleapis.com/a1aa/image/5b219d82-b430-4699-179a-07180ac3360c.jpg"
@@ -97,8 +100,9 @@ const RatingWorks = () => {
         {testimonials.map((item, index) => (
           <article
             key={index}
-            className="bg-white text-gray-800 rounded-tl-[40px] rounded-tr-[20px] rounded-bl-[20px] rounded-br-[40px] flex-shrink-0 p-6 sm:p-8 pb-10 shadow-lg relative 
-              w-[85%] sm:w-[70%] md:w-[48%] lg:w-[30%] snap-center"
+            className="bg-white text-gray-800 rounded-tl-[40px] rounded-tr-[20px] rounded-bl-[20px] rounded-br-[40px] flex-shrink-0 p-6 sm:p-8 pb-10 shadow-lg relative
+              w-[85%] sm:w-[70%] md:w-[48%] lg:w-[30%] snap-center
+              transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-[#5bc1c9]/40"
           >
             {/* Decorative Quote Icon */}
             <div className="absolute top-3 left-6 text-[#5bc1c9]">

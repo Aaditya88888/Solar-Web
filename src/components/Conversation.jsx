@@ -11,56 +11,12 @@ const conversationData = [
     sender: "chacha",
     text: "Beti, is desh mein har family agle 5 saal mein ₹3 lakh se zyada sirf bijli mein gawa degi. Aur milta kya hai? Power cut aur mehenga bijli.",
   },
-  {
-    sender: "chacha",
-    text: "Beti, is desh mein har family agle 5 saal mein ₹3 lakh se zyada sirf bijli mein gawa degi. Aur milta kya hai? Power cut aur mehenga bijli.",
-  },
   { sender: "roshni", text: "Toh phir hum karein kya? Bijli toh chahiye na." },
   {
     sender: "chacha",
     text: "Isiliye toh keh raha hoon. Chhat pe jo suraj chamak raha hai, woh muft hai. Solar laga lo. Apni bijli khud banao. Har din jo paisa jaa raha hai, woh bachao.",
   },
-  {
-    sender: "chacha",
-    text: "Isiliye toh keh raha hoon. Chhat pe jo suraj chamak raha hai, woh muft hai. Solar laga lo. Apni bijli khud banao. Har din jo paisa jaa raha hai, woh bachao.",
-  },
 ];
-
-// Bubble animation variants
-const bubbleVariants = {
-  hidden: { opacity: 0, y: 30, scale: 0.9 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    scale: 1,
-    transition: { type: "spring", stiffness: 100, damping: 12 },
-  },
-  exit: { opacity: 0, y: 20, scale: 0.8, transition: { duration: 0.2 } },
-};
-
-// Inline text infinite animation
-const inlineTextVariants = {
-  float: {
-    y: [0, -5, 5, -3, 3, 0],
-    rotate: [0, 2, -2, 1, -1, 0],
-    scale: [1, 1.02, 0.98, 1.01, 0.99, 1],
-    transition: {
-      repeat: Infinity,
-      repeatType: "loop",
-      duration: 4,
-      ease: "easeInOut",
-    },
-  },
-};
-
-// Typing bubble animation
-const typingVariants = {
-  animate: {
-    opacity: [0.5, 1, 0.7, 1],
-    y: [10, 0, 5, 0],
-    transition: { repeat: Infinity, duration: 1 },
-  },
-};
 
 const Conversation = () => {
   const [messages, setMessages] = useState([]);
@@ -85,7 +41,7 @@ const Conversation = () => {
           setTimeout(() => {
             setMessages([]);
             setCurrentIndex(0);
-          }, 2000); // Delay before restarting
+          }, 2000);
         }
       }, 1800);
 
@@ -102,8 +58,15 @@ const Conversation = () => {
   }, [messages, isTyping]);
 
   return (
-    <div className="min-h-screen  bg-white flex flex-col items-center p-6">
-      <div className="wp w-full max-w-3xl bg-[#075e44] rounded-2xl p-4 space-y-3 overflow-y-auto  shadow-lg">
+    <div className="min-h-screen bg-white flex flex-col items-center p-6">
+      <div
+        ref={scrollRef}
+        className="wp w-full max-w-[95%] sm:max-w-xl md:max-w-2xl 
+                   bg-[#075e44] rounded-2xl px-4 py-4 sm:px-6 sm:py-6 
+                   space-y-4 shadow-lg 
+                   overflow-y-auto"
+        style={{ minHeight: "200px", maxHeight: "70vh" }} // grows only downwards
+      >
         {messages.map((msg, i) => (
           <MessageBubble
             key={i}
