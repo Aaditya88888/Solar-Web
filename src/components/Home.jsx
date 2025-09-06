@@ -1,9 +1,8 @@
 import { useState, Suspense, lazy } from "react";
-import { Link, Outlet } from "react-router-dom"; // Import Outlet
+import { Link, Outlet } from "react-router-dom";
 import DivyRedesign from "../Images/DivyRedesign.webp";
 import "./Home.css";
 
-// Lazy load all components
 const Dashboard = lazy(() => import("./Dashboard"));
 const SolarProduct = lazy(() => import("./SolarProduct"));
 const SolarCostCalculator = lazy(() => import("./SolarCostCalculator"));
