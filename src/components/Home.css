@@ -58,6 +58,10 @@
 
 .wp {
   background-image: url(../Images/Wp.jpg);
+
+
+.wp{
+  background-image: url(../Images/Wp.webp);
 }
 .sc {
   transform: scale(1.5);

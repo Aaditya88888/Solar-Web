@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
-import solarg from "../Images/chacha.png";
-import didi from "../Images/didi.png";
+import solarg from "../Images/chacha.webp";
+import didi from "../Images/didi.webp";
 import "./Home.css";
 
 const chatMessages = [

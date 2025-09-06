@@ -1,11 +1,12 @@
 import { useRef, useEffect, useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import D1 from "../Images/d1.jpg";
-import D2 from "../Images/d2.jpg";
-import D3 from "../Images/d3.jpg";
-import D4 from "../Images/d4.jpg";
-import D5 from "../Images/d5.jpg";
-import D6 from "../Images/d6.jpg";
+import D1 from "../Images/d1.webp";
+import D2 from "../Images/d2.webp";
+import D3 from "../Images/d3.webp";
+import D4 from "../Images/d4.webp";
+
+import D5 from "../Images/d5.webp";
+import D6 from "../Images/d6.webp";
 
 const images = [D1, D2, D3, D4, D5, D6];
 

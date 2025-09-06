@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import MessageBubble2 from "./MessageBubble2";
-import solarChachaImg from "../Images/chacha.png";
-import roshniDidiImg from "../Images/didi.png";
+import solarChachaImg from "../Images/chacha.webp";
+import roshniDidiImg from "../Images/didi.webp";
 import './Home.css';
 
 const conversationData = [

@@ -4,6 +4,7 @@ import SolarCards from "./SolarCards";
 import Footer from "./Footer";
 import CompanySection from "./CompanySection";
 import ChatUI4 from "./ChatUI4";
+
 import sunImage from "../Images/didi.png";
 import sunPhoto from "../Images/chacha.png";
 import ScrollStackingCards from "./ScrollStackingCards";
@@ -12,11 +13,18 @@ import HoverVideoCard2 from "./HoverVideoCard2";
 import HoverVideoCard3 from "./HoverVideoCard3";
 import "./Home.css";
 import ImageWithOverlay from "./ImageWithOverlay";
-import rajbeer_vasundra_4kw_res from "../Images/rajbeer_vasundra_4kw_res.jpg";
-import KW_sangwan_res from "../Images/10_KW_sangwan_res.jpg";
-import years_25 from "../Images/years_25.png";
-import IMG_3609 from "../Images/IMG_3609.jpg";
 
+// Animation Variants
+const fadeUp = {
+  hidden: { opacity: 0, y: 40 },
+  visible: (i = 0) => ({
+    opacity: 1,
+    y: 0,
+    transition: { delay: i * 0.2, duration: 0.8, ease: "easeOut" },
+  }),
+};
+
+// ScrollStackingCards Data
 const aboutUsContent = [
   {
     heading: "Not Just Selling Solar We are a Partner in Your Journey",
@@ -29,7 +37,6 @@ const aboutUsContent = [
       "We design systems that fit your life, not force you to adapt to them.",
     ],
     img: "https://storage.googleapis.com/a1aa/image/b08acab3-6b8b-47a9-3cc6-092bfccc4ded.jpg",
-    alt: "Team discussing solar design solution on paper with panels in background",
   },
   {
     heading: "What If You Delay Solar? The Hidden Cost of Waiting",
@@ -41,21 +48,19 @@ const aboutUsContent = [
       "Delaying solar means losing not just money, but energy independence.",
       "Going solar isn’t just smart, it’s urgent and we help you act now.",
     ],
-    img: rajbeer_vasundra_4kw_res,
-    alt: "Clock with electric cables symbolizing urgency",
+    img: img1,
   },
   {
     heading: "Powering Every Home from Rooftops to Rural Villages",
     subheading:
-      "We deliver energy solutions for everyon high-rises to rural India",
+      "We deliver energy solutions for everyone high-rises to rural India",
     points: [
       "No terrain or challenge is too complex we deliver where it’s needed.",
       "Our systems are designed to endure Indian conditions: dust, heat, and rain.",
       "Be it a home, farm, or school our mission is to light it up, cleanly and reliably.",
       "We believe clean energy is a right, not a luxury.",
     ],
-    img: KW_sangwan_res,
-    alt: "Solar panels on rooftops and rural homes",
+    img: img2,
   },
   {
     heading: "A Legacy You Can Rely On",
@@ -67,8 +72,7 @@ const aboutUsContent = [
       "We focus on doing what’s right, not just what sells.",
       "Our client relationships last because we deliver consistent results.",
     ],
-    img: years_25,
-    alt: "Old and new solar projects representing legacy and evolution",
+    img: img3,
   },
   {
     heading: "Creating Real Change Through Government Collaborations",
@@ -80,66 +84,107 @@ const aboutUsContent = [
       "We empower communities to control their energy future.",
       "We act on our mission to build a better, solar-powered India.",
     ],
-    img: IMG_3609,
-    alt: "Government officials and solar technicians inspecting installation",
+    img: "https://storage.googleapis.com/a1aa/image/72f5a45b-2e30-45fc-b276-a06c6a12a64e.jpg",
   },
 ];
 
 export default function About() {
   return (
-    <div className="bg-white h-screen text-black px-6 md:px-12 lg:px-20 xl:px-32 py-12 flex flex-col items-center  mt-12 About">
-      {/* Banner Image */}
+    <div className="bg-white text-black flex flex-col items-center mt-12 About">
+      {/* Hero Banner with Animation */}
+      <motion.section
+        initial="hidden"
+        whileInView="visible"
+        variants={fadeUp}
+        viewport={{ once: true }}
+        className="w-full"
+      >
+        <ImageWithOverlay />
+      </motion.section>
 
-      <ImageWithOverlay />
-
-      <section className="mt-8">
+      {/* Chat Section */}
+      <motion.section
+        variants={fadeUp}
+        initial="hidden"
+        whileInView="visible"
+        className="mt-8 w-full"
+      >
         <ChatUI4 />
-      </section>
+      </motion.section>
 
-      {/* Scroll Stacking Cards */}
-      <div className="-mt-[550px] 2xl:-mt-[700px] mb-24">
+      {/* Stacking Cards */}
+      <motion.div
+        variants={fadeUp}
+        initial="hidden"
+        whileInView="visible"
+        className="-mt-[550px] 2xl:-mt-[700px] mb-24 w-full"
+      >
         <ScrollStackingCards content={aboutUsContent} />
-      </div>
+      </motion.div>
 
-      <section className="-mt-[290px]">
+      {/* Company Section */}
+      <motion.section
+        variants={fadeUp}
+        initial="hidden"
+        whileInView="visible"
+        className="-mt-[290px] w-full"
+      >
         <CompanySection />
-      </section>
+      </motion.section>
 
-      <section className="">
+      {/* Hover Video Cards */}
+      <motion.section
+        variants={fadeUp}
+        initial="hidden"
+        whileInView="visible"
+        className="w-full"
+      >
         <HoverVideoCard2 />
-      </section>
-      <section>
-        <ProcessSteps />
-      </section>
-      <section className="  -mt-16 md:-mt-44 xl:-mt-64 2xl:-mt-96 lg:-mt-72">
-        <HoverVideoCard3 />
-      </section>
+      </motion.section>
 
-      {/* Why Choose Us Section */}
-      <section className="bg-white py-8 px-4 sm:px-6 lg:px-8 -mt-[10px] About w-full">
-        <div className="bg-[#fdf6ee] shadow-xl overflow-x-hidden rounded-none p-5 sm:p-8 md:p-12 w-full ">
-          {/* Heading with icons - responsive layout */}
-          <div className="flex flex-col xs:flex-row items-center justify-center gap-3 sm:gap-4 mb-6 text-center sm:text-left">
-            <div className="flex items-center gap-3">
-              <img
-                src={sunPhoto}
-                alt="Chacha"
-                className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 object-contain"
-              />
-              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-red-700 leading-snug">
-                Why Choose Us <br className="sm:hidden" />
-                as Your Solar Partner?
-              </h2>
-              <img
-                src={sunImage}
-                alt="Didi"
-                className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 object-contain"
-              />
-            </div>
+      <motion.section
+        variants={fadeUp}
+        initial="hidden"
+        whileInView="visible"
+        className="w-full"
+      >
+        <ProcessSteps />
+      </motion.section>
+
+      <motion.section
+        variants={fadeUp}
+        initial="hidden"
+        whileInView="visible"
+        className="-mt-16 md:-mt-44 xl:-mt-64 2xl:-mt-96 lg:-mt-72 w-full"
+      >
+        <HoverVideoCard3 />
+      </motion.section>
+
+      {/* Why Choose Us */}
+      <motion.section
+        variants={fadeUp}
+        initial="hidden"
+        whileInView="visible"
+        className="bg-white py-8 px-4 sm:px-6 lg:px-8 -mt-[10px] About w-full"
+      >
+        <div className="bg-[#fdf6ee] shadow-xl rounded-md p-6 md:p-12">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-6 text-center sm:text-left">
+            <img
+              src={sunPhoto}
+              alt="Chacha"
+              className="w-16 h-16 object-contain"
+            />
+            <h2 className="text-2xl md:text-3xl font-bold text-red-700">
+              Why Choose Us as Your Solar Partner?
+            </h2>
+            <img
+              src={sunImage}
+              alt="Didi"
+              className="w-16 h-16 object-contain"
+            />
           </div>
 
-          {/* Content Section */}
-          <div className="text-gray-800 text-sm sm:text-base md:text-lg leading-relaxed space-y-4">
+          <div className="text-gray-800 leading-relaxed space-y-3">
             <p className="text-center sm:text-left">
               At <strong>Divy Power Pvt. Ltd.,</strong> we don't just install
               solar systems — we build{" "}
@@ -148,49 +193,55 @@ export default function About() {
               </span>
               .
             </p>
-
-            <ul className="list-disc list-inside space-y-3 pl-4">
+            <ul className="list-disc list-inside space-y-2 pl-4">
               <li>
-                <strong>
-                  Committed to quality, accountability, and long-term service.
-                </strong>
+                Committed to quality, accountability, and long-term service.
               </li>
               <li>
-                <strong>Post-installation support:</strong> Real-time
-                maintenance and performance monitoring throughout the system's
-                lifecycle.
+                Post-installation support & real-time maintenance monitoring.
               </li>
               <li>
-                <strong>
-                  Top-grade components, certified engineers &
-                  government-approved materials
-                </strong>{" "}
-                ensure maximum durability and safety.
+                Top-grade components & certified engineers ensure durability.
               </li>
               <li>
-                <strong>MNRE-approved & UPNEDA-certified;</strong> officially
-                recognized by the government of India.
+                MNRE-approved & UPNEDA-certified, Govt. of India recognition.
               </li>
               <li>
-                <strong>Proven track record</strong> with solar projects across
-                villages, schools, societies, and institutions.
+                Proven track record across villages, schools, and institutions.
               </li>
             </ul>
           </div>
         </div>
-      </section>
+      </motion.section>
 
-      <section className=" mt-30 ">
+      {/* Extra Sections */}
+      <motion.section
+        variants={fadeUp}
+        initial="hidden"
+        whileInView="visible"
+        className="mt-30 w-full"
+      >
         <FiguringOut />
-      </section>
+      </motion.section>
 
-      <section className=" mt-16">
+      <motion.section
+        variants={fadeUp}
+        initial="hidden"
+        whileInView="visible"
+        className="mt-16 w-full"
+      >
         <SolarCards />
-      </section>
+      </motion.section>
 
-      <section className=" -mt-24 min-w-full lg:min-w-[1300px]  md:min-w-[1300px] xl:min-w-[1450px] 2xl:min-w-[1600px] ">
+      {/* Footer */}
+      <motion.section
+        variants={fadeUp}
+        initial="hidden"
+        whileInView="visible"
+        className="-mt-24 w-full"
+      >
         <Footer />
-      </section>
+      </motion.section>
     </div>
   );
 }

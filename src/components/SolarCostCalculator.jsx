@@ -60,7 +60,7 @@ const SolarCostCalculator = () => {
 
   return (
     <motion.div
-      className="bg-[#F8F7F0] h-[600px] GetFontSol px-4 md:px-10 lg:px-16 py-10"
+      className="bg-[#F8F7F0] GetFontSol px-4 md:px-10 lg:px-16 py-10"
       initial="hidden"
       whileInView="show"
       viewport={{ once: true, amount: 0.3 }}
@@ -192,10 +192,10 @@ const SolarCostCalculator = () => {
 
         {/* Saved Impact - Blue Theme */}
         <motion.section
-          className=" rounded-xl flex justify-center items-center h-full  transition"
+          className="rounded-xl flex justify-center items-center h-full transition"
           variants={cardVariants}
         >
-          <div className="h-full flex mt-12">
+          <div className="h-full w-full flex">
             <ElectricitySavedCard />
           </div>
         </motion.section>

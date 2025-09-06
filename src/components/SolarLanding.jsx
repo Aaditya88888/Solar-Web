@@ -17,7 +17,7 @@ import { IoIosArrowDown } from "react-icons/io";
 import { MdSolarPower, MdMemory } from "react-icons/md";
 import { GiLightningTrio, GiGroundSprout, GiWaterDrop } from "react-icons/gi";
 import { motion, AnimatePresence } from "framer-motion";
-import solarlogo from "../Images/logo2.png";
+import solarlogo from "../Images/logo2.webp";
 
 // Navigation Links
 const navLinks = [
@@ -25,35 +25,71 @@ const navLinks = [
   { name: "About", path: "/about" },
   {
     name: "Services",
-    path: "/services", // ✅ parent clickable
+    path: "/services",
     dropdown: [
-      { name: "Installation & Commissioning (INC)", path: "/Installation_&_Commissioning_(INC)", icon: <FaTools /> },
-      { name: "Engineering, Procurement, and Construction (EPC)", path: "/Engineering_Procurement_and_Construction_(EPC)", icon: <FaProjectDiagram /> },
-      { name: "Operations & Maintenance (O&M)", path: "/Operations_&_Maintenance_(O&M)", icon: <FaCog /> },
-      { name: "Annual Maintenance Contracts (AMC)", path: "/Annual_Maintenance_Contracts(AMC)", icon: <FaRecycle /> },
-      { name: "Health Check ups", path: "/Health_Check_ups", icon: <FaStethoscope /> },
+      {
+        name: "Installation & Commissioning (INC)",
+        path: "/Installation_&_Commissioning_(INC)",
+        icon: <FaTools />,
+      },
+      {
+        name: "Engineering, Procurement, and Construction (EPC)",
+        path: "/Engineering_Procurement_and_Construction_(EPC)",
+        icon: <FaProjectDiagram />,
+      },
+      {
+        name: "Operations & Maintenance (O&M)",
+        path: "/Operations_&_Maintenance_(O&M)",
+        icon: <FaCog />,
+      },
+      {
+        name: "Annual Maintenance Contracts (AMC)",
+        path: "/Annual_Maintenance_Contracts(AMC)",
+        icon: <FaRecycle />,
+      },
+      {
+        name: "Health Check ups",
+        path: "/Health_Check_ups",
+        icon: <FaStethoscope />,
+      },
     ],
   },
   { name: "Projects", path: "/projects" },
   {
     name: "Products",
-    path: "/products", // ✅ parent clickable
+    path: "/products",
     dropdown: [
       { name: "Solar Panel", path: "/Solar-pannel", icon: <MdSolarPower /> },
       { name: "Solar Pump", path: "/solar-pump", icon: <GiWaterDrop /> },
       { name: "Micro Inverter", path: "/micro-inverter", icon: <MdMemory /> },
       { name: "Earthing", path: "/earthing", icon: <GiGroundSprout /> },
-      { name: "Lightning Arrestor (LA)", path: "/LA", icon: <GiLightningTrio /> },
-      { name: "Diesel/Petrol Genset", path: "/Diesel/Petrol%20Genset", icon: <FaGasPump /> },
+      {
+        name: "Lightning Arrestor (LA)",
+        path: "/LA",
+        icon: <GiLightningTrio />,
+      },
+      {
+        name: "Diesel/Petrol Genset",
+        path: "/Diesel/Petrol%20Genset",
+        icon: <FaGasPump />,
+      },
     ],
   },
   {
     name: "Work With Us",
-    path: "/workwithus", // ✅ parent clickable
+    path: "/workwithus",
     dropdown: [
       { name: "Become our Dealer", path: "/workwithus", icon: <FaHandshake /> },
-      { name: "Become Our Individual Partner", path: "/become-partner", icon: <FaUserTie/> },
-      { name: "Add Our Services to Your Existing Business", path: "/add-our-services", icon: <FaBriefcase /> },
+      {
+        name: "Become Our Individual Partner",
+        path: "/become-partner",
+        icon: <FaUserTie />,
+      },
+      {
+        name: "Add Our Services to Your Existing Business",
+        path: "/add-our-services",
+        icon: <FaBriefcase />,
+      },
     ],
   },
   { name: "Career", path: "/career" },
@@ -67,6 +103,7 @@ export default function SolarLanding() {
   const [mobileDropdown, setMobileDropdown] = useState(null);
   const location = useLocation();
   const dropdownRef = useRef(null);
+  const navRef = useRef(null);
 
   // Sticky navbar effect
   useEffect(() => {
@@ -82,33 +119,41 @@ export default function SolarLanding() {
     setMobileDropdown(null);
   }, [location.pathname]);
 
-  // Close desktop dropdown if mouse leaves menu
+  // Close desktop dropdown only if mouse leaves BOTH the nav area and the dropdown panel
   const closeDropdownOnOutsideHover = (e) => {
-    if (dropdownRef.current && !dropdownRef.current.contains(e.relatedTarget)) {
+    const next = e.relatedTarget;
+    const overDropdown = dropdownRef.current && next && dropdownRef.current.contains(next);
+    const overNav = navRef.current && next && navRef.current.contains(next);
+    if (!overDropdown && !overNav) {
       setDesktopDropdown(null);
     }
   };
 
   return (
     <header
-      className={`sticky top-0 z-50 transition-all ${isScrolled ? "bg-white shadow-lg" : "bg-transparent"}`}
+      className={`sticky top-0 z-50 transition-all ${
+        isScrolled ? "bg-white shadow-lg" : "bg-transparent"
+      }`}
       onMouseLeave={closeDropdownOnOutsideHover}
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between px-5 md:px-8 py-3">
-        
         {/* Logo */}
         <Link to="/" className="flex items-center">
-          <img src={solarlogo} alt="Logo" className="w-12 h-12 object-contain" />
+          <img
+            src={solarlogo}
+            alt="Logo"
+            className="w-12 h-12 object-contain"
+          />
         </Link>
 
         {/* Desktop Menu */}
-        <nav className="hidden md:flex items-center gap-8 text-base font-medium">
+        <nav ref={navRef} className="hidden md:flex items-center gap-8 text-base font-medium">
           {navLinks.map((link) =>
             link.dropdown ? (
               <div
                 key={link.name}
                 className="relative"
-                onMouseEnter={() => setDesktopDropdown(link.name)} // desktop hover
+                onMouseEnter={() => setDesktopDropdown(link.name)}
               >
                 <NavLink
                   to={link.path}
@@ -128,8 +173,11 @@ export default function SolarLanding() {
               <NavLink
                 key={link.name}
                 to={link.path}
+                onMouseEnter={() => setDesktopDropdown(null)}
                 className={({ isActive }) =>
-                  isActive ? "text-orange-500 font-semibold" : "hover:text-orange-400"
+                  isActive
+                    ? "text-orange-500 font-semibold"
+                    : "hover:text-orange-400"
                 }
               >
                 {link.name}
@@ -140,7 +188,10 @@ export default function SolarLanding() {
 
         {/* Call Button & Mobile Toggle */}
         <div className="flex items-center gap-4">
-          <a href="tel:+919310259325" className="hidden md:flex items-center gap-2">
+          <a
+            href="tel:+919310259325"
+            className="hidden md:flex items-center gap-2"
+          >
             <div className="bg-white p-2 rounded-full shadow">
               <FaPhoneAlt className="text-green-800" />
             </div>
@@ -159,30 +210,43 @@ export default function SolarLanding() {
         </div>
       </div>
 
-      {/* Desktop Dropdown */}
+      {/* Desktop Dropdown with slower, smoother animation */}
       <AnimatePresence>
         {desktopDropdown && (
           <motion.div
             ref={dropdownRef}
             key={desktopDropdown}
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            transition={{ duration: 0.2 }}
-            className="absolute top-full left-0 w-full bg-white shadow-lg z-40"
+            initial={{ clipPath: "inset(0 0 100% 0)", opacity: 0 }}
+            animate={{ clipPath: "inset(0 0 0% 0)", opacity: 1 }}
+            exit={{ clipPath: "inset(0 0 100% 0)", opacity: 0 }}
+            transition={{ duration: 0.7, ease: [0.33, 1, 0.68, 1] }} // 👈 slower & smoother easing
+            className="absolute top-full left-0 w-full bg-white shadow-lg z-40 origin-top"
           >
             <div className="max-w-7xl mx-auto px-5 py-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
               {navLinks
                 .find((l) => l.name === desktopDropdown)
-                ?.dropdown?.map((sub) => (
-                  <Link
+                ?.dropdown?.map((sub, i) => (
+                  <motion.div
                     key={sub.name}
-                    to={sub.path}
-                    className="flex items-start gap-4 p-5 hover:bg-gray-100 rounded-xl transition"
+                    initial={{ y: 30, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    exit={{ y: 30, opacity: 0 }}
+                    transition={{
+                      duration: 0.6,
+                      delay: i * 0.1, // 👈 thoda aur time delay
+                      ease: [0.33, 1, 0.68, 1],
+                    }}
                   >
-                    <span className="text-3xl text-green-700">{sub.icon}</span>
-                    <p className="font-semibold text-gray-900">{sub.name}</p>
-                  </Link>
+                    <Link
+                      to={sub.path}
+                      className="flex items-start gap-4 p-5 hover:bg-gray-100 rounded-xl transition"
+                    >
+                      <span className="text-3xl text-green-700">
+                        {sub.icon}
+                      </span>
+                      <p className="font-semibold text-gray-900">{sub.name}</p>
+                    </Link>
+                  </motion.div>
                 ))}
             </div>
           </motion.div>
@@ -201,9 +265,13 @@ export default function SolarLanding() {
           >
             {/* Top Bar with Logo + Close */}
             <div className="flex justify-between items-center p-5 border-b">
-             <Link to={"/"}>
-               <img src={solarlogo} alt="Logo" className="w-12 h-12 object-contain" />
-             </Link>
+              <Link to={"/"}>
+                <img
+                  src={solarlogo}
+                  alt="Logo"
+                  className="w-12 h-12 object-contain"
+                />
+              </Link>
               <button
                 onClick={() => setMobileMenuOpen(false)}
                 className="text-3xl"

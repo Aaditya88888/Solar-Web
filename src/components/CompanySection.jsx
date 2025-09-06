@@ -2,6 +2,7 @@ import { useState, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaPlay } from "react-icons/fa";
 import { IoClose } from "react-icons/io5";
+import { IoClose } from "react-icons/io5";
 
 const CompanySection = () => {
   const [activeTab, setActiveTab] = useState("mission");
@@ -41,6 +42,10 @@ const CompanySection = () => {
       activeTab === tab
         ? "bg-green-700 text-white shadow"
         : "bg-white text-green-800 border border-green-600 hover:bg-green-100"
+    `px-4 py-2 rounded-md text-sm font-medium transition-all duration-200 ${
+      activeTab === tab
+        ? "bg-green-700 text-white shadow"
+        : "bg-white text-green-800 border border-green-600 hover:bg-green-100"
     }`;
 
   return (
@@ -62,24 +67,35 @@ const CompanySection = () => {
         {/* Right Content */}
         <div className="w-full lg:w-1/2 flex flex-col">
           <h3 className="text-2xl sm:text-3xl font-semibold text-black mb-6 text-center lg:text-left leading-snug">
+            Save The Environment
+            <br />
             Produce Your Own <br />
             <span className="text-green-700 About">Clean Energy</span> <br />
             Save The Environment
           </h3>
-
-          {/* Tabs */}
+          {/* Tabs with subtle infinite animation */}
           <div className="flex About flex-wrap justify-center lg:justify-start gap-3 sm:gap-4 mb-6">
             {Object.keys(tabLabels).map((key) => (
               <button
                 key={key}
                 className={tabStyle(key)}
                 onClick={() => setActiveTab(key)}
+                animate={{
+                  y: [0, -4, 0],
+                  rotate: [0, 2, -2, 0],
+                }}
+                transition={{
+                  duration: 2,
+                  repeat: Infinity,
+                  repeatType: "loop",
+                  ease: "easeInOut",
+                }}
+                whileHover={{ scale: 1.05 }}
               >
                 {tabLabels[key]}
               </button>
             ))}
           </div>
-
           {/* Tab Content */}
           <AnimatePresence mode="wait">
             <motion.div
@@ -97,13 +113,27 @@ const CompanySection = () => {
                 <div
                   className="relative w-full sm:w-28 h-36 rounded-xl overflow-hidden cursor-pointer"
                   onClick={() => setShowVideo(true)}
+                  animate={{
+                    y: [0, -10, 0],
+                    rotate: [0, 10, -10, 0],
+                    scale: [1, 1.1, 1, 1.05],
+                  }}
+                  transition={{
+                    duration: 2,
+                    repeat: Infinity,
+                    repeatType: "loop",
+                    ease: "easeInOut",
+                  }}
                 >
                   <div className="absolute inset-0 flex items-center justify-center">
                     <button className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-red-600 shadow-lg flex items-center justify-center hover:scale-105 transition">
                       <FaPlay className="text-white text-xl sm:text-2xl" />
                     </button>
+                    <button className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-red-600 shadow-lg flex items-center justify-center hover:scale-105 transition">
+                      <FaPlay className="text-white text-xl sm:text-2xl" />
+                    </button>
                   </div>
-                </div>
+                </motion.div>
 
                 {/* Note */}
                 <p className="About text-black text-sm sm:text-base">

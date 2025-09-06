@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import Outdoor_living from "../Images/Outdoor_living.jpg";
+import React, { useEffect, useState } from "react";
+import Outdoor_living from "../Images/Outdoor_living.webp";
 
 const reelsData = [
   {

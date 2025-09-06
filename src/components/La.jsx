@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import Footer from "./Footer";
-import Lap from "../Images/PHOTO-2025-08-18-12-26-39.jpg";
-import LA from "../Images/LA.jpg";
+import Lap from "../Images/PHOTO-2025-08-18-12-26-39.webp";
+import LA from "../Images/LA.webp";
 
 const La = () => {
   return (

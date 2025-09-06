@@ -1,16 +1,17 @@
-import img1 from "../Images/Img1.png";
-import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
+import React from "react";
+import img1 from "../Images/Img1.webp";
+import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 // Variants
 const fadeLeft = {
   hidden: { opacity: 0, x: -50 },
-  show: { opacity: 1, x: 0, transition: { type: 'spring', stiffness: 60 } },
+  show: { opacity: 1, x: 0, transition: { type: "spring", stiffness: 60 } },
 };
 
 const fadeRight = {
   hidden: { opacity: 0, x: 50 },
-  show: { opacity: 1, x: 0, transition: { type: 'spring', stiffness: 60 } },
+  show: { opacity: 1, x: 0, transition: { type: "spring", stiffness: 60 } },
 };
 
 const fadeUp = {
@@ -45,9 +46,7 @@ function HomeStart2() {
               </div>
 
               {/* Overlay Image for All Screens */}
-              <div
-                className="absolute bottom-[-40px] left-[20px] md:left-[60px] w-[80%] border-4 border-white rounded-xl overflow-hidden shadow-xl"
-              >
+              <div className="absolute bottom-[-40px] left-[20px] md:left-[60px] w-[80%] border-4 border-white rounded-xl overflow-hidden shadow-xl">
                 <img
                   src="https://pikwizard.com/pw/medium/699a0ae210de0ebeb9b745be863f842d.jpg"
                   alt="Solar Roof Work"
@@ -71,16 +70,26 @@ function HomeStart2() {
                 className="text-xl About1 sm:text-2xl lg:text-4xl font-bold leading-tight mb-4"
                 variants={fadeUp}
               >
-                We Don’t Just Sell Solar. <br className="hidden sm:block" />We Engineer Smart Power Solutions.
+                We Don’t Just Sell Solar. <br className="hidden sm:block" />
+                We Engineer Smart Power Solutions.
               </motion.h2>
-              <motion.p className="text-base leading-relaxed mb-4" variants={fadeUp}>
-                At <strong>DIVY Power</strong>, we believe solar isn’t just a product, it’s your power freedom...
+              <motion.p
+                className="text-base leading-relaxed mb-4"
+                variants={fadeUp}
+              >
+                At <strong>DIVY Power</strong>, we believe solar isn’t just a
+                product, it’s your power freedom...
               </motion.p>
-              <motion.p className="text-base leading-relaxed mb-4" variants={fadeUp}>
-                We’ve been lighting lives responsibly for over a decade as an authorized partner of <strong>Tata Power Solar</strong>...
+              <motion.p
+                className="text-base leading-relaxed mb-4"
+                variants={fadeUp}
+              >
+                We’ve been lighting lives responsibly for over a decade as an
+                authorized partner of <strong>Tata Power Solar</strong>...
               </motion.p>
               <motion.p className="text-base leading-relaxed" variants={fadeUp}>
-                With us, you don’t just go solar — you go <strong>safe, smart, and sustainable</strong>.
+                With us, you don’t just go solar — you go{" "}
+                <strong>safe, smart, and sustainable</strong>.
               </motion.p>
 
               {/* Stats */}
@@ -94,7 +103,9 @@ function HomeStart2() {
                 </div>
                 <div>
                   <p className="font-bold text-[24px] text-red-600">10000+</p>
-                  <p className="text-[12px] text-gray-600">Products Delivered</p>
+                  <p className="text-[12px] text-gray-600">
+                    Products Delivered
+                  </p>
                 </div>
               </motion.div>
 
@@ -103,7 +114,7 @@ function HomeStart2() {
                 whileTap={{ scale: 0.95 }}
                 className="bg-[#E50C0C] text-white mt-10 font-semibold rounded-full py-3 px-8 w-full max-w-[190px] transition"
               >
-                <Link to={'/about'}>Know More</Link>
+                <Link to={"/about"}>Know More</Link>
               </motion.button>
             </motion.div>
           </motion.div>

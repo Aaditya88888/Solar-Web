@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import localImage from "../Images/Team.jpg";
+import localImage from "../Images/Team.webp";
 const ImageWithOverlay = () => {
   return (
     <div className="relative w-full h-[80vh] group ">

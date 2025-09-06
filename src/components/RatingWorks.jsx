@@ -70,7 +70,7 @@ const RatingWorks = () => {
   };
 
   return (
-    <section className="GetFontSol relative bg-[#0c2340] rounded-[40px_0_40px_0] max-w-[1200px] mx-auto mt-10 px-6 py-12 md:py-16 md:px-12 overflow-hidden text-white">
+    <section className="GetFontSol relative bg-[#0c2340] rounded-[40px_0_40px_0] max-w-[1200px] mx-auto mt-10 px-4 sm:px-6 md:px-12 py-12 md:py-16 overflow-hidden text-white">
       {/* Background */}
       <img
         src="https://storage.googleapis.com/a1aa/image/5b219d82-b430-4699-179a-07180ac3360c.jpg"
@@ -79,7 +79,7 @@ const RatingWorks = () => {
       />
 
       {/* Heading */}
-      <div className="relative z-10 text-center mb-10">
+      <div className="relative z-10 text-center mb-8 md:mb-10">
         <h2 className="text-3xl md:text-4xl font-extrabold tracking-wide">
           Solar Ratings
         </h2>
@@ -91,16 +91,17 @@ const RatingWorks = () => {
       {/* Testimonials */}
       <div
         ref={scrollRef}
-        className="relative z-10 flex gap-6 overflow-x-auto pb-6 md:pb-8 snap-x snap-mandatory scrollbar-hide"
+        className="relative z-10 flex gap-4 sm:gap-6 overflow-x-auto pt-2 pb-12 md:pb-10 pr-2 snap-x snap-mandatory scroll-hide"
+        style={{ scrollbarGutter: "stable both-edges" }}
       >
         {testimonials.map((item, index) => (
           <article
             key={index}
-            className="bg-white text-gray-800 rounded-tl-[40px] rounded-tr-[20px] rounded-bl-[20px] rounded-br-[40px] flex-shrink-0 p-8 shadow-lg relative 
-              w-[85%] sm:w-[70%] md:w-[45%] lg:w-[30%] snap-center"
+            className="bg-white text-gray-800 rounded-tl-[40px] rounded-tr-[20px] rounded-bl-[20px] rounded-br-[40px] flex-shrink-0 p-6 sm:p-8 pb-10 shadow-lg relative 
+              w-[85%] sm:w-[70%] md:w-[48%] lg:w-[30%] snap-center"
           >
             {/* Decorative Quote Icon */}
-            <div className="absolute -top-6 left-6 text-[#5bc1c9]">
+            <div className="absolute top-3 left-6 text-[#5bc1c9]">
               <svg
                 className="w-10 h-10"
                 fill="currentColor"
@@ -117,15 +118,36 @@ const RatingWorks = () => {
 
             {/* Footer */}
             <footer className="mt-6">
-              <p className="font-semibold text-gray-900">{item.name}</p>
-              <p className="text-gray-500 text-sm">{item.role}</p>
+              <p className="font-semibold text-gray-900 break-words">
+                {item.name}
+              </p>
+              <p className="text-gray-500 text-sm break-words">{item.role}</p>
             </footer>
           </article>
         ))}
       </div>
 
       {/* Navigation Arrows */}
-      <div className="absolute top-8 right-8 flex space-x-3 z-20">
+      {/* Desktop/Tablet absolute controls */}
+      <div className="hidden md:flex absolute top-8 right-8 space-x-3 z-20">
+        <button
+          aria-label="Previous testimonial"
+          onClick={() => scroll("left")}
+          className="w-10 h-10 rounded-md bg-[#0c2340]/50 flex items-center justify-center text-white"
+        >
+          <i className="fas fa-chevron-left"></i>
+        </button>
+        <button
+          aria-label="Next testimonial"
+          onClick={() => scroll("right")}
+          className="w-10 h-10 rounded-md bg-[#5bc1c9] flex items-center justify-center text-white"
+        >
+          <i className="fas fa-chevron-right"></i>
+        </button>
+      </div>
+
+      {/* Mobile inline controls below carousel to avoid overlap */}
+      <div className="md:hidden relative z-10 mt-4 flex justify-center space-x-3">
         <button
           aria-label="Previous testimonial"
           onClick={() => scroll("left")}

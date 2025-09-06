@@ -1,7 +1,9 @@
-import L1 from "../Images/L1.png";
-import L2 from "../Images/L2.png";
-import L3 from "../Images/L3.png";
-import L4 from "../Images/L4.png";
+import React from "react";
+
+import L1 from "../Images/L1.webp";
+import L2 from "../Images/L2.webp";
+import L3 from "../Images/L3.webp";
+import L4 from "../Images/L4.webp";
 
 const logos = [L1, L2, L3, L4];
 

@@ -1,16 +1,16 @@
 import Footer from "./Footer";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import Genset1 from "../Images/Genset.jpg";
-import Micro from "../Images/Micro.jpg";
-import SolarP from "../Images/SolarP.jpg";
-import LL1 from "../Images/LL1.jpg";
-import LA from "../Images/LA.jpg";
-import LL2 from "../Images/LL2.jpg";
-import LL3 from "../Images/LL3.jpg";
-import LL4 from "../Images/LL4.jpg";
-import LL5 from "../Images/LL5.jpg";
-import Ev from "../Images/Ev.jpg";
+import Genset1 from "../Images/Genset.webp";
+import Micro from "../Images/Micro.webp";
+import SolarP from "../Images/SolarP.webp";
+import LL1 from "../Images/LL1.webp";
+import LA from "../Images/LA.webp";
+import LL2 from "../Images/LL2.webp";
+import LL3 from "../Images/LL3.webp";
+import LL4 from "../Images/LL4.webp";
+import LL5 from "../Images/LL5.webp";
+import Ev from "../Images/Ev.webp";
 
 // Animation variants
 const containerVariants = {
