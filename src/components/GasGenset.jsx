@@ -1,6 +1,4 @@
-import React from "react";
 import { Link } from "react-router-dom";
-import Footer from "./Footer";
 
 const GasGenset = () => {
   return (
@@ -167,7 +165,7 @@ const GasGenset = () => {
           </aside>
         </div>
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 };

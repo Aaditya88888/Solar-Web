@@ -1,27 +1,25 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import Blog1 from '../Images/Blog1.jpg'
-import Blog2 from '../Images/Blog2.jpg'
-
+import { Link } from "react-router-dom";
+import Blog1 from "../Images/Blog1.jpg";
+import Blog2 from "../Images/Blog2.jpg";
 
 const cardData = [
   {
-    image:Blog1,
-    date: 'March 25, 2025',
-    tag: 'Solar Solution',
-    title: 'Title: Powering the Future: Unlocking the Potential of Solar Energy for Your Business',
+    image: Blog1,
+    date: "March 25, 2025",
+    tag: "Solar Solution",
+    title:
+      "Title: Powering the Future: Unlocking the Potential of Solar Energy for Your Business",
     name: "SolarArticle",
     path: "/Blog1",
   },
   {
     image: Blog2,
-    date: 'Nov 27, 2024',
-    tag: 'Solar Solution',
-    title: 'Embracing Solar Energy: A Path to Sustainable Profitability',
+    date: "Nov 27, 2024",
+    tag: "Solar Solution",
+    title: "Embracing Solar Energy: A Path to Sustainable Profitability",
     name: "SustainableProfitability",
     path: "/Blog2",
   },
-
 ];
 
 const SolarCards = () => {

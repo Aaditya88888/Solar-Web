@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import ChatbotPopup from "./ChatbotPopup";
 import solarch from "../Images/chacha.png";
 
@@ -32,7 +32,6 @@ const ChatbotToggle = () => {
     return () => clearInterval(interval);
   }, []);
 
-
   return (
     <>
       <div className="fixed bottom-1 right-1 flex items-center space-x-3 z-50">
@@ -43,9 +42,7 @@ const ChatbotToggle = () => {
               alt="Solar Chacha"
               className="w-16 h-16 mr-4 flex-shrink-0"
             />
-            <span className="">
-              {messages[currentMsgIndex]}
-            </span>
+            <span className="">{messages[currentMsgIndex]}</span>
           </div>
         )}
         <button

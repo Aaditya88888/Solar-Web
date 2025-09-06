@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import MessageBubble2 from "./MessageBubble2";
 import solarChachaImg from "../Images/chacha.png";
 import roshniDidiImg from "../Images/didi.png";

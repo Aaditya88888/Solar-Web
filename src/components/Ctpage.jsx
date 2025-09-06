@@ -1,4 +1,3 @@
-import React from "react";
 import { motion } from "framer-motion";
 
 export default function Ctpage() {
@@ -94,8 +93,12 @@ export default function Ctpage() {
               }}
               className="min-w-[300px] max-w-sm bg-[#e8f5e9] p-6 rounded-2xl shadow-md text-black transition-all duration-300 cursor-pointer mt-5"
             >
-              <div className="flex mb-2 text-yellow-400 text-lg">{"⭐".repeat(5)}</div>
-              <p className="text-gray-700 italic mb-4 line-clamp-4">"{t.feedback}"</p>
+              <div className="flex mb-2 text-yellow-400 text-lg">
+                {"⭐".repeat(5)}
+              </div>
+              <p className="text-gray-700 italic mb-4 line-clamp-4">
+                "{t.feedback}"
+              </p>
               <p className="font-semibold text-[16px]">{t.name}</p>
               <p className="text-green-800 text-sm font-medium">{t.role}</p>
             </motion.div>

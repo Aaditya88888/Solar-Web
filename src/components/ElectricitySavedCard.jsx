@@ -1,4 +1,3 @@
-import React from "react";
 import { FaBolt } from "react-icons/fa";
 
 const ElectricitySavedCard = () => {

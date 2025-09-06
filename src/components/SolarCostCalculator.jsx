@@ -1,5 +1,4 @@
-
-import React, { useState } from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
 import ElectricitySavedCard from "./ElectricitySavedCard";
 import axios from "axios";
@@ -70,7 +69,8 @@ const SolarCostCalculator = () => {
       <motion.div className="text-center mb-8 " variants={cardVariants}>
         <h1 className="text-xl sm:text-2xl md:text-xl font-bold text-[#E50C0C] leading-snug max-w-5xl mx-auto">
           Aaj hi Solar Lagwao, environment bachao <br />
-          aur agle 5 saal me 3 lakh se jyada apne electricity bills par bhi Bachao
+          aur agle 5 saal me 3 lakh se jyada apne electricity bills par bhi
+          Bachao
         </h1>
       </motion.div>
 

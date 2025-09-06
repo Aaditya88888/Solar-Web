@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import ApexCharts from "apexcharts";
 import { motion } from "framer-motion";
 

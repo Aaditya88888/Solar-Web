@@ -1,4 +1,3 @@
-import React from "react";
 import { motion } from "framer-motion";
 import { FaCheckCircle } from "react-icons/fa";
 import { GiSolarPower, GiLightningSpanner, GiGasPump } from "react-icons/gi";

@@ -1,9 +1,9 @@
-import React from "react";
-
 const WhatsAppButton = () => {
   const phoneNumber = "919266704044";
   const message = "Hello, I would like to connect with you!";
-  const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+  const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
+    message
+  )}`;
 
   return (
     <>
@@ -12,7 +12,7 @@ const WhatsAppButton = () => {
         rel="stylesheet"
         href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"
       />
-      
+
       {/* WhatsApp Floating Button */}
       <a
         href={whatsappUrl}

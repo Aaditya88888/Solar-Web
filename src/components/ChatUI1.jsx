@@ -1,18 +1,33 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import MessageBubble1 from "./MessageBubble1";
 import solarChachaImg from "../Images/chacha.png";
 import roshniDidiImg from "../Images/didi.png";
 import HoverVideoCard from "./HoverVideoCard";
 
 const conversationData = [
-  { sender: "roshni", text: "Wo sab to theek hai Chacha, par DIVY se hi solar kyu lagwae? Or bhi to companies hai jo solar laga rahi hai." },
+  {
+    sender: "roshni",
+    text: "Wo sab to theek hai Chacha, par DIVY se hi solar kyu lagwae? Or bhi to companies hai jo solar laga rahi hai.",
+  },
   { sender: "chacha", text: "Kyuki Beti, You Deserve a Brand that Cares." },
   { sender: "chacha", text: "DIVY Power MNRE-approved hai." },
-  { sender: "chacha", text: "Yeh company 25+ saalon se Energy Business mein hai." },
-  { sender: "chacha", text: "Aur sabse zaruri baat, yeh installation ke baad gaayab nahi ho jaate." },
-  { sender: "chacha", text: "Yeh Government ke Net Zero Village Project jaise Kumheera mein bhi kaam kar rahe hain. Saath hi kai Sarkari initiatives ke partner bhi hain." },
+  {
+    sender: "chacha",
+    text: "Yeh company 25+ saalon se Energy Business mein hai.",
+  },
+  {
+    sender: "chacha",
+    text: "Aur sabse zaruri baat, yeh installation ke baad gaayab nahi ho jaate.",
+  },
+  {
+    sender: "chacha",
+    text: "Yeh Government ke Net Zero Village Project jaise Kumheera mein bhi kaam kar rahe hain. Saath hi kai Sarkari initiatives ke partner bhi hain.",
+  },
   { sender: "roshni", text: "Abhi bhi bharosa karna mushkil hai chacha..." },
-  { sender: "chacha", text: "Arrey beti, lo suno inke Customers kya kehte hai!" },
+  {
+    sender: "chacha",
+    text: "Arrey beti, lo suno inke Customers kya kehte hai!",
+  },
 ];
 
 const ChatUI1 = () => {
@@ -36,7 +51,7 @@ const ChatUI1 = () => {
     <div className="min-h-screen bg-white p-6">
       <div className="flex flex-col gap-6 max-w-4xl mx-auto w-full">
         {/* Chat Section */}
-        <div className="bg-gray-100 rounded-2xl p-4 space-y-2 wp hidden" >
+        <div className="bg-gray-100 rounded-2xl p-4 space-y-2 wp hidden">
           {messages.map((msg, i) => (
             <MessageBubble1
               key={i}

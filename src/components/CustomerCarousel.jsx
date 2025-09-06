@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const feedbacks = [
@@ -34,7 +34,9 @@ export default function CustomerCarousel() {
 
   return (
     <main className="bg-[#181818] text-white min-h-screen py-12 px-4 GetFontSol">
-      <h1 className="text-center text-4xl font-semibold mb-12">Customer Feedbacks</h1>
+      <h1 className="text-center text-4xl font-semibold mb-12">
+        Customer Feedbacks
+      </h1>
 
       <section className="bg-[#1a1a1a] rounded-xl p-6 max-w-3xl mx-auto text-center shadow-lg border border-green-800">
         <AnimatePresence mode="wait">

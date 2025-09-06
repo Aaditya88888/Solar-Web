@@ -1,14 +1,20 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import MessageBubble from "./MessageBubble";
 import solarChachaImg from "../Images/chacha.png";
 import roshniDidiImg from "../Images/didi.png";
-import './Home.css'
+import "./Home.css";
 
 const conversationData = [
   { sender: "roshni", text: "Mera bijli ka bill iss baar bhi ₹3500 aa gaya" },
-  { sender: "chacha", text: "Beti, is desh mein har family agle 5 saal mein ₹3 lakh se zyada sirf bijli mein gawa degi. Aur milta kya hai? Power cut aur mehenga bijli." },
+  {
+    sender: "chacha",
+    text: "Beti, is desh mein har family agle 5 saal mein ₹3 lakh se zyada sirf bijli mein gawa degi. Aur milta kya hai? Power cut aur mehenga bijli.",
+  },
   { sender: "roshni", text: "Toh phir hum karein kya? Bijli toh chahiye na." },
-  { sender: "chacha", text: "Isiliye toh keh raha hoon. Chhat pe jo suraj chamak raha hai, woh muft hai. Solar laga lo. Apni bijli khud banao. Har din jo paisa jaa raha hai, woh bachao." },
+  {
+    sender: "chacha",
+    text: "Isiliye toh keh raha hoon. Chhat pe jo suraj chamak raha hai, woh muft hai. Solar laga lo. Apni bijli khud banao. Har din jo paisa jaa raha hai, woh bachao.",
+  },
 ];
 
 const Conversation = () => {
@@ -32,7 +38,6 @@ const Conversation = () => {
 
   return (
     <div className="min-h-screen  bg-white flex flex-col items-center p-6">
-      
       <div className="wp w-full max-w-3xl bg-[#075e44] rounded-2xl p-4 space-y-3 overflow-y-auto  shadow-lg">
         {messages.map((msg, i) => (
           <MessageBubble

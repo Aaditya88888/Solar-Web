@@ -1,4 +1,3 @@
-import React from "react";
 import didiImg from "../Images/didi.png";
 
 const BreakTheMyth = () => {

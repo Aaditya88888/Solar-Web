@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import Footer from './Footer';
 import CareerForm from './CareerForm';
@@ -9,12 +8,6 @@ import CareersAtDivySolar from './CareersAtDivySolar';
 
 
 const Career = () => {
-
-
-
-
-
-
   return (
     <div className="h-[2000px] bg-gradient-to-br from-gray-50 to-gray-100 py-12  mt-24 About">
       {/* Hero Section */}

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const Cursor = () => {
   const cursorRef = useRef(null);
@@ -14,8 +14,10 @@ const Cursor = () => {
     const checkMobile = () => {
       // Using matchMedia pointer coarse as more reliable than UA string
       if (
-        window.matchMedia("(pointer: coarse)").matches || 
-        /Android|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i.test(navigator.userAgent)
+        window.matchMedia("(pointer: coarse)").matches ||
+        /Android|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i.test(
+          navigator.userAgent
+        )
       ) {
         setIsMobile(true);
       }
@@ -39,7 +41,9 @@ const Cursor = () => {
       currentY.current += (mouseY.current - currentY.current) * 0.1;
 
       if (cursorRef.current) {
-        cursorRef.current.style.transform = `translate3d(${currentX.current - 12}px, ${currentY.current - 12}px, 0)`;
+        cursorRef.current.style.transform = `translate3d(${
+          currentX.current - 12
+        }px, ${currentY.current - 12}px, 0)`;
       }
 
       animationFrame.current = requestAnimationFrame(animate);

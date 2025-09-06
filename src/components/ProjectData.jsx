@@ -1,4 +1,3 @@
-// src/data/projectData.js
 import {
   Building2,
   Home,

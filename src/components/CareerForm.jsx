@@ -1,9 +1,6 @@
 import React, { useState } from 'react';
-import Footer from './Footer';
-import { motion } from 'framer-motion';
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
-import Loader from "../Loader";
 import 'react-toastify/dist/ReactToastify.css';
 
 function CareerForm() {

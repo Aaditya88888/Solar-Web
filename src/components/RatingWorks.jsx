@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import { useRef } from "react";
 
 const testimonials = [
   {
@@ -80,7 +80,9 @@ const RatingWorks = () => {
 
       {/* Heading */}
       <div className="relative z-10 text-center mb-10">
-        <h2 className="text-3xl md:text-4xl font-extrabold tracking-wide">Solar Ratings</h2>
+        <h2 className="text-3xl md:text-4xl font-extrabold tracking-wide">
+          Solar Ratings
+        </h2>
         <p className="mt-2 text-base md:text-lg font-medium">
           What Our Satisfied Customers Say About Us
         </p>
@@ -99,7 +101,11 @@ const RatingWorks = () => {
           >
             {/* Decorative Quote Icon */}
             <div className="absolute -top-6 left-6 text-[#5bc1c9]">
-              <svg className="w-10 h-10" fill="currentColor" viewBox="0 0 24 24">
+              <svg
+                className="w-10 h-10"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+              >
                 <path d="M7.17 6.17a4 4 0 0 1 0 5.66L5.76 13.24l-1.41-1.41 1.41-1.41a2 2 0 0 0 0-2.83 2 2 0 0 0-2.83 0L1 8.83 2.41 10.24l1.41-1.41a4 4 0 0 1 5.66 0z" />
               </svg>
             </div>

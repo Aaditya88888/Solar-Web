@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { FaPlay, FaPause } from "react-icons/fa";
 
 const teamMembers = [
@@ -7,32 +7,28 @@ const teamMembers = [
     role: "Architect",
     image:
       "https://storage.googleapis.com/a1aa/image/249ae767-68b3-4bcd-1521-265ee80c5d7b.jpg",
-    reel:
-      "https://res.cloudinary.com/dlkwlywps/video/upload/v1755671071/Architecture_Interviews_Cosmopolitan_Development_2_rtymwf.mp4",
+    reel: "https://res.cloudinary.com/dlkwlywps/video/upload/v1755671071/Architecture_Interviews_Cosmopolitan_Development_2_rtymwf.mp4",
   },
   {
     name: "Architect",
     role: "Architect",
     image:
       "https://storage.googleapis.com/a1aa/image/ba2e056b-5797-4eaa-d680-7a78a84778c0.jpg",
-    reel:
-      "https://res.cloudinary.com/dlkwlywps/video/upload/v1755671071/Architecture_Interviews_Evolving_Tech_Using_Solar_1_p5jne5.mp4",
+    reel: "https://res.cloudinary.com/dlkwlywps/video/upload/v1755671071/Architecture_Interviews_Evolving_Tech_Using_Solar_1_p5jne5.mp4",
   },
   {
     name: "Entrepreneur",
     role: "Entrepreneur",
     image:
       "https://storage.googleapis.com/a1aa/image/d8ee8bcd-44eb-4126-73ad-adb857ac13a5.jpg",
-    reel:
-      "https://res.cloudinary.com/dlkwlywps/video/upload/v1755671071/Founder_And_Friends_Divy_And_Founder_y7hena.mp4",
+    reel: "https://res.cloudinary.com/dlkwlywps/video/upload/v1755671071/Founder_And_Friends_Divy_And_Founder_y7hena.mp4",
   },
   {
     name: "Head of Architect",
     role: "Solar Specialist",
     image:
       "https://storage.googleapis.com/a1aa/image/5b4ec894-2c46-41d5-4e01-bd02f1629da7.jpg",
-    reel:
-      "https://res.cloudinary.com/dlkwlywps/video/upload/v1755671071/Architecture_Interviews_Challenges_Among_Industries_1_kqfiap.mp4",
+    reel: "https://res.cloudinary.com/dlkwlywps/video/upload/v1755671071/Architecture_Interviews_Challenges_Among_Industries_1_kqfiap.mp4",
   },
 ];
 

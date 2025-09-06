@@ -1,5 +1,3 @@
-import React from 'react';
-
 const Hero = () => {
   return (
     <main className="max-w-7xl mx-auto px-6 py-12 flex flex-col md:flex-row items-center md:items-start justify-between gap-10 md:gap-20 bg-[#f8f7f0] GetFontSol">

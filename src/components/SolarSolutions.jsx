@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import Sol from "../Images/Sol.jpg";
@@ -112,8 +112,9 @@ const SolarSolutions = () => {
           transition={{ delay: 0.2, duration: 0.6, ease: "easeOut" }}
         >
           <h1 className="font-bold text-[26px] leading-[36px] mb-2 text-[#E50C0C] text-center lg:text-left">
-            We don't believe in just installing Solar  
-            <br />We Believe in Solving Problems
+            We don't believe in just installing Solar
+            <br />
+            We Believe in Solving Problems
           </h1>
 
           <h2 className="text-green-700 font-semibold text-lg mb-3 text-center lg:text-left">
@@ -121,18 +122,23 @@ const SolarSolutions = () => {
           </h2>
 
           <p className="text-[15px] leading-[24px] text-gray-700 mb-6 font-medium text-center lg:text-left">
-            At <strong>DIVY Power</strong>, we believe solar isn’t just a product — it’s your power freedom.  
-            From site assessment to installation and lifelong support, we handle it all.
+            At <strong>DIVY Power</strong>, we believe solar isn’t just a
+            product — it’s your power freedom. From site assessment to
+            installation and lifelong support, we handle it all.
           </p>
 
           {/* Stats */}
           <div className="flex justify-center lg:justify-start flex-wrap gap-12 mb-8">
             <div>
-              <p className="font-semibold text-[24px] text-green-700">7,220 KWh</p>
+              <p className="font-semibold text-[24px] text-green-700">
+                7,220 KWh
+              </p>
               <p className="text-[12px] text-gray-600">Systems Installed</p>
             </div>
             <div>
-              <p className="font-semibold text-[24px] text-green-700">15,818,000 KG</p>
+              <p className="font-semibold text-[24px] text-green-700">
+                15,818,000 KG
+              </p>
               <p className="text-[12px] text-gray-600">CO₂ Saved / Year</p>
             </div>
           </div>
@@ -150,7 +156,9 @@ const SolarSolutions = () => {
                 >
                   <span>{item.title}</span>
                   <motion.i
-                    className={`fas fa-chevron-${openIndex === index ? "up" : "down"} text-sm`}
+                    className={`fas fa-chevron-${
+                      openIndex === index ? "up" : "down"
+                    } text-sm`}
                     animate={{ rotate: openIndex === index ? 180 : 0 }}
                     transition={{ duration: 0.3 }}
                   ></motion.i>

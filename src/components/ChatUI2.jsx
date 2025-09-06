@@ -1,4 +1,3 @@
-import React from "react";
 import { motion } from "framer-motion";
 import solarg from "../Images/chacha.png";
 import didi from "../Images/didi.png";
@@ -62,7 +61,9 @@ const ChatUI3 = () => {
             <motion.div
               key={index}
               variants={chatVariants}
-              className={`flex flex-col items-${msg.side === "right" ? "end" : "start"} w-full`}
+              className={`flex flex-col items-${
+                msg.side === "right" ? "end" : "start"
+              } w-full`}
             >
               {/* Chat Bubble */}
               <motion.div

@@ -1,18 +1,53 @@
-import React, { useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { FaPlay, FaPause } from "react-icons/fa";
 
 const videoData = [
-  { name: "Vivek", video: "https://res.cloudinary.com/du6297ykk/video/upload/v1755671356/Vivek_Our_Culture_nezpet.mp4" },
-  { name: "Rajeev Arora - Teamwork", video: "https://res.cloudinary.com/du6297ykk/video/upload/v1755671357/Asha_Team_Work_Culture_rxg7cm.mp4" },
-  { name: "Lal Singh", video: "https://res.cloudinary.com/du6297ykk/video/upload/v1755671356/Lal_Singh_Our_Culture_Is_Our_Legacy_ahn4yl.mp4" },
-  { name: "Shivam", video: "https://res.cloudinary.com/du6297ykk/video/upload/v1755671356/Shivam_Work_Culture_qradts.mp4" },
-  { name: "Riddhi", video: "https://res.cloudinary.com/du6297ykk/video/upload/v1755671356/Riddhi_Work_Culture_l20fes.mp4" },
-  { name: "Rajeev Arora - Legacy", video: "https://res.cloudinary.com/du6297ykk/video/upload/v1755671355/Rajeev_Arora_Our_Culture_Is_Our_Legacy_cupx9i.mp4" },
-  { name: "Asha", video: "https://res.cloudinary.com/du6297ykk/video/upload/v1755671357/Asha_Team_Work_Culture_rxg7cm.mp4" },
-  { name: "Kaushlesh Singh", video: "https://res.cloudinary.com/du6297ykk/video/upload/v1755671356/Kaushlesh_Singh_Our_Culture_Is_Our_Legacy_fequaj.mp4" },
-  { name: "Bhawna", video: "https://res.cloudinary.com/du6297ykk/video/upload/v1755671357/Bhawna_Our_Culture_enhezj.mp4" },
+  {
+    name: "Vivek",
+    video:
+      "https://res.cloudinary.com/du6297ykk/video/upload/v1755671356/Vivek_Our_Culture_nezpet.mp4",
+  },
+  {
+    name: "Rajeev Arora - Teamwork",
+    video:
+      "https://res.cloudinary.com/du6297ykk/video/upload/v1755671357/Asha_Team_Work_Culture_rxg7cm.mp4",
+  },
+  {
+    name: "Lal Singh",
+    video:
+      "https://res.cloudinary.com/du6297ykk/video/upload/v1755671356/Lal_Singh_Our_Culture_Is_Our_Legacy_ahn4yl.mp4",
+  },
+  {
+    name: "Shivam",
+    video:
+      "https://res.cloudinary.com/du6297ykk/video/upload/v1755671356/Shivam_Work_Culture_qradts.mp4",
+  },
+  {
+    name: "Riddhi",
+    video:
+      "https://res.cloudinary.com/du6297ykk/video/upload/v1755671356/Riddhi_Work_Culture_l20fes.mp4",
+  },
+  {
+    name: "Rajeev Arora - Legacy",
+    video:
+      "https://res.cloudinary.com/du6297ykk/video/upload/v1755671355/Rajeev_Arora_Our_Culture_Is_Our_Legacy_cupx9i.mp4",
+  },
+  {
+    name: "Asha",
+    video:
+      "https://res.cloudinary.com/du6297ykk/video/upload/v1755671357/Asha_Team_Work_Culture_rxg7cm.mp4",
+  },
+  {
+    name: "Kaushlesh Singh",
+    video:
+      "https://res.cloudinary.com/du6297ykk/video/upload/v1755671356/Kaushlesh_Singh_Our_Culture_Is_Our_Legacy_fequaj.mp4",
+  },
+  {
+    name: "Bhawna",
+    video:
+      "https://res.cloudinary.com/du6297ykk/video/upload/v1755671357/Bhawna_Our_Culture_enhezj.mp4",
+  },
 ];
-
 
 const WorkCultureReels = () => {
   const videoRefs = useRef([]);
@@ -66,7 +101,6 @@ const WorkCultureReels = () => {
                   )}
                 </button>
               </div>
-             
             </div>
           ))}
         </div>

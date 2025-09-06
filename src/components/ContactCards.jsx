@@ -1,5 +1,4 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import { motion } from "framer-motion";
 
 const ContactCards = () => {
   return (
@@ -23,18 +22,18 @@ const ContactCards = () => {
               <i className="fas fa-phone-alt text-white text-lg sm:text-xl" />
             </div>
             <div className="flex flex-col">
-            <a href="tel:+919310259325">
-              <span className="text-green-500 text-sm sm:text-base font-medium mb-1">
-                Call Us For Service
-              </span>
-              <br/>
-              <span className="font-bold text-lg sm:text-2xl">
-                +91 9310259325
-              </span>
-              <br/>
-              <span className="text-gray-300 text-sm sm:text-base mt-1">
-                Available 24/7 to assist you
-              </span>
+              <a href="tel:+919310259325">
+                <span className="text-green-500 text-sm sm:text-base font-medium mb-1">
+                  Call Us For Service
+                </span>
+                <br />
+                <span className="font-bold text-lg sm:text-2xl">
+                  +91 9310259325
+                </span>
+                <br />
+                <span className="text-gray-300 text-sm sm:text-base mt-1">
+                  Available 24/7 to assist you
+                </span>
               </a>
             </div>
           </div>
@@ -62,7 +61,7 @@ const ContactCards = () => {
                 Mail Us Anytime
               </span>
               <span className="font-bold text-lg sm:text-2xl">
-               info@divypower.com 
+                info@divypower.com
               </span>
               <span className="text-white text-sm sm:text-base mt-1">
                 We're available 24/7 for your queries

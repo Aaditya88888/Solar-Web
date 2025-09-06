@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 
 // Different popup messages
 const popupMessages = [
@@ -11,7 +11,7 @@ const popupMessages = [
   "Solar se business ka kharcha bhi kam ho jata hai!",
   "Solar panel maintenance bahut hi kam hota hai!",
   "Solar ek smart investment hai, na ki kharcha!",
-  "Solar chacha kehte hain – Paisa bachao, Solar lagao!"
+  "Solar chacha kehte hain – Paisa bachao, Solar lagao!",
 ];
 
 const PopupRotator = () => {
@@ -20,8 +20,8 @@ const PopupRotator = () => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentMessageIndex((prevIndex) =>
-        (prevIndex + 1) % popupMessages.length
+      setCurrentMessageIndex(
+        (prevIndex) => (prevIndex + 1) % popupMessages.length
       );
       setShowPopup(true);
     }, 4000); // every 4 seconds

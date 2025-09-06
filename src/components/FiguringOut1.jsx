@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import { useRef } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const reelsData = [
@@ -14,7 +14,7 @@ const reelsData = [
     username: "Kaushlesh Sharma",
     caption: "Topic: Source of Renewable Energy",
   },
- 
+
   {
     videoSrc:
       "https://res.cloudinary.com/dcvmuus25/video/upload/v1755670320/Founder_And_Friends_Save_Environment_With_Solar_p7vffm.mp4",
@@ -101,9 +101,7 @@ const FiguringOut1 = () => {
                   playsInline
                 />
               </div>
-              <div className="mt-2 text-xs sm:text-sm text-gray-700 font-semibold">
-              
-              </div>
+              <div className="mt-2 text-xs sm:text-sm text-gray-700 font-semibold"></div>
               <p className="text-[10px] sm:text-xs text-gray-100">
                 {reel.caption}
               </p>

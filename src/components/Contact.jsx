@@ -1,32 +1,30 @@
-import React, { useState } from 'react';
-import Footer from './Footer';
-import { motion } from 'framer-motion';
-import { MdEmail } from "react-icons/md";
-
-import axios from 'axios';
-import { ToastContainer, toast } from 'react-toastify';
+import { useState } from "react";
+import Footer from "./Footer";
+import { motion } from "framer-motion";
+import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
 import Loader from "../Loader";
-import 'react-toastify/dist/ReactToastify.css';
+import "react-toastify/dist/ReactToastify.css";
 
 function Contact() {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [phoneNo, setPhone] = useState('');
-  const [message, setMessage] = useState('');
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phoneNo, setPhone] = useState("");
+  const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
     try {
-      console.log(name, email, phoneNo, message)
+      console.log(name, email, phoneNo, message);
       const { data } = await axios.post(
         "https://solar-6.onrender.com/api/contact",
         { name, email, phoneNo, message }
       );
-      toast.success('Message sent successfully!');
+      toast.success("Message sent successfully!");
     } catch (error) {
-      toast.error('Something went wrong. Try again.');
+      toast.error("Something went wrong. Try again.");
     } finally {
       setLoading(false);
     }
@@ -37,7 +35,7 @@ function Contact() {
     visible: {
       opacity: 1,
       y: 0,
-      transition: { staggerChildren: 0.2, duration: 0.5, ease: 'easeOut' },
+      transition: { staggerChildren: 0.2, duration: 0.5, ease: "easeOut" },
     },
   };
 
@@ -61,32 +59,42 @@ function Contact() {
           animate="visible"
         >
           {/* Contact Info */}
-          <motion.div className="bg-white p-8 rounded-2xl shadow-lg" variants={itemVariants}>
-            <h3 className="text-2xl font-semibold text-green-800 mb-6">Contact Information</h3>
+          <motion.div
+            className="bg-white p-8 rounded-2xl shadow-lg"
+            variants={itemVariants}
+          >
+            <h3 className="text-2xl font-semibold text-green-800 mb-6">
+              Contact Information
+            </h3>
             <div className="space-y-6 text-gray-700">
+              <div></div>
               <div>
-              
-              </div>
-              <div>
-
-
                 <h4 className="font-bold text-gray-900"> Email</h4>
-                <p>customersupport1@divypower.com<br />
-                  Info@divypower.com</p>
-
-
-
+                <p>
+                  customersupport1@divypower.com
+                  <br />
+                  Info@divypower.com
+                </p>
               </div>
               <div>
                 <h4 className="font-bold text-gray-900">Phone</h4>
-                <p>+91 9310259325<br />Open 24 Hours</p>
+                <p>
+                  +91 9310259325
+                  <br />
+                  Open 24 Hours
+                </p>
               </div>
             </div>
           </motion.div>
 
           {/* Contact Form */}
-          <motion.div className="bg-white p-8 rounded-2xl shadow-lg" variants={itemVariants}>
-            <h3 className="text-2xl font-semibold text-green-800 mb-6">Send Us a Message</h3>
+          <motion.div
+            className="bg-white p-8 rounded-2xl shadow-lg"
+            variants={itemVariants}
+          >
+            <h3 className="text-2xl font-semibold text-green-800 mb-6">
+              Send Us a Message
+            </h3>
             <form onSubmit={handleSubmit} className="space-y-4">
               <input
                 type="text"
@@ -124,17 +132,25 @@ function Contact() {
               <motion.button
                 type="submit"
                 className="bg-green-800 text-white px-6 py-3 rounded-lg hover:bg-green-600 transition-all duration-300 flex justify-center items-center"
-                whileHover={{ scale: 1.05, boxShadow: '0 0 8px rgba(34,197,94, 0.8)' }}
-                transition={{ type: 'spring', stiffness: 300 }}
+                whileHover={{
+                  scale: 1.05,
+                  boxShadow: "0 0 8px rgba(34,197,94, 0.8)",
+                }}
+                transition={{ type: "spring", stiffness: 300 }}
               >
-                {loading ? <Loader /> : 'Send Message'}
+                {loading ? <Loader /> : "Send Message"}
               </motion.button>
             </form>
           </motion.div>
         </motion.div>
 
         {/* Google Map */}
-        <motion.div className="mt-16 ml-0 mr-0 lg:mr-28 lg:ml-28 xl:mr-28 xl:ml-28" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1, duration: 0.8 }}>
+        <motion.div
+          className="mt-16 ml-0 mr-0 lg:mr-28 lg:ml-28 xl:mr-28 xl:ml-28"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1, duration: 0.8 }}
+        >
           <iframe
             title="map"
             className="w-full h-96 rounded-2xl shadow-lg"
@@ -142,7 +158,6 @@ function Contact() {
             allowFullScreen=""
             loading="lazy"
           ></iframe>
-
         </motion.div>
       </div>
 
@@ -154,4 +169,3 @@ function Contact() {
 }
 
 export default Contact;
-

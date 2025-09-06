@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import Footer from "./Footer";
 import Lap from "../Images/PHOTO-2025-08-18-12-26-39.jpg";

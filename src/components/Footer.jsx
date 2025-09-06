@@ -1,4 +1,3 @@
-import React from "react";
 import { useNavigate } from "react-router-dom";
 import {
   FaPhoneAlt,
@@ -35,25 +34,39 @@ const Footer = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
             {/* Contact Info */}
             <div>
-              <h3 className="text-sm font-semibold border-b border-green-800 pb-1 mb-3">Contact Info</h3>
+              <h3 className="text-sm font-semibold border-b border-green-800 pb-1 mb-3">
+                Contact Info
+              </h3>
               <ul className="space-y-1 text-sm text-[#B0B9D1]">
-                <li className="flex items-center gap-2"><FaPhoneAlt /> +91 9310259325</li>
-
-                <li className="flex items-center gap-2"><FaEnvelope /> admin@divypower.com</li>
-                <li className="flex items-center gap-2"><FaEnvelope /> Info@divypower.com
+                <li className="flex items-center gap-2">
+                  <FaPhoneAlt /> +91 9310259325
                 </li>
-                <li className="flex items-center gap-2"><FaEnvelope />
 
-                  sales@divypower.com</li>
+                <li className="flex items-center gap-2">
+                  <FaEnvelope /> admin@divypower.com
+                </li>
+                <li className="flex items-center gap-2">
+                  <FaEnvelope /> Info@divypower.com
+                </li>
+                <li className="flex items-center gap-2">
+                  <FaEnvelope />
+                  sales@divypower.com
+                </li>
               </ul>
             </div>
 
             {/* Useful Links */}
             <div>
-              <h3 className="text-sm font-semibold border-b border-green-800 pb-1 mb-3">Useful Links</h3>
+              <h3 className="text-sm font-semibold border-b border-green-800 pb-1 mb-3">
+                Useful Links
+              </h3>
               <div className="grid grid-cols-2 gap-1 text-[#B0B9D1] text-sm">
                 {routes.map((route) => (
-                  <NavLink key={route.name} to={route.path} className="flex items-center gap-1 hover:text-white">
+                  <NavLink
+                    key={route.name}
+                    to={route.path}
+                    className="flex items-center gap-1 hover:text-white"
+                  >
                     <FaAngleRight /> {route.name}
                   </NavLink>
                 ))}
@@ -62,7 +75,9 @@ const Footer = () => {
 
             {/* Our Solutions + Social */}
             <div>
-              <h3 className="text-sm font-semibold border-b border-green-800 pb-1 mb-3">Our Solutions</h3>
+              <h3 className="text-sm font-semibold border-b border-green-800 pb-1 mb-3">
+                Our Solutions
+              </h3>
               <ul className="text-[#B0B9D1] text-sm space-y-1">
                 {[
                   "Solar Rooftop",
@@ -72,7 +87,10 @@ const Footer = () => {
                   "Solar Water Pump",
                   "EV Charging Stations",
                 ].map((item, index) => (
-                  <li key={index} className="flex items-center gap-1 hover:text-white">
+                  <li
+                    key={index}
+                    className="flex items-center gap-1 hover:text-white"
+                  >
                     <FaAngleRight /> {item}
                   </li>
                 ))}
@@ -81,7 +99,11 @@ const Footer = () => {
               {/* Social */}
               <div className="flex gap-2 mt-3">
                 {[FaFacebookF, FaInstagram, FaDribbble].map((Icon, idx) => (
-                  <a key={idx} href="#" className="bg-white text-[#00122E] w-7 h-7 rounded-full flex items-center justify-center hover:bg-gray-200">
+                  <a
+                    key={idx}
+                    href="#"
+                    className="bg-white text-[#00122E] w-7 h-7 rounded-full flex items-center justify-center hover:bg-gray-200"
+                  >
                     <Icon size={13} />
                   </a>
                 ))}
@@ -109,23 +131,23 @@ const Footer = () => {
           {/* Address */}
           <p className="text-[#B0B9D1] text-xs flex items-center gap-2 mb-2">
             <FaMapMarkerAlt />
-            53, Ramte Ram Rd, Ekta Vihar, Arjun Nagar, Nai Basti Dundaher Ghaziabad, Uttar Pradesh 201001
+            53, Ramte Ram Rd, Ekta Vihar, Arjun Nagar, Nai Basti Dundaher
+            Ghaziabad, Uttar Pradesh 201001
           </p>
 
           {/* Copyright */}
           <p className="text-[#B0B9D1] text-xs text-center">
-            &copy; {new Date().getFullYear()} DIVY POWER. All rights reserved.  <span
+            &copy; {new Date().getFullYear()} DIVY POWER. All rights reserved.{" "}
+            <span
               className="text-[#B0B9D1] text-xs text-end ml-14 cursor-pointer"
               onClick={() => navigate("/privacy")}
             >
               Privacy Policy
             </span>
           </p>
-
         </footer>
       </div>
     </div>
-
   );
 };
 

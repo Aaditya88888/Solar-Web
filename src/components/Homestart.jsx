@@ -4,8 +4,6 @@ import family from "../Images/j2.png";
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 
-
-
 function Homestart() {
     return (
         <div

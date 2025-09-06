@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -21,7 +21,9 @@ export default function CallBackSection() {
   return (
     <div className=" -translate-y-14 rounded-2xl bg-white shadow-lg p-4 mb-3 flex flex-col md:flex-row items-center justify-between gap-3 mt-10">
       <div className="text-center md:text-left">
-        <p className="text-xs text-gray-800 font-semibold uppercase">Call us now</p>
+        <p className="text-xs text-gray-800 font-semibold uppercase">
+          Call us now
+        </p>
         <h2 className="text-lg font-bold text-green-700">
           Free Consultation by <br />
           Calling <span className="text-gray-800">+91 9310259325</span>

@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { FaPlay, FaPause } from "react-icons/fa"; // Play / Pause icons
 
 const reelsData = [
@@ -27,7 +27,6 @@ const reelsData = [
     reel: "https://res.cloudinary.com/dlkwlywps/video/upload/v1755670833/We_Believe_In_Solution_Based_Approach_tinnqb.mp4",
   },
 ];
-
 
 const HoverVideoCard2 = () => {
   const videoRefs = useRef([]);

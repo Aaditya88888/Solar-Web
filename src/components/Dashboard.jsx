@@ -1,6 +1,5 @@
-import React from "react";
 import { motion } from "framer-motion";
-import './Home.css';
+import "./Home.css";
 
 function Dashboard() {
   const dashboardVariants = {
@@ -50,7 +49,9 @@ function Dashboard() {
                   <div key={i} className="flex items-center gap-2">
                     <span className={`w-2 h-2 rounded-full ${item.color}`} />
                     <span>{item.label}</span>
-                    <span className="ml-auto font-light text-gray-700">{item.value}</span>
+                    <span className="ml-auto font-light text-gray-700">
+                      {item.value}
+                    </span>
                   </div>
                 ))}
               </div>
@@ -62,7 +63,9 @@ function Dashboard() {
                 {[...Array(7).fill(40), ...Array(7).fill(40)].map((h, i) => (
                   <div
                     key={i}
-                    className={`w-1.5 ${i < 7 ? "bg-orange-500" : "bg-gray-700"} rounded-t`}
+                    className={`w-1.5 ${
+                      i < 7 ? "bg-orange-500" : "bg-gray-700"
+                    } rounded-t`}
                     style={{ height: `${h}px` }}
                   />
                 ))}
@@ -93,7 +96,11 @@ function Dashboard() {
                 ],
                 breakdown: [
                   { label: "to Home", value: "3.93", color: "bg-gray-700" },
-                  { label: "from Solar", value: "3.93", color: "bg-orange-500" },
+                  {
+                    label: "from Solar",
+                    value: "3.93",
+                    color: "bg-orange-500",
+                  },
                   { label: "from Grid", value: "3.93", color: "bg-gray-400" },
                 ],
               },
@@ -118,9 +125,13 @@ function Dashboard() {
                   <p className="text-xs text-gray-600">{item.title}</p>
                   <i className="fas fa-external-link-alt text-gray-600 text-xs" />
                 </div>
-                <p className="text-3xl font-light text-gray-900 mb-1">{item.value}</p>
+                <p className="text-3xl font-light text-gray-900 mb-1">
+                  {item.value}
+                </p>
 
-                {item.subText && <p className="text-xs text-gray-600">{item.subText}</p>}
+                {item.subText && (
+                  <p className="text-xs text-gray-600">{item.subText}</p>
+                )}
 
                 {item.progress && (
                   <div className="flex items-center gap-2 text-xs text-gray-400 mt-1">
@@ -140,7 +151,9 @@ function Dashboard() {
                   <div className="flex justify-between mb-2">
                     {item.values.map((v, i) => (
                       <div key={i}>
-                        <p className="text-xl font-light text-gray-900">{v.value}</p>
+                        <p className="text-xl font-light text-gray-900">
+                          {v.value}
+                        </p>
                         <p className="text-xs text-gray-400">{v.label}</p>
                       </div>
                     ))}
@@ -153,7 +166,9 @@ function Dashboard() {
                       <div key={i} className="flex items-center gap-2">
                         <span className={`w-2 h-2 rounded-full ${bd.color}`} />
                         <span>{bd.label}</span>
-                        <span className="ml-auto font-light text-gray-700">{bd.value}</span>
+                        <span className="ml-auto font-light text-gray-700">
+                          {bd.value}
+                        </span>
                       </div>
                     ))}
                   </div>

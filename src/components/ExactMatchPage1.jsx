@@ -1,5 +1,3 @@
-import React from "react";
-
 import L1 from '../Images/P1.jpg';
 import L2 from '../Images/P2.png';
 import L3 from '../Images/P3.png';

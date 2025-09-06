@@ -1,4 +1,3 @@
-import React from "react";
 import { motion } from "framer-motion";
 
 const cards = [
@@ -51,7 +50,9 @@ const WhyChooseSolar = () => {
             <motion.div
               key={index}
               className={`flex flex-col ${
-                card.bg.includes("from-") ? `bg-gradient-to-b ${card.bg}` : card.bg
+                card.bg.includes("from-")
+                  ? `bg-gradient-to-b ${card.bg}`
+                  : card.bg
               } rounded-xl p-6 w-full sm:max-w-xs shadow-sm`}
               variants={cardVariants}
               initial="hidden"
@@ -59,8 +60,12 @@ const WhyChooseSolar = () => {
               viewport={{ once: true }}
               custom={index}
             >
-              <h3 className="text-gray-700 text-lg font-medium mb-3">{card.title}</h3>
-              <p className="text-gray-600 text-sm leading-relaxed mb-6">{card.text}</p>
+              <h3 className="text-gray-700 text-lg font-medium mb-3">
+                {card.title}
+              </h3>
+              <p className="text-gray-600 text-sm leading-relaxed mb-6">
+                {card.text}
+              </p>
               <div
                 className={`w-10 h-10 ${card.iconBg} rounded-lg flex items-center justify-center text-white text-xl`}
                 aria-label={`${card.title} icon`}

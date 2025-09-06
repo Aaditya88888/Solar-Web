@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import {
   TrophyIcon,
@@ -11,7 +11,12 @@ const stats = [
   { id: 1, label: "Winning Awards", target: 20, Icon: TrophyIcon },
   { id: 2, label: "Completed Projects", target: 10000, Icon: BriefcaseIcon },
   { id: 3, label: "Team Members", target: 300, Icon: UsersIcon },
-  { id: 4, label: "Clients Review", target: 400, Icon: ChatBubbleBottomCenterTextIcon },
+  {
+    id: 4,
+    label: "Clients Review",
+    target: 400,
+    Icon: ChatBubbleBottomCenterTextIcon,
+  },
 ];
 
 function StatCard({ target, label, Icon, delay }) {

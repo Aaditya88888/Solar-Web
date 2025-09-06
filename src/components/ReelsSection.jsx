@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Outdoor_living from "../Images/Outdoor_living.jpg";
 
 const reelsData = [

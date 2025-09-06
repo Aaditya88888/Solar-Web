@@ -1,4 +1,3 @@
-import React from "react";
 import { AiOutlineSwap } from "react-icons/ai";
 import { IoStatsChart } from "react-icons/io5";
 import { BsGlobe } from "react-icons/bs";
@@ -65,43 +64,46 @@ const PageOne = () => {
       </motion.div>
 
       {/* Bottom Feature Icons Section */}
-     <motion.section
-  className="hidden mt-20 mx-4 sm:mx-10"
-  initial="hidden"
-  whileInView="visible"
-  viewport={{ once: true, amount: 0.2 }}
->
-  <motion.div
-    className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 mt-12"
-    initial="hidden"
-    whileInView="visible"
-    viewport={{ once: true }}
-  >
-    {[
-      ["fas fa-shield-alt", "Turnkey Solutions", "Warranty Assurance"],
-      ["fas fa-star", "Certified Partners", "Solar Specialists"],
-      ["fas fa-hand-holding-usd", "Flexible", "Financing Options"],
-      ["fas fa-headphones-alt", "24/7 Support", "Any time of the day"],
-      ["fas fa-lightbulb", "End-to-End Guidance", "Efficient solar solution"],
-    ].map(([icon, title, subtitle], i) => (
-      <motion.div
-        key={title}
-        className="bg-white p-6 shadow-md rounded-md flex flex-col items-center text-center hover:shadow-lg transition-all"
-        variants={fadeUpVariant}
-        custom={i}
+      <motion.section
+        className="hidden mt-20 mx-4 sm:mx-10"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
       >
-        <i className={`${icon} text-green-700 text-4xl mb-4`}></i>
-        <p className="font-semibold text-[14px] mb-1 text-[#1f2937]">
-          {title}
-        </p>
-        <p className="text-[12px] text-gray-600 font-semibold">
-          {subtitle}
-        </p>
-      </motion.div>
-    ))}
-  </motion.div>
-</motion.section>
-
+        <motion.div
+          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 mt-12"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+        >
+          {[
+            ["fas fa-shield-alt", "Turnkey Solutions", "Warranty Assurance"],
+            ["fas fa-star", "Certified Partners", "Solar Specialists"],
+            ["fas fa-hand-holding-usd", "Flexible", "Financing Options"],
+            ["fas fa-headphones-alt", "24/7 Support", "Any time of the day"],
+            [
+              "fas fa-lightbulb",
+              "End-to-End Guidance",
+              "Efficient solar solution",
+            ],
+          ].map(([icon, title, subtitle], i) => (
+            <motion.div
+              key={title}
+              className="bg-white p-6 shadow-md rounded-md flex flex-col items-center text-center hover:shadow-lg transition-all"
+              variants={fadeUpVariant}
+              custom={i}
+            >
+              <i className={`${icon} text-green-700 text-4xl mb-4`}></i>
+              <p className="font-semibold text-[14px] mb-1 text-[#1f2937]">
+                {title}
+              </p>
+              <p className="text-[12px] text-gray-600 font-semibold">
+                {subtitle}
+              </p>
+            </motion.div>
+          ))}
+        </motion.div>
+      </motion.section>
     </section>
   );
 };

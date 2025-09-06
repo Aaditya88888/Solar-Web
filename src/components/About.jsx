@@ -1,22 +1,16 @@
-import React from "react";
-import { motion } from "framer-motion";
 import ProcessSteps from "./ProcessSteps";
-import ExpertTeam from "./ExpertTeam";
 import FiguringOut from "./FiguringOut";
 import SolarCards from "./SolarCards";
-import ContactCards from "./ContactCards";
 import Footer from "./Footer";
 import CompanySection from "./CompanySection";
 import ChatUI4 from "./ChatUI4";
-
 import sunImage from "../Images/didi.png";
 import sunPhoto from "../Images/chacha.png";
-import ScrollStackingCards from "./ScrollStackingCards"; // <-- Imported here
-import "./ScrollStackingCards.css"; // <-- Include CSS
+import ScrollStackingCards from "./ScrollStackingCards";
+import "./ScrollStackingCards.css";
 import HoverVideoCard2 from "./HoverVideoCard2";
 import HoverVideoCard3 from "./HoverVideoCard3";
-import "./Home.css"; // Ensure this CSS file is imported for styles
-import HoverVideoCard from "./HoverVideoCard";
+import "./Home.css";
 import ImageWithOverlay from "./ImageWithOverlay";
 import rajbeer_vasundra_4kw_res from "../Images/rajbeer_vasundra_4kw_res.jpg";
 import KW_sangwan_res from "../Images/10_KW_sangwan_res.jpg";

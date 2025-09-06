@@ -1,5 +1,3 @@
-import React from "react";
-
 function ChatbotPopup({ onClose }) {
   return (
     <div

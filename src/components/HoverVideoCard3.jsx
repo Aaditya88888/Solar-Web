@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { FaPlay, FaPause } from "react-icons/fa"; // Icons
 
 const reelsData = [
@@ -27,7 +27,6 @@ const reelsData = [
     reel: "https://res.cloudinary.com/dlkwlywps/video/upload/v1755670988/Shruti_Growth_At_Divy_tfpcmy.mp4",
   },
 ];
-
 
 const HoverVideoCard3 = () => {
   const videoRefs = useRef([]);
@@ -82,7 +81,6 @@ const HoverVideoCard3 = () => {
                   )}
                 </button>
               </div>
-             
             </div>
           ))}
         </div>
