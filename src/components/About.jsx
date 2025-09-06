@@ -13,7 +13,9 @@ import HoverVideoCard2 from "./HoverVideoCard2";
 import HoverVideoCard3 from "./HoverVideoCard3";
 import "./Home.css";
 import ImageWithOverlay from "./ImageWithOverlay";
-
+import img1 from "../Images/img1.webp";
+import img2 from "../Images/img2.jpg";
+import img3 from "../Images/img3.png";
 // Animation Variants
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },

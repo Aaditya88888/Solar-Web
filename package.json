@@ -18,7 +18,7 @@
     "apexcharts": "^4.7.0",
     "axios": "^1.9.0",
     "font-awesome": "^4.7.0",
-    "framer-motion": "^12.15.0",
+    "framer-motion": "^12.23.12",
     "lucide-react": "^0.511.0",
     "react": "^19.1.0",
     "react-apexcharts": "^1.7.0",
