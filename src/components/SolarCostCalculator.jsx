@@ -1,9 +1,11 @@
-import { useState } from "react";
+import { useState, lazy, Suspense } from "react";
 import { motion } from "framer-motion";
-import ElectricitySavedCard from "./ElectricitySavedCard";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+
+// ✅ Lazy load heavy component
+const ElectricitySavedCard = lazy(() => import("./ElectricitySavedCard"));
 
 const containerVariants = {
   hidden: {},
@@ -21,9 +23,7 @@ const cardVariants = {
 
 const SolarCostCalculator = () => {
   const [loading, setLoading] = useState(false);
-  const [formData, setFormData] = useState({
-    bill: "",
-  });
+  const [formData, setFormData] = useState({ bill: "" });
   const [results, setResults] = useState(null);
   const [showResults, setShowResults] = useState(false);
 
@@ -196,7 +196,9 @@ const SolarCostCalculator = () => {
           variants={cardVariants}
         >
           <div className="h-full w-full flex">
-            <ElectricitySavedCard />
+            <Suspense fallback={<div></div>}>
+              <ElectricitySavedCard />
+            </Suspense>
           </div>
         </motion.section>
       </div>

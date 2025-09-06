@@ -1,4 +1,3 @@
-import React from "react";
 import T1 from "../Images/T1.webp";
 import T2 from "../Images/T2.webp";
 import T3 from "../Images/T3.webp";

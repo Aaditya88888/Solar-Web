@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import "@fortawesome/fontawesome-free/css/all.min.css";
-import Sol from "../Images/Sol.jpg";
+import Sol from "../Images/Sol.webp";
 
 const solutionData = [
   {

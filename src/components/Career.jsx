@@ -1,11 +1,12 @@
-import React from "react";
 import { motion } from "framer-motion";
-import Footer from "./Footer";
-import CareerForm from "./CareerForm";
-import WorkCultureReels from "./WorkCultureReels";
-import SafetySecurityReels from "./SafetySecurityReels";
-import ImageSlider from "./ImageSlider";
-import CareersAtDivySolar from "./CareersAtDivySolar";
+import { lazy, Suspense } from "react";
+
+const Footer = lazy(() => import("./Footer"));
+const CareerForm = lazy(() => import("./CareerForm"));
+const WorkCultureReels = lazy(() => import("./WorkCultureReels"));
+const SafetySecurityReels = lazy(() => import("./SafetySecurityReels"));
+const ImageSlider = lazy(() => import("./ImageSlider"));
+const CareersAtDivySolar = lazy(() => import("./CareersAtDivySolar"));
 
 // Hero text animation
 const heroTextVariants = {
@@ -60,11 +61,15 @@ const Career = () => {
       </motion.div>
 
       <section>
-        <CareersAtDivySolar />
+        <Suspense fallback={<div>Loading Careers...</div>}>
+          <CareersAtDivySolar />
+        </Suspense>
       </section>
 
       <section className="-mt-8">
-        <CareerForm />
+        <Suspense fallback={<div>Loading Form...</div>}>
+          <CareerForm />
+        </Suspense>
       </section>
 
       {/* Internal Team Button */}
@@ -209,19 +214,27 @@ const Career = () => {
 
       {/* Reels Sections */}
       <section className="-mt-12">
-        <WorkCultureReels />
+        <Suspense fallback={<div>Loading Work Culture...</div>}>
+          <WorkCultureReels />
+        </Suspense>
       </section>
 
       <section>
-        <SafetySecurityReels />
+        <Suspense fallback={<div>Loading Safety & Security...</div>}>
+          <SafetySecurityReels />
+        </Suspense>
       </section>
 
       <section>
-        <ImageSlider />
+        <Suspense fallback={<div>Loading Gallery...</div>}>
+          <ImageSlider />
+        </Suspense>
       </section>
 
       <section className="mt-[130px]">
-        <Footer />
+        <Suspense fallback={<div>Loading Footer...</div>}>
+          <Footer />
+        </Suspense>
       </section>
     </div>
   );

@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import MessageBubble from "./MessageBubble";
-import solarChachaImg from "../Images/chacha.png";
-import roshniDidiImg from "../Images/didi.png";
+import solarChachaImg from "../Images/chacha.webp";
+import roshniDidiImg from "../Images/didi.webp";
 import "./Home.css";
 import "./Home.css";
 

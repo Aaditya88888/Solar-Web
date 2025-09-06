@@ -1,6 +1,7 @@
-import { useState, useEffect } from "react";
-import ChatbotPopup from "./ChatbotPopup";
+import { useState, useEffect, lazy, Suspense } from "react";
 import solarch from "../Images/chacha.webp";
+
+const ChatbotPopup = lazy(() => import("./ChatbotPopup"));
 
 const messages = [
   "Solar se kharcha nahi, paiso ki bachat hoti hai!",
@@ -14,6 +15,7 @@ const messages = [
   "Renewable energy future ka rasta hai – solar se shuruat karo!",
   "Apne chhat ka istemal karo – solar se kamao aur bachaao!",
 ];
+
 const ChatbotToggle = () => {
   const [chatbotOpen, setChatbotOpen] = useState(false);
   const [currentMsgIndex, setCurrentMsgIndex] = useState(0);
@@ -57,7 +59,11 @@ const ChatbotToggle = () => {
         </button>
       </div>
 
-      {chatbotOpen && <ChatbotPopup onClose={() => setChatbotOpen(false)} />}
+      {chatbotOpen && (
+        <Suspense fallback={<div></div>}>
+          <ChatbotPopup onClose={() => setChatbotOpen(false)} />
+        </Suspense>
+      )}
     </>
   );
 };

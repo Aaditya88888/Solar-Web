@@ -1,8 +1,9 @@
-import { useEffect, useState } from "react";
-import MessageBubble1 from "./MessageBubble1";
+import { useEffect, useState, lazy, Suspense } from "react";
 import solarChachaImg from "../Images/chacha.webp";
 import roshniDidiImg from "../Images/didi.webp";
-import HoverVideoCard from "./HoverVideoCard";
+
+const MessageBubble1 = lazy(() => import("./MessageBubble1"));
+const HoverVideoCard = lazy(() => import("./HoverVideoCard"));
 
 const conversationData = [
   {
@@ -52,30 +53,36 @@ const ChatUI1 = () => {
       <div className="flex flex-col gap-6 max-w-4xl mx-auto w-full">
         {/* Chat Section */}
         <div className="bg-gray-100 rounded-2xl p-4 space-y-2 wp hidden">
-          {messages.map((msg, i) => (
-            <MessageBubble1
-              key={i}
-              sender={msg.sender}
-              text={msg.text}
-              avatar={msg.sender === "chacha" ? solarChachaImg : roshniDidiImg}
-            />
-          ))}
-          {isTyping && currentIndex < conversationData.length && (
-            <MessageBubble1
-              sender={conversationData[currentIndex].sender}
-              typing={true}
-              avatar={
-                conversationData[currentIndex].sender === "chacha"
-                  ? solarChachaImg
-                  : roshniDidiImg
-              }
-            />
-          )}
+          <Suspense fallback={<div>Loading chat...</div>}>
+            {messages.map((msg, i) => (
+              <MessageBubble1
+                key={i}
+                sender={msg.sender}
+                text={msg.text}
+                avatar={
+                  msg.sender === "chacha" ? solarChachaImg : roshniDidiImg
+                }
+              />
+            ))}
+            {isTyping && currentIndex < conversationData.length && (
+              <MessageBubble1
+                sender={conversationData[currentIndex].sender}
+                typing={true}
+                avatar={
+                  conversationData[currentIndex].sender === "chacha"
+                    ? solarChachaImg
+                    : roshniDidiImg
+                }
+              />
+            )}
+          </Suspense>
         </div>
 
         {/* Video Section below chat */}
-        <div className="bg-gray-50 rounded-2xl  2xl:w-[1135px] w-full 2xl:-ml-28  -ml-0 p-4">
-          <HoverVideoCard />
+        <div className="bg-gray-50 rounded-2xl 2xl:w-[1135px] w-full 2xl:-ml-28 -ml-0 p-4">
+          <Suspense fallback={<div>Loading video...</div>}>
+            <HoverVideoCard />
+          </Suspense>
         </div>
       </div>
     </div>

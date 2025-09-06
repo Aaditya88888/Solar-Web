@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import solarg from "../Images/SolarChahaFront.webp";
 import axios from "axios";
 import Loader from "../Loader";
