@@ -64,7 +64,7 @@ function App() {
         <Route path="/Earthing" element={<Earthing />} />
         <Route path="/LA" element={<La />} />
         <Route path="/Diesel/Petrol Genset" element={<Diesel />} />
-        <Route path="/ProjectDetails" element={<ProjectDetails />} />
+        <Route path="/projectdetails/:projectId" element={<ProjectDetails />} />
         <Route
           path="/Installation_&_Commissioning_(INC)"
           element={<FirstService />}

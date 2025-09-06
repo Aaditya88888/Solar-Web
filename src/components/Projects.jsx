@@ -6,7 +6,7 @@ import Footer from "./Footer";
 import { useNavigate } from "react-router-dom";
 import BlackWhiteGallery from "./BlackWhiteGallery";
 import InfiniteTiltSlider from "./InfiniteTiltSlider";
-import img10 from "../Images/img10.jpg";
+import pictureImage from "../Images/pictureImage.webp";
 const SVGAccent = () => (
   <svg
     className="absolute top-2 right-2 w-16 h-16 text-gray-100 opacity-20"
@@ -31,13 +31,14 @@ const Projects = () => {
   const exhibitionProjects = projects.filter(
     (p) => p.category === "Exhibitions and stalls"
   );
+  
   const filtered =
     active === "All"
-      ? projects.filter((p) => p.category !== "Exhibitions and stalls")
+      ? projects
       : projects.filter((p) => p.category === active);
 
-  const handleClick = () => {
-    navigate("/ProjectDetails");
+  const handleClick = (projectId) => {
+    navigate(`/projectdetails/${projectId}`);
   };
 
   return (
@@ -77,7 +78,8 @@ const Projects = () => {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.9 }}
                 transition={{ duration: 0.3 }}
-                className="relative overflow-hidden rounded-2xl shadow-md border bg-white p-6 hover:shadow-xl"
+                className="relative overflow-hidden rounded-2xl shadow-md border bg-white p-6 hover:shadow-xl cursor-pointer"
+                onClick={() => handleClick(project.id)}
               >
                 <SVGAccent />
                 <img
@@ -116,7 +118,8 @@ const Projects = () => {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.9 }}
                 transition={{ duration: 0.3 }}
-                className="relative overflow-hidden rounded-2xl shadow-md border bg-white p-6 hover:shadow-xl"
+                className="relative overflow-hidden rounded-2xl shadow-md border bg-white p-6 hover:shadow-xl cursor-pointer"
+                onClick={() => handleClick(project.id)}
               >
                 <SVGAccent />
                 <img
@@ -148,10 +151,11 @@ const Projects = () => {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <img
-            src={img10}
-            alt="Eco Solar Advantage"
-            className="w-full h-auto object-cover rounded-xl shadow-md"
+          <img 
+            src={pictureImage} 
+            alt="Solar Panel Installation" 
+            className="w-full h-64 object-cover rounded-xl shadow-md"
+            loading="lazy"
           />
         </motion.div>
 
@@ -168,26 +172,24 @@ const Projects = () => {
               Why Choose Us
             </span>
           </div>
-          <h1 className="font-montserrat font-semibold text-4xl leading-tight text-gray-900 mb-4">
-            <motion.h1
-              className="font-montserrat font-semibold text-4xl leading-tight text-gray-900 mb-4"
-              animate={{
-                y: [0, -8, 0, 8, 0], // up & down bounce
-                scale: [1, 1.05, 1, 1.05, 1], // thoda zoom
-                rotate: [0, -1, 1, -1, 0], // halka sa dance/tilt
-              }}
-              transition={{
-                duration: 3, // total cycle time
-                repeat: Infinity, // infinite loop
-                ease: "easeInOut",
-              }}
-            >
-              We Provide Solar
-              <br /> Solutions
-              <br /> as per your
-              <br /> Requirements
-            </motion.h1>
-          </h1>
+          <motion.h1
+            className="font-montserrat font-semibold text-4xl leading-tight text-gray-900 mb-4"
+            animate={{
+              y: [0, -8, 0, 8, 0], // up & down bounce
+              scale: [1, 1.05, 1, 1.05, 1], // thoda zoom
+              rotate: [0, -1, 1, -1, 0], // halka sa dance/tilt
+            }}
+            transition={{
+              duration: 3, // total cycle time
+              repeat: Infinity, // infinite loop
+              ease: "easeInOut",
+            }}
+          >
+            We Provide Solar
+            <br /> Solutions
+            <br /> as per your
+            <br /> Requirements
+          </motion.h1>
           <p className="text-gray-500 text-sm max-w-md mb-8 leading-relaxed">
             At Divy Power, our mission is not just to install solar systems, but
             to create a lasting impact through sustainable energy solutions.
@@ -195,10 +197,10 @@ const Projects = () => {
           <motion.button
             whileTap={{ scale: 0.97 }}
             whileHover={{ scale: 1.03 }}
-            onClick={handleClick}
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
             className="bg-green-800 text-white text-sm font-normal rounded-full px-8 py-3 w-max hover:bg-green-700 transition"
           >
-            View Details
+            View Our Projects
           </motion.button>
         </motion.div>
       </section>
