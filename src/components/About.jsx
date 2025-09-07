@@ -1,5 +1,5 @@
 import React, { lazy, Suspense } from "react";
-import img1 from "../Images/img1.webp";
+import img1 from "../Images/Img1.webp";
 import img2 from "../Images/img2.webp";
 import img3 from "../Images/img3.webp";
 import sunImage from "../Images/didi.webp";
