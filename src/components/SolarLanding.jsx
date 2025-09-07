@@ -122,7 +122,8 @@ export default function SolarLanding() {
   // Close desktop dropdown only if mouse leaves BOTH the nav area and the dropdown panel
   const closeDropdownOnOutsideHover = (e) => {
     const next = e.relatedTarget;
-    const overDropdown = dropdownRef.current && next && dropdownRef.current.contains(next);
+    const overDropdown =
+      dropdownRef.current && next && dropdownRef.current.contains(next);
     const overNav = navRef.current && next && navRef.current.contains(next);
     if (!overDropdown && !overNav) {
       setDesktopDropdown(null);
@@ -147,7 +148,10 @@ export default function SolarLanding() {
         </Link>
 
         {/* Desktop Menu */}
-        <nav ref={navRef} className="hidden md:flex items-center gap-8 text-base font-medium">
+        <nav
+          ref={navRef}
+          className="hidden md:flex items-center gap-8 text-base font-medium"
+        >
           {navLinks.map((link) =>
             link.dropdown ? (
               <div
@@ -210,7 +214,7 @@ export default function SolarLanding() {
         </div>
       </div>
 
-      {/* Desktop Dropdown with slower, smoother animation */}
+      {/* Desktop Dropdown */}
       <AnimatePresence>
         {desktopDropdown && (
           <motion.div
@@ -219,7 +223,7 @@ export default function SolarLanding() {
             initial={{ clipPath: "inset(0 0 100% 0)", opacity: 0 }}
             animate={{ clipPath: "inset(0 0 0% 0)", opacity: 1 }}
             exit={{ clipPath: "inset(0 0 100% 0)", opacity: 0 }}
-            transition={{ duration: 0.7, ease: [0.33, 1, 0.68, 1] }} // 👈 slower & smoother easing
+            transition={{ duration: 0.7, ease: [0.33, 1, 0.68, 1] }}
             className="absolute top-full left-0 w-full bg-white shadow-lg z-40 origin-top"
           >
             <div className="max-w-7xl mx-auto px-5 py-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
@@ -233,7 +237,7 @@ export default function SolarLanding() {
                     exit={{ y: 30, opacity: 0 }}
                     transition={{
                       duration: 0.6,
-                      delay: i * 0.1, // 👈 thoda aur time delay
+                      delay: i * 0.1,
                       ease: [0.33, 1, 0.68, 1],
                     }}
                   >
@@ -263,7 +267,7 @@ export default function SolarLanding() {
             transition={{ duration: 0.3 }}
             className="fixed inset-0 bg-white z-50 flex flex-col"
           >
-            {/* Top Bar with Logo + Close */}
+            {/* Top Bar */}
             <div className="flex justify-between items-center p-5 border-b">
               <Link to={"/"}>
                 <img
@@ -285,21 +289,31 @@ export default function SolarLanding() {
               {navLinks.map((link) =>
                 link.dropdown ? (
                   <div key={link.name}>
-                    <button
-                      onClick={() =>
-                        setMobileDropdown(
-                          mobileDropdown === link.name ? null : link.name
-                        )
-                      }
-                      className="flex justify-between items-center w-full text-lg font-semibold py-2"
-                    >
-                      {link.name}
-                      <IoIosArrowDown
-                        className={`transition-transform ${
-                          mobileDropdown === link.name ? "rotate-180" : ""
-                        }`}
-                      />
-                    </button>
+                    <div className="flex justify-between items-center w-full">
+                      {/* Parent Link */}
+                      <Link
+                        to={link.path}
+                        className="text-lg font-semibold py-2 flex-1"
+                        onClick={() => setMobileMenuOpen(false)}
+                      >
+                        {link.name}
+                      </Link>
+                      {/* Dropdown Toggle */}
+                      <button
+                        onClick={() =>
+                          setMobileDropdown(
+                            mobileDropdown === link.name ? null : link.name
+                          )
+                        }
+                        className="p-2"
+                      >
+                        <IoIosArrowDown
+                          className={`transition-transform ${
+                            mobileDropdown === link.name ? "rotate-180" : ""
+                          }`}
+                        />
+                      </button>
+                    </div>
                     <AnimatePresence>
                       {mobileDropdown === link.name && (
                         <motion.div
@@ -313,6 +327,7 @@ export default function SolarLanding() {
                               key={sub.name}
                               to={sub.path}
                               className="block py-1 text-gray-600 text-base"
+                              onClick={() => setMobileMenuOpen(false)}
                             >
                               {sub.name}
                             </Link>
@@ -326,6 +341,7 @@ export default function SolarLanding() {
                     key={link.name}
                     to={link.path}
                     className="block text-lg font-semibold py-2"
+                    onClick={() => setMobileMenuOpen(false)}
                   >
                     {link.name}
                   </Link>
