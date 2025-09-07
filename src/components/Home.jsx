@@ -1,5 +1,5 @@
 import { useState, Suspense, lazy, useEffect, useRef } from "react";
-import { Link, Outlet } from "react-router-dom";
+import { Link } from "react-router-dom";
 import DivyRedesign from "../Images/DivyRedesign.webp";
 import "./Home.css";
 
@@ -190,9 +190,6 @@ function Home() {
           </Suspense>
         </section>
       </LazyLoadSection>
-
-      {/* React Router Outlet for nested routes */}
-      <Outlet />
 
       {/* Footer (lazy-loaded) */}
       <LazyLoadSection>
