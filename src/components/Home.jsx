@@ -1,4 +1,4 @@
-import { useState, Suspense, lazy } from "react";
+import { useState, Suspense, lazy, useEffect, useRef } from "react";
 import { Link, Outlet } from "react-router-dom";
 import DivyRedesign from "../Images/DivyRedesign.webp";
 import "./Home.css";
@@ -29,6 +29,28 @@ const clientsData = [
   { name: "Client C", logo: "/path/to/logo3.png" },
 ];
 
+// ✅ LazyLoadSection component
+function LazyLoadSection({ children }) {
+  const ref = useRef(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.2 }
+    );
+    if (ref.current) observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, []);
+
+  return <div ref={ref}>{isVisible ? children : null}</div>;
+}
+
 function Home() {
   const [activeIndex, setActiveIndex] = useState(null);
 
@@ -45,7 +67,7 @@ function Home() {
 
       {/* Page Content */}
       <div className="home-content">
-        {/* Hero Section */}
+        {/* Hero Section (load immediately for fast first paint) */}
         <Suspense fallback={<div></div>}>
           <section className="About">
             <FullScreenVideo />
@@ -53,7 +75,7 @@ function Home() {
           </section>
         </Suspense>
 
-        {/* Conversation Section */}
+        {/* Conversation Section (still important, load immediately) */}
         <Suspense fallback={<div></div>}>
           <section className="px-4 sm:px-6 lg:px-12">
             <Conversation />
@@ -62,64 +84,74 @@ function Home() {
 
         <Suspense fallback={<div></div>} />
 
-        {/* Solar Cost Calculator Section (Moved Up by 100px) */}
-        <Suspense fallback={<div></div>}>
-          <section
-            className="mt-24 px-4 sm:px-6 lg:px-12 relative"
-            style={{ transform: "translateY(-450px)" }}
-          >
-            <SolarCostCalculator />
+        {/* Solar Cost Calculator Section (lazy-loaded) */}
+        <LazyLoadSection>
+          <Suspense fallback={<div></div>}>
+            <section
+              className="mt-24 px-4 sm:px-6 lg:px-12 relative"
+              style={{ transform: "translateY(-450px)" }}
+            >
+              <SolarCostCalculator />
 
-            {/* Button Below the Calculator */}
-            <div className="flex justify-center mt-10">
-              <Link to="./contact">
-                <button className="bg-gradient-to-r from-red-500 to-red-700 hover:from-red-600 hover:to-red-800 text-white font-bold py-4 px-8 sm:px-10 rounded-full text-base sm:text-lg shadow-lg transition-transform duration-300 hover:scale-105 hover:shadow-2xl">
-                  Adhik jaankari ke liye click krein
-                </button>
-              </Link>
-            </div>
-          </section>
-        </Suspense>
-
-        {/* Solar Solutions Section */}
-        <Suspense fallback={<div></div>}>
-          <section
-            className="About px-4 sm:px-6 lg:px-12"
-            style={{ transform: "translateY(-250px)" }}
-          >
-            <SolarSolutions />
-          </section>
-        </Suspense>
-
-        {/* Contact Form */}
-        <Suspense fallback={<div></div>}>
-          <section className="mt-20 About1 px-4 sm:px-6 lg:px-12">
-            <ContactForm />
-          </section>
-        </Suspense>
-
-        {/* PageOne & ChatUI */}
-        <Suspense fallback={<div></div>}>
-          <section className="About px-4 sm:px-6 lg:px-12">
-            <PageOne />
-          </section>
-          <section className="About px-4 sm:px-6 lg:px-12">
-            <ChatUI1 />
-          </section>
-        </Suspense>
-
-        {/* Products Section */}
-        <Suspense fallback={<div></div>}>
-          <section className="bg-gray-900 py-16 px-4 sm:px-6 lg:px-16">
-            <div className="flex flex-col gap-8 max-w-5xl mx-auto">
-              <div className="bg-white rounded-2xl shadow-lg overflow-hidden cursor-pointer w-full transition-transform duration-300 hover:scale-105">
-                <SolarProduct />
+              {/* Button Below the Calculator */}
+              <div className="flex justify-center mt-10">
+                <Link to="./contact">
+                  <button className="bg-gradient-to-r from-red-500 to-red-700 hover:from-red-600 hover:to-red-800 text-white font-bold py-4 px-8 sm:px-10 rounded-full text-base sm:text-lg shadow-lg transition-transform duration-300 hover:scale-105 hover:shadow-2xl">
+                    Adhik jaankari ke liye click krein
+                  </button>
+                </Link>
               </div>
-            </div>
-          </section>
-        </Suspense>
+            </section>
+          </Suspense>
+        </LazyLoadSection>
 
-        {/* Floating Image */}
+        {/* Solar Solutions Section (lazy-loaded) */}
+        <LazyLoadSection>
+          <Suspense fallback={<div></div>}>
+            <section
+              className="About px-4 sm:px-6 lg:px-12"
+              style={{ transform: "translateY(-250px)" }}
+            >
+              <SolarSolutions />
+            </section>
+          </Suspense>
+        </LazyLoadSection>
+
+        {/* Contact Form (lazy-loaded) */}
+        <LazyLoadSection>
+          <Suspense fallback={<div></div>}>
+            <section className="mt-20 About1 px-4 sm:px-6 lg:px-12">
+              <ContactForm />
+            </section>
+          </Suspense>
+        </LazyLoadSection>
+
+        {/* PageOne & ChatUI (lazy-loaded) */}
+        <LazyLoadSection>
+          <Suspense fallback={<div></div>}>
+            <section className="About px-4 sm:px-6 lg:px-12">
+              <PageOne />
+            </section>
+            <section className="About px-4 sm:px-6 lg:px-12">
+              <ChatUI1 />
+            </section>
+          </Suspense>
+        </LazyLoadSection>
+
+        {/* Products Section (lazy-loaded) */}
+        <LazyLoadSection>
+          <Suspense fallback={<div></div>}>
+            <section className="bg-gray-900 py-16 px-4 sm:px-6 lg:px-16">
+              <div className="flex flex-col gap-8 max-w-5xl mx-auto">
+                <div className="bg-white rounded-2xl shadow-lg overflow-hidden cursor-pointer w-full transition-transform duration-300 hover:scale-105">
+                  <SolarProduct />
+                </div>
+              </div>
+            </section>
+          </Suspense>
+        </LazyLoadSection>
+
+        {/* Floating Image (still small, no need lazy) */}
         <section className="mt-10 animate-float flex justify-center px-4">
           <img
             src={DivyRedesign}
@@ -128,36 +160,48 @@ function Home() {
           />
         </section>
 
-        {/* Other Sections */}
-        <Suspense fallback={<div></div>}>
-          <section className="mt-20 sm:mt-28 md:mt-36 About1 px-4 sm:px-6 lg:px-12">
-            <FiguringOut1 />
-          </section>
-          <section className="mt-10 sm:mt-12 md:mt-16 About1 px-4 sm:px-6 lg:px-12">
-            <ExactMatchPage1 />
-          </section>
-          <section className="-mt-40 sm:-mt-60 md:-mt-72 lg:-mt-96 px-4 sm:px-6 lg:px-12">
-            <RatingWorks />
-          </section>
-        </Suspense>
+        {/* Other Sections (lazy-loaded) */}
+        <LazyLoadSection>
+          <Suspense fallback={<div></div>}>
+            <section className="mt-20 sm:mt-28 md:mt-36 About1 px-4 sm:px-6 lg:px-12">
+              <FiguringOut1 />
+            </section>
+            <section className="mt-10 sm:mt-12 md:mt-16 About1 px-4 sm:px-6 lg:px-12">
+              <ExactMatchPage1 />
+            </section>
+            <section className="-mt-40 sm:-mt-60 md:-mt-72 lg:-mt-96 px-4 sm:px-6 lg:px-12">
+              <RatingWorks />
+            </section>
+          </Suspense>
+        </LazyLoadSection>
       </div>
 
-      <section
-        style={{ transform: "translateY(-300px)" }}
-        className="bg-[#f8f7f0] About1 mt-96 md:mt-96 lg:mt-96 xl:mt-96 2xl:mt-[430px]"
-      >
-        <SolarPortfolio />
-        <HoverVideoCard1 />
-
-        <section className="About1 mt-20 2xl:mt-60">
-          <FaqSection />
+      <LazyLoadSection>
+        <section
+          style={{ transform: "translateY(-300px)" }}
+          className="bg-[#f8f7f0] About1 mt-96 md:mt-96 lg:mt-96 xl:mt-96 2xl:mt-[430px]"
+        >
+          <Suspense fallback={<div></div>}>
+            <SolarPortfolio />
+            <HoverVideoCard1 />
+            <section className="About1 mt-20 2xl:mt-60">
+              <FaqSection />
+            </section>
+          </Suspense>
         </section>
-      </section>
+      </LazyLoadSection>
+
       {/* React Router Outlet for nested routes */}
       <Outlet />
-      <section className=" About -mt-11">
-        <Footer />
-      </section>
+
+      {/* Footer (lazy-loaded) */}
+      <LazyLoadSection>
+        <Suspense fallback={<div></div>}>
+          <section className=" About -mt-11">
+            <Footer />
+          </section>
+        </Suspense>
+      </LazyLoadSection>
     </div>
   );
 }

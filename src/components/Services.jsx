@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useMemo, useCallback } from "react";
 import { motion } from "framer-motion";
 import solar from "../Images/Solar3.webp";
 import localImage from "../Images/Sv.webp";
@@ -15,45 +15,50 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import ServiceCards from "./ServiceCards";
 
-const services = [
-  {
-    icon: <FaTools className="text-3xl sm:text-4xl text-green-800" />,
-    title: "Installation & Commissioning (INC)",
-    description:
-      "Divy Power handles the complete installation and commissioning of solar systems, generators, and other power equipment.",
-    path: "/Installation_&_Commissioning_(INC)",
-  },
-  {
-    icon: <FaProjectDiagram className="text-3xl sm:text-4xl text-green-800" />,
-    title: "Engineering, Procurement, and Construction (EPC)",
-    description:
-      "They provide turnkey solutions for solar energy projects, including design, procurement of materials, and construction.",
-    path: "/Engineering_Procurement_and_Construction_(EPC)",
-  },
-  {
-    icon: <FaCog className="text-3xl sm:text-4xl text-green-800" />,
-    title: "Operations & Maintenance (O&M)",
-    description:
-      "Provides ongoing maintenance to ensure optimal performance of solar panels, generators, and other systems.",
-    path: "/Operations_&_Maintenance_(O&M)",
-  },
-  {
-    icon: <FaRecycle className="text-3xl sm:text-4xl text-green-800" />,
-    title: "Annual Maintenance Contracts (AMC)",
-    description:
-      "Divy Power provides AMC services for diesel generators, solar systems, and other equipment to ensure long-term reliability.",
-    path: "/Annual_Maintenance_Contracts(AMC)",
-  },
-  {
-    icon: <FaSolarPanel className="text-3xl sm:text-4xl text-green-800" />,
-    title: "Health Check ups",
-    description:
-      "We provide complete care for your car, including expert advice, repairs, and preferred maintenance services.",
-    path: "/Health_Check_ups",
-  },
-];
-
 export default function Services() {
+  const services = useMemo(
+    () => [
+      {
+        icon: <FaTools className="text-3xl sm:text-4xl text-green-800" />,
+        title: "Installation & Commissioning (INC)",
+        description:
+          "Divy Power handles the complete installation and commissioning of solar systems, generators, and other power equipment.",
+        path: "/Installation_&_Commissioning_(INC)",
+      },
+      {
+        icon: (
+          <FaProjectDiagram className="text-3xl sm:text-4xl text-green-800" />
+        ),
+        title: "Engineering, Procurement, and Construction (EPC)",
+        description:
+          "They provide turnkey solutions for solar energy projects, including design, procurement of materials, and construction.",
+        path: "/Engineering_Procurement_and_Construction_(EPC)",
+      },
+      {
+        icon: <FaCog className="text-3xl sm:text-4xl text-green-800" />,
+        title: "Operations & Maintenance (O&M)",
+        description:
+          "Provides ongoing maintenance to ensure optimal performance of solar panels, generators, and other systems.",
+        path: "/Operations_&_Maintenance_(O&M)",
+      },
+      {
+        icon: <FaRecycle className="text-3xl sm:text-4xl text-green-800" />,
+        title: "Annual Maintenance Contracts (AMC)",
+        description:
+          "Divy Power provides AMC services for diesel generators, solar systems, and other equipment to ensure long-term reliability.",
+        path: "/Annual_Maintenance_Contracts(AMC)",
+      },
+      {
+        icon: <FaSolarPanel className="text-3xl sm:text-4xl text-green-800" />,
+        title: "Health Check ups",
+        description:
+          "We provide complete care for your car, including expert advice, repairs, and preferred maintenance services.",
+        path: "/Health_Check_ups",
+      },
+    ],
+    []
+  );
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -64,40 +69,51 @@ export default function Services() {
 
   const [loading, setLoading] = useState(false);
 
-  const handleChange = (e) => {
+  const handleChange = useCallback((e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
-  };
+  }, []);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setLoading(true);
+  const handleSubmit = useCallback(
+    async (e) => {
+      e.preventDefault();
+      setLoading(true);
 
-    const { name, email, phone, message } = formData;
+      const { name, email, phone, message } = formData;
 
-    if (!name || !email || !phone || !message) {
-      toast.error("Please fill out all required fields.", { autoClose: 3000 });
-      setLoading(false);
-      return;
-    }
+      if (!name || !email || !phone || !message) {
+        toast.error("Please fill out all required fields.", {
+          autoClose: 3000,
+        });
+        setLoading(false);
+        return;
+      }
 
-    try {
-      await axios.post("https://solar-6.onrender.com/api/contact", {
-        name,
-        email,
-        phoneNo: phone,
-        message,
-      });
+      try {
+        await axios.post("https://solar-6.onrender.com/api/contact", {
+          name,
+          email,
+          phoneNo: phone,
+          message,
+        });
 
-      toast.success("Message sent successfully!", { autoClose: 3000 });
-      setFormData({ name: "", email: "", phone: "", subject: "", message: "" });
-    } catch (error) {
-      toast.error("Something went wrong. Try again.", { autoClose: 3000 });
-      console.error(error);
-    } finally {
-      setLoading(false);
-    }
-  };
+        toast.success("Message sent successfully!", { autoClose: 3000 });
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          subject: "",
+          message: "",
+        });
+      } catch (error) {
+        toast.error("Something went wrong. Try again.", { autoClose: 3000 });
+        console.error(error);
+      } finally {
+        setLoading(false);
+      }
+    },
+    [formData]
+  );
 
   return (
     <>
@@ -114,43 +130,44 @@ export default function Services() {
             {/* <span className="text-black">Our Green</span> Services */}
           </motion.h1>
 
-          <motion.div 
+          <motion.div
             className="relative w-full h-[500px] mt-10 rounded-lg shadow-2xl overflow-hidden group"
             initial={{ opacity: 0, y: 50, scale: 0.95 }}
-            animate={{ 
-              opacity: 1, 
+            animate={{
+              opacity: 1,
               y: 0,
               scale: 1,
-              transition: { 
+              transition: {
                 duration: 0.8,
-                ease: [0.2, 0.8, 0.2, 1]
-              }
+                ease: [0.2, 0.8, 0.2, 1],
+              },
             }}
             whileHover={{
               scale: 1.02,
-              transition: { 
+              transition: {
                 duration: 0.3,
-                ease: "easeOut"
-              }
+                ease: "easeOut",
+              },
             }}
             viewport={{ once: true }}
           >
-            <img 
-              src={localImage} 
-              alt="banner" 
+            <img
+              src={localImage}
+              alt="banner"
               className="w-full h-full object-cover opacity-80"
+              loading="lazy"
             />
             <div className="absolute inset-0 bg-black/80 flex items-center justify-center transition-opacity duration-300 group-hover:opacity-0">
-              <motion.h2 
+              <motion.h2
                 className="text-4xl md:text-6xl font-bold text-white text-center px-4"
                 initial={{ opacity: 0, y: 20 }}
-                animate={{ 
-                  opacity: 1, 
+                animate={{
+                  opacity: 1,
                   y: 0,
-                  transition: { 
+                  transition: {
                     delay: 0.3,
-                    duration: 0.6 
-                  }
+                    duration: 0.6,
+                  },
                 }}
               >
                 <span className="text-green-800">Our Green</span> Services

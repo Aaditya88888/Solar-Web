@@ -9,7 +9,12 @@ const SVGAccent = () => (
     viewBox="0 0 24 24"
     stroke="currentColor"
   >
-    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 6v6l4 2" />
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth={1.5}
+      d="M12 6v6l4 2"
+    />
   </svg>
 );
 
@@ -17,9 +22,8 @@ const SolarPortfolio = () => {
   const [active, setActive] = useState("All");
   const [visibleCount, setVisibleCount] = useState(3);
 
-  const filtered = active === "All"
-    ? projects
-    : projects.filter((p) => p.category === active);
+  const filtered =
+    active === "All" ? projects : projects.filter((p) => p.category === active);
 
   const visibleProjects = filtered.slice(0, visibleCount);
   const hasMore = filtered.length > visibleCount;
@@ -38,9 +42,11 @@ const SolarPortfolio = () => {
             key={cat}
             onClick={() => handleFilterChange(cat)}
             className={`flex items-center gap-2 px-4 py-2 rounded-full border transition duration-300 
-            ${active === cat
-              ? "bg-green-800 text-white"
-              : "bg-gray-100 hover:bg-blue-100 text-gray-700"}`}
+            ${
+              active === cat
+                ? "bg-green-800 text-white"
+                : "bg-gray-100 hover:bg-blue-100 text-gray-700"
+            }`}
           >
             <span className="text-sm font-medium">{cat}</span>
           </button>
@@ -61,11 +67,14 @@ const SolarPortfolio = () => {
               className="relative overflow-hidden rounded-2xl shadow-md border bg-white p-6 hover:shadow-xl"
             >
               <SVGAccent />
-              <img
-                src={project.image}
-                alt={project.title}
-                className="rounded-xl mb-4 w-full h-48 object-cover"
-              />
+              {/* Image wrapper for zoom effect */}
+              <div className="rounded-xl mb-4 w-full h-48 overflow-hidden">
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full h-full object-cover transition-transform duration-700 ease-in-out hover:scale-110"
+                />
+              </div>
               <div className="flex items-center justify-between mb-3">
                 <div className="text-blue-500">{iconMap[project.category]}</div>
                 <span className="text-xs bg-blue-50 text-blue-600 px-2 py-1 rounded-full">

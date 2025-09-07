@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useMemo, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { categories, projects, iconMap } from "./ProjectData";
 import Gallery from "./Gallery";
@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 import BlackWhiteGallery from "./BlackWhiteGallery";
 import InfiniteTiltSlider from "./InfiniteTiltSlider";
 import pictureImage from "../Images/pictureImage.webp";
+
 const SVGAccent = () => (
   <svg
     className="absolute top-2 right-2 w-16 h-16 text-gray-100 opacity-20"
@@ -27,19 +28,27 @@ const Projects = () => {
   const [active, setActive] = useState("All");
   const navigate = useNavigate();
 
-  // Split projects
-  const exhibitionProjects = projects.filter(
-    (p) => p.category === "Exhibitions and stalls"
+  // ✅ Memoized filtered projects
+  const exhibitionProjects = useMemo(
+    () => projects.filter((p) => p.category === "Exhibitions and stalls"),
+    []
   );
-  
-  const filtered =
-    active === "All"
-      ? projects
-      : projects.filter((p) => p.category === active);
 
-  const handleClick = (projectId) => {
-    navigate(`/projectdetails/${projectId}`);
-  };
+  const filtered = useMemo(
+    () =>
+      active === "All"
+        ? projects
+        : projects.filter((p) => p.category === active),
+    [active]
+  );
+
+  // ✅ Memoized callback for navigation
+  const handleClick = useCallback(
+    (projectId) => {
+      navigate(`/projectdetails/${projectId}`);
+    },
+    [navigate]
+  );
 
   return (
     <>
@@ -86,6 +95,7 @@ const Projects = () => {
                   src={project.image}
                   alt={project.title}
                   className="rounded-xl mb-4 w-full h-48 object-cover"
+                  loading="lazy" // ✅ Lazy loading
                 />
                 <div className="flex items-center justify-between mb-3">
                   <div className="text-blue-500">
@@ -126,6 +136,7 @@ const Projects = () => {
                   src={project.image}
                   alt={project.title}
                   className="rounded-xl mb-4 w-full h-48 object-cover"
+                  loading="lazy" // ✅ Lazy loading
                 />
                 <div className="flex items-center justify-between mb-3">
                   <div className="text-blue-500">{iconMap["All"]}</div>
@@ -151,11 +162,11 @@ const Projects = () => {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <img 
-            src={pictureImage} 
-            alt="Solar Panel Installation" 
+          <img
+            src={pictureImage}
+            alt="Solar Panel Installation"
             className="w-full h-64 object-cover rounded-xl shadow-md"
-            loading="lazy"
+            loading="lazy" // ✅ Lazy loading
           />
         </motion.div>
 
@@ -175,13 +186,13 @@ const Projects = () => {
           <motion.h1
             className="font-montserrat font-semibold text-4xl leading-tight text-gray-900 mb-4"
             animate={{
-              y: [0, -8, 0, 8, 0], // up & down bounce
-              scale: [1, 1.05, 1, 1.05, 1], // thoda zoom
-              rotate: [0, -1, 1, -1, 0], // halka sa dance/tilt
+              y: [0, -8, 0, 8, 0],
+              scale: [1, 1.05, 1, 1.05, 1],
+              rotate: [0, -1, 1, -1, 0],
             }}
             transition={{
-              duration: 3, // total cycle time
-              repeat: Infinity, // infinite loop
+              duration: 3,
+              repeat: Infinity,
               ease: "easeInOut",
             }}
           >
@@ -197,15 +208,13 @@ const Projects = () => {
           <motion.button
             whileTap={{ scale: 0.97 }}
             whileHover={{ scale: 1.03 }}
-            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
             className="bg-green-800 text-white text-sm font-normal rounded-full px-8 py-3 w-max hover:bg-green-700 transition"
           >
             View Our Projects
           </motion.button>
         </motion.div>
       </section>
-
-      {/* Exhibitions and Stalls Section */}
 
       {/* Gallery */}
       <section className="max-w-7xl mx-auto px-6 py-12 text-center bg-gray-50 rounded-xl shadow-sm my-10">

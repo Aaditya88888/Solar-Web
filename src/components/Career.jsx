@@ -8,6 +8,13 @@ const SafetySecurityReels = lazy(() => import("./SafetySecurityReels"));
 const ImageSlider = lazy(() => import("./ImageSlider"));
 const CareersAtDivySolar = lazy(() => import("./CareersAtDivySolar"));
 
+// LazyLoad wrapper
+const LazyLoadSection = ({ children, fallback }) => (
+  <Suspense fallback={<div className="text-center py-10">{fallback}</div>}>
+    {children}
+  </Suspense>
+);
+
 // Hero text animation
 const heroTextVariants = {
   hidden: { opacity: 0, y: -40 },
@@ -61,15 +68,15 @@ const Career = () => {
       </motion.div>
 
       <section>
-        <Suspense fallback={<div>Loading Careers...</div>}>
+        <LazyLoadSection fallback="Loading Careers...">
           <CareersAtDivySolar />
-        </Suspense>
+        </LazyLoadSection>
       </section>
 
       <section className="-mt-8">
-        <Suspense fallback={<div>Loading Form...</div>}>
+        <LazyLoadSection fallback="Loading Form...">
           <CareerForm />
-        </Suspense>
+        </LazyLoadSection>
       </section>
 
       {/* Internal Team Button */}
@@ -214,27 +221,27 @@ const Career = () => {
 
       {/* Reels Sections */}
       <section className="-mt-12">
-        <Suspense fallback={<div>Loading Work Culture...</div>}>
+        <LazyLoadSection fallback="Loading Work Culture...">
           <WorkCultureReels />
-        </Suspense>
+        </LazyLoadSection>
       </section>
 
       <section>
-        <Suspense fallback={<div>Loading Safety & Security...</div>}>
+        <LazyLoadSection fallback="Loading Safety & Security...">
           <SafetySecurityReels />
-        </Suspense>
+        </LazyLoadSection>
       </section>
 
       <section>
-        <Suspense fallback={<div>Loading Gallery...</div>}>
+        <LazyLoadSection fallback="Loading Gallery...">
           <ImageSlider />
-        </Suspense>
+        </LazyLoadSection>
       </section>
 
       <section className="mt-[130px]">
-        <Suspense fallback={<div>Loading Footer...</div>}>
+        <LazyLoadSection fallback="Loading Footer...">
           <Footer />
-        </Suspense>
+        </LazyLoadSection>
       </section>
     </div>
   );

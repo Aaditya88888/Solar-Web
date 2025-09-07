@@ -6,7 +6,8 @@ import sunImage from "../Images/didi.webp";
 import sunPhoto from "../Images/chacha.webp";
 import "./Home.css";
 import ImageWithOverlay from "./ImageWithOverlay";
-// Lazy load heavy components
+
+// Lazy imports
 const ScrollStackingCards = lazy(() => import("./ScrollStackingCards"));
 const HoverVideoCard2 = lazy(() => import("./HoverVideoCard2"));
 const HoverVideoCard3 = lazy(() => import("./HoverVideoCard3"));
@@ -16,6 +17,7 @@ const ChatUI4 = lazy(() => import("./ChatUI4"));
 const CompanySection = lazy(() => import("./CompanySection"));
 const FiguringOut = lazy(() => import("./FiguringOut"));
 const Footer = lazy(() => import("./Footer"));
+
 // Animation Variants
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
@@ -25,6 +27,13 @@ const fadeUp = {
     transition: { delay: i * 0.2, duration: 0.8, ease: "easeOut" },
   }),
 };
+
+// Lazy load wrapper
+const LazyLoadSection = ({ children }) => (
+  <Suspense fallback={<div className="text-center py-10">Loading...</div>}>
+    {children}
+  </Suspense>
+);
 
 // About content
 const aboutUsContent = [
@@ -103,42 +112,42 @@ export default function About() {
 
       {/* Chat UI */}
       <section className="mt-8 w-full">
-        <Suspense fallback={<div>Loading chat...</div>}>
+        <LazyLoadSection>
           <ChatUI4 />
-        </Suspense>
+        </LazyLoadSection>
       </section>
 
       {/* Scroll Stacking Cards */}
       <div className="-mt-[550px] 2xl:-mt-[700px] mb-24 w-full">
-        <Suspense fallback={<div>Loading content...</div>}>
+        <LazyLoadSection>
           <ScrollStackingCards content={aboutUsContent} />
-        </Suspense>
+        </LazyLoadSection>
       </div>
 
       {/* Company Section */}
       <section className="-mt-[290px] w-full">
-        <Suspense fallback={<div>Loading company section...</div>}>
+        <LazyLoadSection>
           <CompanySection />
-        </Suspense>
+        </LazyLoadSection>
       </section>
 
       {/* Videos & Process */}
       <section className="w-full">
-        <Suspense fallback={<div>Loading videos...</div>}>
+        <LazyLoadSection>
           <HoverVideoCard2 />
-        </Suspense>
+        </LazyLoadSection>
       </section>
 
       <section className="w-full">
-        <Suspense fallback={<div>Loading process steps...</div>}>
+        <LazyLoadSection>
           <ProcessSteps />
-        </Suspense>
+        </LazyLoadSection>
       </section>
 
       <section className="-mt-16 md:-mt-44 xl:-mt-64 2xl:-mt-96 lg:-mt-72 w-full">
-        <Suspense fallback={<div>Loading more videos...</div>}>
+        <LazyLoadSection>
           <HoverVideoCard3 />
-        </Suspense>
+        </LazyLoadSection>
       </section>
 
       {/* Why Choose Us */}
@@ -149,6 +158,7 @@ export default function About() {
               <img
                 src={sunPhoto}
                 alt="Chacha"
+                loading="lazy"
                 className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 object-contain"
               />
               <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-red-700 leading-snug">
@@ -158,6 +168,7 @@ export default function About() {
               <img
                 src={sunImage}
                 alt="Didi"
+                loading="lazy"
                 className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 object-contain"
               />
             </div>
@@ -205,21 +216,21 @@ export default function About() {
       </section>
 
       <section className="mt-30 w-full">
-        <Suspense fallback={<div>Loading figures...</div>}>
+        <LazyLoadSection>
           <FiguringOut />
-        </Suspense>
+        </LazyLoadSection>
       </section>
 
       <section className="mt-16 w-full">
-        <Suspense fallback={<div>Loading solar cards...</div>}>
+        <LazyLoadSection>
           <SolarCards />
-        </Suspense>
+        </LazyLoadSection>
       </section>
 
       <section className="-mt-24 min-w-full lg:min-w-[1300px] md:min-w-[1300px] xl:min-w-[1450px] 2xl:min-w-[1600px] w-full">
-        <Suspense fallback={<div>Loading footer...</div>}>
+        <LazyLoadSection>
           <Footer />
-        </Suspense>
+        </LazyLoadSection>
       </section>
     </div>
   );
