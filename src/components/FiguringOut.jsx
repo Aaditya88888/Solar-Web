@@ -55,17 +55,25 @@ const FiguringOut = () => {
 
   return (
     <section className="bg-white py-8 px-4 sm:px-6 lg:px-12 w-full">
-      <div className="max-w-[100%] mx-auto">
+      <div className="max-w-[1200px] mx-auto">
         <h2 className="text-center text-xl sm:text-2xl md:text-3xl font-bold mb-8 text-green-800">
           Figuring out with DIVY with Architects
         </h2>
 
-        {/* Horizontal scroll container */}
-        <div className="flex gap-4 overflow-x-auto py-2 scrollbar-hide px-2">
+        {/* Responsive container */}
+        <div
+          className="
+            flex gap-4 
+            overflow-x-auto sm:overflow-x-auto md:overflow-x-auto lg:overflow-visible
+            px-2 py-2
+            scrollbar-hide
+            sm:flex-nowrap lg:flex-wrap lg:justify-center
+          "
+        >
           {teamMembers.map((member, index) => (
             <div
               key={index}
-              className="bg-[#787878] shadow-md p-2 rounded-lg hover:shadow-xl hover:scale-105 transition-all duration-300 flex-shrink-0 w-[180px]"
+              className="bg-[#787878] shadow-md p-2 rounded-lg hover:shadow-xl hover:scale-105 transition-all duration-300 flex-shrink-0 w-[160px] sm:w-[180px]"
             >
               <div className="relative overflow-hidden rounded-lg">
                 <video

@@ -33,7 +33,7 @@ const ScrollStackingCards = ({ content }) => {
   }, []);
 
   return (
-    <div className="cards-container mt-20">
+    <div className="cards-container mt-20 space-y-12 md:space-y-16">
       {content.map((card, i) => {
         const isActive = i === activeIndex;
         const isInactive = i < activeIndex;
@@ -46,13 +46,25 @@ const ScrollStackingCards = ({ content }) => {
               isActive ? "active" : ""
             } ${isInactive ? "inactive" : ""}`}
           >
+            {/* Image */}
             <div className="image-container">
-              <img src={card.img} alt={card.alt} loading="lazy" />
+              <img
+                src={card.img}
+                alt={card.alt}
+                loading="lazy"
+                className="w-full h-64 md:h-80 lg:h-96 object-cover rounded-lg"
+              />
             </div>
+
+            {/* Text */}
             <div className="text-content">
-              <h3 className="About">{card.heading}</h3>
-              <h4 className="About text-[14px]">{card.subheading}</h4>
-              <ul>
+              <h3 className="About text-xl sm:text-2xl md:text-3xl font-bold mb-2">
+                {card.heading}
+              </h3>
+              <h4 className="About text-sm sm:text-base md:text-lg mb-4">
+                {card.subheading}
+              </h4>
+              <ul className="space-y-2">
                 {card.points.map((point, idx) => (
                   <AnimatedPoint key={idx} text={point} index={idx} />
                 ))}
@@ -103,9 +115,9 @@ const AnimatedPoint = ({ text, index }) => {
       whileHover={
         isDesktop
           ? {
-              scale: 1.1,
-              color: ["#ff4d4d", "#ffa64d", "#4dff88"],
-              transition: { duration: 1, repeat: Infinity },
+              scale: 1.05,
+              color: "#e63946", // ✅ Brand color (no RGB now)
+              transition: { duration: 0.3 },
             }
           : {}
       }

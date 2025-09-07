@@ -174,8 +174,8 @@ export default function About() {
             </div>
           </div>
 
-          <div className="text-gray-800 text-sm sm:text-base md:text-lg leading-relaxed space-y-4">
-            <p className="text-center sm:text-left">
+          <div className="text-gray-800 text-sm sm:text-base md:text-lg leading-relaxed space-y-4 text-left">
+            <p className="text-left">
               At <strong>Divy Power Pvt. Ltd.,</strong> we don't just install
               solar systems — we build{" "}
               <span className="text-green-600 font-semibold">
@@ -184,7 +184,7 @@ export default function About() {
               .
             </p>
 
-            <ul className="list-disc list-inside space-y-3 pl-4">
+            <ul className="list-disc space-y-3 pl-6">
               <li>
                 <strong>
                   Committed to quality, accountability, and long-term service.
@@ -227,7 +227,8 @@ export default function About() {
         </LazyLoadSection>
       </section>
 
-      <section className="-mt-24 min-w-full lg:min-w-[1300px] md:min-w-[1300px] xl:min-w-[1450px] 2xl:min-w-[1600px] w-full">
+      {/* Footer without extra bottom space */}
+      <section className="-mt-30 min-w-full lg:min-w-[1300px] md:min-w-[1300px] xl:min-w-[1450px] 2xl:min-w-[1600px] w-full mb-0 pb-0">
         <LazyLoadSection>
           <Footer />
         </LazyLoadSection>
