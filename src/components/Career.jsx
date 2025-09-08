@@ -53,9 +53,9 @@ const Career = () => {
         <motion.h1
           variants={heroTextVariants}
           animate={["visible", "float"]}
-          className="text-4xl font-extrabold text-gray-900 sm:text-5xl lg:text-6xl mb-4"
+          className="text-4xl font-bold text-gray-900 sm:text-5xl lg:text-6xl mb-4"
         >
-          Join Our Team
+          Join <span className="text-green-800">with us</span>
         </motion.h1>
         <motion.p
           variants={heroTextVariants}
@@ -238,7 +238,7 @@ const Career = () => {
         </LazyLoadSection>
       </section>
 
-      <section className="mt-[50px]">
+      <section className="mt-[450px] mb-[-50px]">
         <LazyLoadSection fallback="Loading Footer...">
           <Footer />
         </LazyLoadSection>

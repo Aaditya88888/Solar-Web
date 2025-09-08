@@ -3,7 +3,7 @@ const CareersAtDivySolar = () => {
     <div className="max-w-5xl mx-auto px-4 py-12 text-gray-800 font-inter">
       {/* Title */}
       <h1 className="text-3xl md:text-4xl font-bold text-brandBlue mb-4">
-        Careers at DIVY Solar
+        Career at DIVY Solar
       </h1>
 
       {/* Power Your Future */}
@@ -81,10 +81,10 @@ const CareersAtDivySolar = () => {
       <p className="text-base leading-relaxed text-justify mb-2">
         Send your resume to{" "}
         <a
-          href="mailto:careers@divypower.com"
+          href="mailto:career@divypower.com"
           className="text-brandBlue underline font-medium"
         >
-          careers@divypower.com
+          career@divypower.com
         </a>{" "}
         or fill out the form below.
       </p>
