@@ -1,5 +1,6 @@
 import Footer from "./Footer";
 import { motion } from "framer-motion";
+import RatingWorks2 from "./RatingWorks2";
 
 function Workwithus() {
   const teamMembers = [
@@ -45,7 +46,10 @@ function Workwithus() {
 
   return (
     <>
-      <section className="bg-gradient-to-br from-green-50 to-white py-40 GetFontSol">
+      <section className="bg-gradient-to-br from-green-50 to-white py-20 GetFontSol">
+        <div className="max-w-7xl mx-auto px-4">
+          <RatingWorks2 />
+        </div>
         <div className="max-w-7xl mx-auto px-4 text-center">
           <h1 className="text-4xl sm:text-5xl font-bold text-gray-800 mb-12 -mt-16">
             Work <span className=" text-green-800">with Us</span>
