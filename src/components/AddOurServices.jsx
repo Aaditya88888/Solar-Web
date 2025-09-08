@@ -27,7 +27,7 @@ const AddOurServices = () => {
           className="mt-4 text-3xl md:text-4xl font-bold text-gray-800 leading-tight"
         >
           Expand Your Business. {" "}
-          <span className="font-extrabold text-green-800">
+          <span className="font-bold text-green-800">
             Offer Solar Solutions with Divy Power
           </span>.
         </motion.h2>
