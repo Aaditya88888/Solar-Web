@@ -161,9 +161,8 @@ function Contact() {
         </motion.div>
       </div>
 
-      <div className="mt-10">
-        <Footer />
-      </div>
+      <section className="mt-[450px] mb-[-50px]">  <Footer />
+</section>
     </div>
   );
 }
