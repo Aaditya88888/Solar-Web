@@ -69,7 +69,7 @@ const FaqSection = () => {
   return (
     <section
       ref={ref}
-      className="bg-[#E50C0C] py-20 px-4 sm:px-8 lg:px-32 font-sans About "
+      className="bg-[#E50C0C] py-20 px-4 sm:px-8 lg:px-32 font-sans About -mt-[500px]"
     >
       {/* Header */}
       <motion.div

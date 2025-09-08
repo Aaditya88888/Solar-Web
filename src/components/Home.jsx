@@ -195,9 +195,8 @@ function Home() {
       {/* Footer */}
       <LazyLoadSection>
         <Suspense fallback={<div></div>}>
-          <section className="About">
+          <section className="About -mt-[340px]">
             {" "}
-            {/* Reduced gap from -mt-11 to -mt-2 */}
             <Footer />
           </section>
         </Suspense>
