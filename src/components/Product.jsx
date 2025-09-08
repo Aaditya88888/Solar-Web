@@ -96,14 +96,14 @@ function Product() {
     <div className="flex flex-col min-h-screen">
       {/* Page Content */}
       <div className="flex-1">
-        <section className="py-3 text-center bg-gradient-to-br from-white to-gray-100 GetFontSol max-w-7xl mx-auto px-4 md:px-6">
+        <section className="py-3 pt-10 text-center bg-gradient-to-br from-white to-gray-100 GetFontSol max-w-7xl mx-auto px-4 md:px-6">
           <motion.h1
-            className="text-4xl font-bold text-black mb-12"
+            className="text-5xl font-bold text-black mb-2"
             initial={{ opacity: 0, y: -30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            Our <span className="text-green-800">Products</span>
+            Our <span className="text-green-800 text-5xl">Products</span>
           </motion.h1>
 
           {/* Solar Solutions */}
