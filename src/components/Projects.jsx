@@ -209,7 +209,8 @@ const Projects = () => {
       </section>
 
       {/* Footer */}
-      <Footer />
+      <section className="mt-[450px] mb-[-10px]">  <Footer />
+      </section>
     </>
   );
 };
