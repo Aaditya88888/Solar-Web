@@ -96,7 +96,7 @@ function Product() {
     <div className="flex flex-col min-h-screen">
       {/* Page Content */}
       <div className="flex-1">
-        <section className="py-20 text-center bg-gradient-to-br from-white to-gray-100 GetFontSol max-w-7xl mx-auto px-4 md:px-6">
+        <section className="py-3 text-center bg-gradient-to-br from-white to-gray-100 GetFontSol max-w-7xl mx-auto px-4 md:px-6">
           <motion.h1
             className="text-4xl font-bold text-black mb-12"
             initial={{ opacity: 0, y: -30 }}

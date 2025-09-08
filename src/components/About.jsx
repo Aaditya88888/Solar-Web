@@ -106,7 +106,7 @@ const aboutUsContent = [
 
 export default function About() {
   return (
-    <div className="bg-white text-black px-6 md:px-12 lg:px-20 xl:px-32 py-12 flex flex-col items-center mt-12 About">
+    <div className="bg-white text-black flex flex-col items-center mt-0 About">
       {/* Banner Image */}
       <ImageWithOverlay />
 

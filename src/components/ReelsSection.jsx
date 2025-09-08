@@ -3,6 +3,7 @@ import outdoor from "../Images/outdoor.webp";
 import solarLight from "../Images/solarLight.webp";
 import sustainable from "../Images/sustainable.webp";
 import solarRooftop from "../Images/solarRooftop.webp";
+import { Link } from "react-router-dom";
 
 const reelsData = [
   {
@@ -77,12 +78,12 @@ const ReelsSection = () => {
               Discover Inspiring <br />
               Solars Innovations <br /> Reels
             </h1>
-            <a
-              href="#"
-              className="inline-flex items-center gap-2 text-sm font-semibold hover:underline"
-            >
-              More About Us <i className="fas fa-arrow-right" />
-            </a>
+            <p className="inline-flex items-center gap-2 text-sm font-semibold hover:underline">
+              <Link to="/about">
+                {" "}
+                More About Us <i className="fas fa-arrow-right" />
+              </Link>
+            </p>
           </div>
 
           {/* Right Reels Grid */}
