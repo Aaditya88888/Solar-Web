@@ -144,7 +144,8 @@ const Earthing = () => {
           </aside>
         </div>
       </div>
-      <Footer />
+      <section className="mt-[450px] mb-[-30px]">  <Footer />
+      </section>
     </>
   );
 };

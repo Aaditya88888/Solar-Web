@@ -310,7 +310,8 @@ function Product() {
       </div>
 
       {/* Footer */}
-      <Footer />
+      <section className="mt-[450px] mb-[-50px]">  <Footer />
+</section>
     </div>
   );
 }

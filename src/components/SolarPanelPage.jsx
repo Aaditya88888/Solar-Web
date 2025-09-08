@@ -231,7 +231,8 @@ Ground Mount or Utility Scale solar systems are large-scale installations set up
           </aside>
         </div>
       </div>
-      <Footer />
+      <section className="mt-[450px] mb-[-50px]">  <Footer />
+</section>
     </>
   );
 }

@@ -160,7 +160,8 @@ const MicroInverter = () => {
           </aside>
         </div>
       </div>
-      <Footer />
+      <section className="mt-[450px] mb-[-50px]">  <Footer />
+      </section>
     </>
   );
 };
