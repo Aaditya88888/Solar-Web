@@ -116,7 +116,7 @@ const AddOurServices = () => {
         <motion.button 
           whileHover={{ scale: 1.03 }}
           whileTap={{ scale: 0.97 }}
-          className="bg-green-700 text-white px-10 py-4 rounded-full text-xl font-semibold hover:bg-green-800 transition"
+          className="bg-green-700 text-white mb-20 px-10 py-4 rounded-full text-xl font-semibold hover:bg-green-800 transition"
         >
           Add Solar to Your Business Today
         </motion.button>
@@ -124,7 +124,9 @@ const AddOurServices = () => {
       </section>
 
       {/* Footer */}
-      <Footer />
+      <section className=" mt-80">
+          <Footer />
+        </section>
     </div>
   );
 };
