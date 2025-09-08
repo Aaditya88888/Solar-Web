@@ -20,7 +20,7 @@ const reelsData = [
   },
   {
     id: 3,
-    title: "Modern Minimalist Design",
+    title: "Ground Mount/Utility Scale Service",
     desc: "Clean lines and functional spaces designed for simplicity.",
     img: "https://images.unsplash.com/photo-1558449028-b53a39d100fc?w=800&auto=format&fit=crop&q=60",
   },
@@ -76,7 +76,7 @@ const ReelsSection = () => {
           <div className="text-white max-w-md space-y-5">
             <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold leading-tight GetFontSol">
               Discover Inspiring <br />
-              Solars Innovations <br /> Reels
+              Solar Innovations
             </h1>
             <p className="inline-flex items-center gap-2 text-sm font-semibold hover:underline">
               <Link to="/about">
@@ -105,10 +105,10 @@ const ReelsSection = () => {
                     </h3>
                     <p className="text-sm text-gray-600 mb-4">{desc}</p>
                   </div>
-                  <button className="bg-[#f59e0b] text-black font-semibold rounded-full px-5 py-2 inline-flex items-center justify-center gap-2 hover:bg-yellow-500 transition">
+                  <Link to="/contact" className="bg-[#f59e0b] text-black font-semibold rounded-full px-5 py-2 inline-flex items-center justify-center gap-2 hover:bg-yellow-500 transition">
                     <span>Get Quote</span>
                     <i className="fas fa-arrow-right" />
-                  </button>
+                  </Link>
                 </div>
               </div>
             ))}

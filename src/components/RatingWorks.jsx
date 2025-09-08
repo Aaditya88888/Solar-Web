@@ -71,8 +71,7 @@ const RatingWorks = () => {
 
   return (
     <section
-      style={{ transform: "translateY(-230px)" }}
-      className="GetFontSol relative bg-[#0c2340] rounded-[40px_0_40px_0] max-w-[1200px] mx-auto mt-10 px-4 sm:px-6 md:px-12 py-12 md:py-16 overflow-hidden text-white"
+      className="GetFontSol relative bg-[#0c2340] rounded-[40px_0_40px_0] max-w-[1200px] mx-auto my-16 px-4 sm:px-6 md:px-12 py-12 md:py-16 overflow-hidden text-white"
     >
       {/* Background */}
       <img
@@ -137,7 +136,7 @@ const RatingWorks = () => {
         <button
           aria-label="Previous testimonial"
           onClick={() => scroll("left")}
-          className="w-10 h-10 rounded-md bg-[#0c2340]/50 flex items-center justify-center text-white"
+          className="w-10 h-10 rounded-md bg-[#5bc1c9] flex items-center justify-center text-white"
         >
           <i className="fas fa-chevron-left"></i>
         </button>
@@ -155,7 +154,7 @@ const RatingWorks = () => {
         <button
           aria-label="Previous testimonial"
           onClick={() => scroll("left")}
-          className="w-10 h-10 rounded-md bg-[#0c2340]/50 flex items-center justify-center text-white"
+          className="w-10 h-10 rounded-md bg-[#5bc1c9] flex items-center justify-center text-white"
         >
           <i className="fas fa-chevron-left"></i>
         </button>

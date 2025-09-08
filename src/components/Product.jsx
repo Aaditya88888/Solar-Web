@@ -6,7 +6,7 @@ import Micro from "../Images/Micro.webp";
 import SolarP from "../Images/SolarP.webp";
 import LL1 from "../Images/LL1.webp";
 import LA from "../Images/LA.webp";
-import LL2 from "../Images/LL2.webp";
+import biodiesal from "../Images/biodiesal.webp";
 import LL3 from "../Images/LL3.webp";
 import LL4 from "../Images/LL4.webp";
 import LL5 from "../Images/LL5.webp";
@@ -87,7 +87,7 @@ function Product() {
       description: "Coming Soon",
       image: LL1,
     },
-    { title: "Bio Diesel", description: "Coming Soon", image: LL2 },
+    { title: "Bio Diesel", description: "Coming Soon", image: biodiesal },
     { title: "EV Charging", description: "Coming Soon", image: Ev },
     { title: "Home Automation", description: "Coming Soon", image: LL4 },
   ];

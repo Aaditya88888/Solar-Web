@@ -163,23 +163,25 @@ function Home() {
         {/* Other Sections (lazy-loaded) */}
         <LazyLoadSection>
           <Suspense fallback={<div></div>}>
-            <section className="mt-20 sm:mt-28 md:mt-36 About1 px-4 sm:px-6 lg:px-12">
+            <section className="mt-20 sm:mt-28 md:mt-36 px-4 sm:px-6 lg:px-12">
               <FiguringOut1 />
             </section>
-            <section className="mt-10 sm:mt-12 md:mt-16 About1 px-4 sm:px-6 lg:px-12">
+            <section className="mt-10 sm:mt-12 md:mt-16 px-4 sm:px-6 lg:px-12">
               <ExactMatchPage1 />
             </section>
-            <section className="-mt-40 sm:-mt-60 md:-mt-72 lg:-mt-96 px-4 sm:px-6 lg:px-12">
-              <RatingWorks />
-            </section>
+            <div className="relative z-10">
+              <div className="h-24 sm:h-32 md:h-40 lg:h-48"></div>
+              <section className="px-4 sm:px-6 lg:px-12 -mt-24 sm:-mt-32 md:-mt-40 lg:-mt-48">
+                <RatingWorks />
+              </section>
+            </div>
           </Suspense>
         </LazyLoadSection>
       </div>
 
       <LazyLoadSection>
         <section
-          style={{ transform: "translateY(-300px)" }}
-          className="bg-[#f8f7f0] About1 mt-96 md:mt-96 lg:mt-96 xl:mt-96 2xl:mt-[430px]"
+          className="bg-[#f8f7f0] relative z-0 pt-24 sm:pt-32 md:pt-40 lg:pt-48"
         >
           <Suspense fallback={<div></div>}>
             <SolarPortfolio />
