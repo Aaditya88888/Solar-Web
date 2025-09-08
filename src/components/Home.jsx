@@ -175,15 +175,10 @@ function Home() {
         </LazyLoadSection>
       </div>
 
-      {/* ✅ Updated section: Removed extra gap between FAQ and Footer */}
       <LazyLoadSection>
         <section
-<<<<<<< HEAD
-          className="bg-[#f8f7f0] relative z-0 pt-24 sm:pt-32 md:pt-40 lg:pt-48"
-=======
           style={{ transform: "translateY(-300px)" }}
-          className="bg-[#f8f7f0] About1" // Removed all mt classes here
->>>>>>> 9a385d83daf0df02695ca73e75538961e2144501
+          className="bg-[#f8f7f0] relative z-0"
         >
           <Suspense fallback={<div></div>}>
             <SolarPortfolio />

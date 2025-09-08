@@ -71,13 +71,8 @@ const RatingWorks = () => {
 
   return (
     <section
-<<<<<<< HEAD
-      className="GetFontSol relative bg-[#0c2340] rounded-[40px_0_40px_0] max-w-[1200px] mx-auto my-16 px-4 sm:px-6 md:px-12 py-12 md:py-16 overflow-hidden text-white"
-=======
-      className={`GetFontSol relative bg-[#0c2340] rounded-[40px_0_40px_0] max-w-[1200px] mx-auto mt-10 px-4 sm:px-6 md:px-12 py-12 md:py-16 overflow-hidden text-white
-    transform -translate-y-[300px] md:-translate-y-[220px] transition-transform duration-300
-  `}
->>>>>>> 9a385d83daf0df02695ca73e75538961e2144501
+      style={{ transform: "translateY(-230px)" }}
+      className="GetFontSol relative bg-[#0c2340] rounded-[40px_0_40px_0] max-w-[1200px] mx-auto mt-10 px-4 sm:px-6 md:px-12 py-12 md:py-16 overflow-hidden text-white"
     >
       {/* Background */}
       <img
@@ -137,11 +132,12 @@ const RatingWorks = () => {
       </div>
 
       {/* Navigation Arrows */}
+      {/* Desktop/Tablet absolute controls */}
       <div className="hidden md:flex absolute top-8 right-8 space-x-3 z-20">
         <button
           aria-label="Previous testimonial"
           onClick={() => scroll("left")}
-          className="w-10 h-10 rounded-md bg-[#5bc1c9] flex items-center justify-center text-white"
+          className="w-10 h-10 rounded-md bg-[#0c2340]/50 flex items-center justify-center text-white"
         >
           <i className="fas fa-chevron-left"></i>
         </button>
@@ -154,12 +150,12 @@ const RatingWorks = () => {
         </button>
       </div>
 
-      {/* Mobile inline controls */}
+      {/* Mobile inline controls below carousel to avoid overlap */}
       <div className="md:hidden relative z-10 mt-4 flex justify-center space-x-3">
         <button
           aria-label="Previous testimonial"
           onClick={() => scroll("left")}
-          className="w-10 h-10 rounded-md bg-[#5bc1c9] flex items-center justify-center text-white"
+          className="w-10 h-10 rounded-md bg-[#0c2340]/50 flex items-center justify-center text-white"
         >
           <i className="fas fa-chevron-left"></i>
         </button>
