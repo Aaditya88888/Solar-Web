@@ -54,13 +54,14 @@ const ContactForm = () => {
 
   return (
     <main
-      className="bg-gray-900 px-4 sm:px-8 md:px-16 py-20 -mt-16 About max-h-auto"
+      className="bg-gray-900 py-20 -mt-16 About max-h-auto w-screen"
       style={{ transform: "translateY(-100px)" }}
     >
       <ToastContainer position="top-right" autoClose={3000} />
 
       {/* Heading */}
-      <div className="text-center max-w-4xl mx-auto mb-12 -mt-[50px] px-4">
+      <div className="text-center max-w-4xl mx-auto mb-12 -mt-[50px] px-4 w-full">
+        {" "}
         <h2 className="text-xl md:text-3xl About text-white leading-snug About1">
           Bijli ka bill bhejiye and Solar Chacha se jaaniye <br />
           apne rooftop ke liye Best Solar Solution
@@ -68,7 +69,9 @@ const ContactForm = () => {
       </div>
 
       {/* Main Container */}
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12 px-4">
+      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12 px-4 w-full">
+        {" "}
+        {/* ✅ Added w-full */}
         {/* Form Section */}
         <form
           onSubmit={handelSubmit}
@@ -137,7 +140,6 @@ const ContactForm = () => {
             <i className="fas fa-arrow-right"></i>
           </button>
         </form>
-
         {/* Contact Info Section */}
         <section className="w-full md:w-1/2 flex flex-col justify-start items-center md:items-start gap-6 text-center md:text-left">
           <div className="flex flex-col gap-4 text-lg text-white">

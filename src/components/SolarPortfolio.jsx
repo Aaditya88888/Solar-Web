@@ -34,7 +34,10 @@ const SolarPortfolio = () => {
   };
 
   return (
-    <section className="min-h-screen px-4 py-10 bg-gradient-to-br from-white to-gray-100 shadow-lg GetFontSol md:px-12 lg:px-20 xl:px-32 2xl:px-52 -mt-[200px]">
+    <section
+      className="pb-8 px-4 py-10 bg-gradient-to-br from-white to-gray-100 shadow-lg GetFontSol md:px-12 lg:px-20 xl:px-32 2xl:px-52 
+      mt-[100px]" // ✅ Changed from -mt-[200px] to mt-[100px] to move component down
+    >
       {/* Filter Buttons */}
       <div className="flex flex-wrap justify-center gap-4 mb-10">
         {categories.map((cat) => (
@@ -52,9 +55,8 @@ const SolarPortfolio = () => {
           </button>
         ))}
       </div>
-
       {/* Cards */}
-      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 px-4 py-28">
+      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 px-4 py-10">
         <AnimatePresence>
           {visibleProjects.map((project) => (
             <motion.div
@@ -91,7 +93,6 @@ const SolarPortfolio = () => {
           ))}
         </AnimatePresence>
       </div>
-
       {/* See More Button */}
       {hasMore && (
         <div className="flex justify-center mt-10">

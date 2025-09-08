@@ -59,7 +59,7 @@ function Home() {
   };
 
   return (
-    <div className="relative max-w-full mx-auto overflow-x-hidden">
+    <div className="relative max-w-full mx-auto overflow-x-hidden pb-0">
       {/* ChatbotToggle stays here */}
       <Suspense fallback={<div></div>}>
         <ChatbotToggle />
@@ -120,7 +120,7 @@ function Home() {
         {/* Contact Form (lazy-loaded) */}
         <LazyLoadSection>
           <Suspense fallback={<div></div>}>
-            <section className="mt-20 About1 px-4 sm:px-6 lg:px-12">
+            <section className="mt-20 About1 ">
               <ContactForm />
             </section>
           </Suspense>
@@ -152,12 +152,8 @@ function Home() {
         </LazyLoadSection>
 
         {/* Floating Image (still small, no need lazy) */}
-        <section className="mt-10 animate-float flex justify-center px-4">
-          <img
-            src={DivyRedesign}
-            alt="Design"
-            className="w-full max-w-xs sm:max-w-md md:max-w-lg lg:max-w-xl"
-          />
+        <section className="mt-10 animate-float">
+          <img src={DivyRedesign} alt="Design" />
         </section>
 
         {/* Other Sections (lazy-loaded) */}
@@ -176,25 +172,30 @@ function Home() {
         </LazyLoadSection>
       </div>
 
+      {/* ✅ Updated section: Removed extra gap between FAQ and Footer */}
       <LazyLoadSection>
         <section
           style={{ transform: "translateY(-300px)" }}
-          className="bg-[#f8f7f0] About1 mt-96 md:mt-96 lg:mt-96 xl:mt-96 2xl:mt-[430px]"
+          className="bg-[#f8f7f0] About1" // Removed all mt classes here
         >
           <Suspense fallback={<div></div>}>
             <SolarPortfolio />
             <HoverVideoCard1 />
-            <section className="About1 mt-20 2xl:mt-60">
+            <section className="About1 mt-15">
+              {" "}
+              {/* Reduced margin-top from mt-20/2xl:mt-60 to mt-8 */}
               <FaqSection />
             </section>
           </Suspense>
         </section>
       </LazyLoadSection>
 
-      {/* Footer (lazy-loaded) */}
+      {/* Footer */}
       <LazyLoadSection>
         <Suspense fallback={<div></div>}>
-          <section className=" About -mt-11">
+          <section className="About">
+            {" "}
+            {/* Reduced gap from -mt-11 to -mt-2 */}
             <Footer />
           </section>
         </Suspense>

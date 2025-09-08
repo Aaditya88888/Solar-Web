@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import React, { useState, useRef } from "react";
 import { motion, AnimatePresence, useInView } from "framer-motion";
 import { Plus, Minus } from "lucide-react";
 
@@ -69,7 +69,7 @@ const FaqSection = () => {
   return (
     <section
       ref={ref}
-      className="bg-[#E50C0C] py-20 px-4 sm:px-8 lg:px-32 font-sans -mt-16 md:-mt-20 lg:-mt-16 xl:-mt-16 2xl:-mt-[230px] About"
+      className="bg-[#E50C0C] py-20 px-4 sm:px-8 lg:px-32 font-sans About "
     >
       {/* Header */}
       <motion.div
