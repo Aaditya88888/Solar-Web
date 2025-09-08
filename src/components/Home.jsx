@@ -179,7 +179,6 @@ function Home() {
           className="bg-[#f8f7f0] relative z-0"
         >
           <Suspense fallback={<div></div>}>
-            <SolarPortfolio />
             <HoverVideoCard1 />
             <section className="About1 mt-15">
               {" "}

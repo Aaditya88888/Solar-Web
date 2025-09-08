@@ -95,14 +95,16 @@ const SolarSolutions = () => {
           initial={{ scale: 0.85, opacity: 0 }}
           whileInView={{ scale: 1, opacity: 1 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
-          whileHover={{ scale: 1.05, rotate: 2, transition: { duration: 0.4 } }}
+          whileHover={{ scale: 1.05, rotate: 0, transition: { duration: 0.4 } }}
         >
-          <img
-            src={Sol}
-            alt="Solar energy panel"
-            className="w-full max-w-[400px] sm:max-w-[450px] md:max-w-[500px] rounded-lg shadow-xl object-cover"
-            loading="lazy"
-          />
+          <div className="overflow-hidden rounded-lg shadow-xl">
+            <img
+              src={Sol}
+              alt="Solar energy panel"
+              className="w-full max-w-[400px] sm:max-w-[450px] md:max-w-[500px] object-cover transition-transform duration-700 ease-in-out hover:scale-110"
+              loading="lazy"
+            />
+          </div>
         </motion.div>
 
         {/* Right Content */}
