@@ -120,7 +120,7 @@ export default function Services() {
       <ToastContainer />
       <main className="bg-white">
         {/* HERO */}
-        <section className="max-w-9xl mx-auto px-4 sm:px-6 lg:px-1 pt-24 pb-12">
+        <section className="max-w-9xl mx-auto px-4 sm:px-6 lg:px-1  pt-10 pb-12">
           <motion.h1
             className="text-2xl sm:text-4xl md:text-5xl About1 -mt-16 text-green-800 text-center leading-tight"
             initial={{ opacity: 0, y: -30 }}
@@ -131,7 +131,7 @@ export default function Services() {
           </motion.h1>
 
           <motion.div
-            className="relative w-full h-[500px] mt-10 rounded-lg shadow-2xl overflow-hidden group"
+            className="relative w-full h-[520px] mt-10 rounded-lg shadow-2xl overflow-hidden group"
             initial={{ opacity: 0, y: 50, scale: 0.95 }}
             animate={{
               opacity: 1,

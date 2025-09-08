@@ -28,33 +28,20 @@ const Projects = () => {
   const [active, setActive] = useState("All");
   const navigate = useNavigate();
 
-  // ✅ Memoized filtered projects
-  const exhibitionProjects = useMemo(
-    () => projects.filter((p) => p.category === "Exhibitions and stalls"),
-    []
-  );
+  const exhibitionProjects = projects.filter(p => p.category === "Exhibitions and stalls");
+  const filtered = active === "All"
+    ? projects.filter(p => p.category !== "Exhibitions and stalls")
+    : projects.filter(p => p.category === active);
 
-  const filtered = useMemo(
-    () =>
-      active === "All"
-        ? projects
-        : projects.filter((p) => p.category === active),
-    [active]
-  );
-
-  // ✅ Memoized callback for navigation
-  const handleClick = useCallback(
-    (projectId) => {
-      navigate(`/projectdetails/${projectId}`);
-    },
-    [navigate]
-  );
+  const handleClick = () => {
+    navigate("/ProjectDetails");
+  };
 
   return (
     <>
       {/* Projects Listing */}
       <section className="min-h-screen px-4 py-10 bg-gradient-to-br from-white to-gray-100 shadow-lg GetFontSol md:px-12 lg:px-20 xl:px-32 2xl:px-52">
-        <h1 className="text-4xl font-bold text-center mt-14 text-green-800 mb-10">
+        <h1 className="text-5xl font-bold text-center pt-4 text-green-800 mb-10">
           <span className="text-black">Our </span>Projects
         </h1>
 
@@ -76,10 +63,12 @@ const Projects = () => {
           ))}
         </div>
 
-        {/* Main Projects Grid */}
+
+
+{/* Main Projects Grid */}
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 px-4">
           <AnimatePresence>
-            {filtered.map((project) => (
+            {filtered.map(project => (
               <motion.div
                 key={project.id}
                 layout
@@ -87,27 +76,23 @@ const Projects = () => {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.9 }}
                 transition={{ duration: 0.3 }}
-                className="relative overflow-hidden rounded-2xl shadow-md border bg-white p-6 hover:shadow-xl cursor-pointer"
-                onClick={() => handleClick(project.id)}
+                className="relative overflow-hidden rounded-2xl shadow-md border bg-white p-6 hover:shadow-xl"
               >
                 <SVGAccent />
                 <img
                   src={project.image}
                   alt={project.title}
+                  loading="lazy"
+                  decoding="async"
                   className="rounded-xl mb-4 w-full h-48 object-cover"
-                  loading="lazy" // ✅ Lazy loading
                 />
                 <div className="flex items-center justify-between mb-3">
-                  <div className="text-blue-500">
-                    {iconMap[project.category]}
-                  </div>
+                  <div className="text-blue-500">{iconMap[project.category]}</div>
                   <span className="text-xs bg-blue-50 text-blue-600 px-2 py-1 rounded-full">
                     {project.category}
                   </span>
                 </div>
-                <h2 className="text-lg font-semibold text-gray-800 mb-2">
-                  {project.title}
-                </h2>
+                <h2 className="text-lg font-semibold text-gray-800 mb-2">{project.title}</h2>
               </motion.div>
             ))}
           </AnimatePresence>
@@ -120,7 +105,7 @@ const Projects = () => {
         </h2>
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 px-4">
           <AnimatePresence>
-            {exhibitionProjects.map((project) => (
+            {exhibitionProjects.map(project => (
               <motion.div
                 key={project.id}
                 layout
@@ -128,15 +113,13 @@ const Projects = () => {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.9 }}
                 transition={{ duration: 0.3 }}
-                className="relative overflow-hidden rounded-2xl shadow-md border bg-white p-6 hover:shadow-xl cursor-pointer"
-                onClick={() => handleClick(project.id)}
+                className="relative overflow-hidden rounded-2xl shadow-md border bg-white p-6 hover:shadow-xl"
               >
                 <SVGAccent />
                 <img
                   src={project.image}
                   alt={project.title}
                   className="rounded-xl mb-4 w-full h-48 object-cover"
-                  loading="lazy" // ✅ Lazy loading
                 />
                 <div className="flex items-center justify-between mb-3">
                   <div className="text-blue-500">{iconMap["All"]}</div>
@@ -144,9 +127,7 @@ const Projects = () => {
                     {project.category}
                   </span>
                 </div>
-                <h2 className="text-lg font-semibold text-gray-800 mb-2">
-                  {project.title}
-                </h2>
+                <h2 className="text-lg font-semibold text-gray-800 mb-2">{project.title}</h2>
               </motion.div>
             ))}
           </AnimatePresence>

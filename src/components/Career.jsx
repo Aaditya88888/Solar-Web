@@ -238,7 +238,7 @@ const Career = () => {
         </LazyLoadSection>
       </section>
 
-      <section className="mt-[130px]">
+      <section className="mt-[50px]">
         <LazyLoadSection fallback="Loading Footer...">
           <Footer />
         </LazyLoadSection>
