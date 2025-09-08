@@ -49,7 +49,7 @@ const ChatUI1 = () => {
   }, [currentIndex]);
 
   return (
-    <div className="min-h-screen bg-white p-6">
+    <div className="relative -top-[120px] sm:top-0 min-h-screen bg-white p-6">
       <div className="flex flex-col gap-6 max-w-4xl mx-auto w-full">
         {/* Chat Section */}
         <div className="bg-gray-100 rounded-2xl p-4 space-y-2 wp hidden">
