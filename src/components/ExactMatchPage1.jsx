@@ -11,7 +11,7 @@ const logos = [L1, L2, L3, L4, L5, L6, L7, L8];
 
 export default function ExactMatchPage1() {
   return (
-    <div className="min-h-screen About1 mt-[100px] sm:mt-0 translate-y-[-150px]">
+    <div className="min-h-screen About1 mt-[100px] sm:mt-0 translate-y-[-150px] lg:-mt-[50px]">
       {/* Heading */}
       <h2 className="lg:text-[30px] xl:text-[30px] 2xl:text-[30px] text-2xl font-bold text-center pt-10 text-green-800 mb-10">
         Our Clients

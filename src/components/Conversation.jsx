@@ -1,8 +1,7 @@
-import { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState } from "react";
 import MessageBubble from "./MessageBubble";
 import solarChachaImg from "../Images/chacha.webp";
 import roshniDidiImg from "../Images/didi.webp";
-import "./Home.css";
 import "./Home.css";
 
 const conversationData = [
@@ -22,51 +21,24 @@ const Conversation = () => {
   const [messages, setMessages] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isTyping, setIsTyping] = useState(false);
-  const scrollRef = useRef();
 
   useEffect(() => {
-    const timer = setTimeout(() => {
+    if (currentIndex < conversationData.length) {
       setIsTyping(true);
 
       const typingTimeout = setTimeout(() => {
         setIsTyping(false);
-
-        // Add message to display
         setMessages((prev) => [...prev, conversationData[currentIndex]]);
-        // Move to next message
-        if (currentIndex < conversationData.length - 1) {
-          setCurrentIndex(currentIndex + 1);
-        } else {
-          // Restart animation after last message
-          setTimeout(() => {
-            setMessages([]);
-            setCurrentIndex(0);
-          }, 2000);
-        }
-      }, 1800);
+        setCurrentIndex((prev) => prev + 1);
+      }, 1800); // Typing duration before showing the message
 
       return () => clearTimeout(typingTimeout);
-    }, 500);
-
-    return () => clearTimeout(timer);
+    }
   }, [currentIndex]);
 
-  useEffect(() => {
-    if (scrollRef.current) {
-      scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
-    }
-  }, [messages, isTyping]);
-
   return (
-    <div className="min-h-screen bg-white flex flex-col items-center p-6">
-      <div
-        ref={scrollRef}
-        className="wp w-full max-w-[95%] sm:max-w-xl md:max-w-2xl 
-                   bg-[#075e44] rounded-2xl px-4 py-4 sm:px-6 sm:py-6 
-                   space-y-4 shadow-lg 
-                   overflow-y-auto"
-        style={{ minHeight: "200px", maxHeight: "70vh" }} // grows only downwards
-      >
+    <div className="min-h-screen  bg-white flex flex-col items-center p-6">
+      <div className="wp w-full max-w-3xl bg-[#075e44] rounded-2xl p-4 space-y-3 overflow-y-auto  shadow-lg">
         {messages.map((msg, i) => (
           <MessageBubble
             key={i}

@@ -58,7 +58,7 @@ const SolarCostCalculator = () => {
 
   return (
     <motion.div
-      className="bg-[#F8F7F0] GetFontSol px-4 sm:px-6 md:px-10 lg:px-16 py-8 sm:py-10"
+      className="bg-[#F8F7F0] GetFontSol px-4 sm:px-6 md:px-10 lg:px-16 py-8 sm:py-10 lg:mt-[210px]"
       initial="hidden"
       whileInView="show"
       viewport={{ once: true, amount: 0.3 }}
