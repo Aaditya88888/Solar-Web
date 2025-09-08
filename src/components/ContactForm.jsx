@@ -71,8 +71,6 @@ const ContactForm = () => {
       {/* Main Container */}
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12 px-4 w-full">
         {" "}
-        {/* ✅ Added w-full */}
-        {/* Form Section */}
         <form
           onSubmit={handelSubmit}
           className="bg-white w-full md:w-2/3 lg:w-1/2 rounded-2xl p-6 sm:p-8 flex flex-col gap-5 shadow"

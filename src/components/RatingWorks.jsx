@@ -72,8 +72,8 @@ const RatingWorks = () => {
   return (
     <section
       className={`GetFontSol relative bg-[#0c2340] rounded-[40px_0_40px_0] max-w-[1200px] mx-auto mt-10 px-4 sm:px-6 md:px-12 py-12 md:py-16 overflow-hidden text-white
-        transform md:-translate-y-[220px] transition-transform duration-300
-      `}
+    transform -translate-y-[300px] md:-translate-y-[220px] transition-transform duration-300
+  `}
     >
       {/* Background */}
       <img
