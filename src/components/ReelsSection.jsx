@@ -21,7 +21,7 @@ const reelsData = [
   {
     id: 3,
     title: "Ground Mount/Utility Scale Service",
-    desc: "Clean lines and functional spaces designed for simplicity.",
+    desc: "large-scale installations set up on open land to generate significant amounts of renewable energy.",
     img: "https://images.unsplash.com/photo-1558449028-b53a39d100fc?w=800&auto=format&fit=crop&q=60",
   },
   {
