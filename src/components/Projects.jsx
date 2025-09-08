@@ -209,7 +209,7 @@ const Projects = () => {
       </section>
 
       {/* Footer */}
-      <section className="mt-[450px] mb-[-10px]">  <Footer />
+      <section className="mt-[300px] mb-[-10px]">  <Footer />
       </section>
     </>
   );

@@ -80,7 +80,7 @@ const photos = allImages.map((img, i) => ({
 
 export default function BlackWhiteGallery() {
   return (
-    <div className="bg-white flex justify-center items-center min-h-screen p-4">
+    <div className="bg-white flex justify-center items-center min-h-screen p-2">
       <motion.div
         className="flex space-x-4 max-w-full overflow-x-auto no-scrollbar"
         initial={{ x: 100, opacity: 0 }}

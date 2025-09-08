@@ -124,8 +124,7 @@ const SolarArticle = () => {
 
       
     </div>
-    <section className=' mt-20'>
-        <Footer/>
+    <section className="mt-[450px] mb-[-50px]">  <Footer />
       </section>
     </div>
   );

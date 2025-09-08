@@ -111,9 +111,8 @@ const InstallationServiceAltLayout = () => {
                     ))}
                 </div>
             </section>
-            <section>
-                <Footer/>
-            </section>
+            <section className="mt-[450px] mb-[-50px]">  <Footer />
+</section>
 
         </div>
     );

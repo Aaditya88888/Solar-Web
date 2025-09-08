@@ -71,7 +71,9 @@ const ServiceCards = () => {
         </div>
       ))}
     </div>
+    
   );
+  
 };
 
 export default ServiceCards;
