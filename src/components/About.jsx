@@ -107,7 +107,7 @@ const aboutUsContent = [
 export default function About() {
   return (
     <div className="bg-white text-black flex flex-col items-center mt-0 About">
-      {/* Banner Image */}
+      {/* Banner image with hover effect */}
       <ImageWithOverlay />
 
       {/* Chat UI */}
