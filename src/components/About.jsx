@@ -1,7 +1,8 @@
-import React, { lazy, Suspense } from "react";
+import React, { lazy, Suspense, useState, useEffect, useRef } from "react";
 import img1 from "../Images/Img1.webp";
 import img2 from "../Images/img2.webp";
 import img3 from "../Images/img3.webp";
+import im1 from "../Images/im1.webp";
 import sunImage from "../Images/didi.webp";
 import sunPhoto from "../Images/chacha.webp";
 import "./Home.css";
@@ -18,22 +19,39 @@ const CompanySection = lazy(() => import("./CompanySection"));
 const FiguringOut = lazy(() => import("./FiguringOut"));
 const Footer = lazy(() => import("./Footer"));
 
-// Animation Variants
-const fadeUp = {
-  hidden: { opacity: 0, y: 40 },
-  visible: (i = 0) => ({
-    opacity: 1,
-    y: 0,
-    transition: { delay: i * 0.2, duration: 0.8, ease: "easeOut" },
-  }),
-};
+// Intersection-based lazy load wrapper
+const LazySection = ({ children }) => {
+  const ref = useRef();
+  const [isVisible, setIsVisible] = useState(false);
 
-// Lazy load wrapper
-const LazyLoadSection = ({ children }) => (
-  <Suspense fallback={<div className="text-center py-10">Loading...</div>}>
-    {children}
-  </Suspense>
-);
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.2 }
+    );
+    if (ref.current) observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <div ref={ref} className="w-full">
+      {isVisible ? (
+        <Suspense
+          fallback={<div className="text-center py-10">Loading...</div>}
+        >
+          {children}
+        </Suspense>
+      ) : (
+        <div className="text-center py-10">Loading...</div>
+      )}
+    </div>
+  );
+};
 
 // About content
 const aboutUsContent = [
@@ -99,7 +117,7 @@ const aboutUsContent = [
       "We empower communities to control their energy future.",
       "We act on our mission to build a better, solar-powered India.",
     ],
-    img: "https://storage.googleapis.com/a1aa/image/72f5a45b-2e30-45fc-b276-a06c6a12a64e.jpg",
+    img: im1,
     alt: "Government officials and solar technicians inspecting installation",
   },
 ];
@@ -107,59 +125,58 @@ const aboutUsContent = [
 export default function About() {
   return (
     <div className="bg-white text-black flex flex-col items-center mt-0 About">
-      {/* Banner image with hover effect */}
+      {/* Banner */}
       <ImageWithOverlay />
 
       {/* Chat UI */}
       <section className="mt-8 w-full">
-        <LazyLoadSection>
+        <LazySection>
           <ChatUI4 />
-        </LazyLoadSection>
+        </LazySection>
       </section>
 
       {/* Scroll Stacking Cards */}
       <div className="-mt-[550px] 2xl:-mt-[700px] mb-24 w-full">
-        <LazyLoadSection>
+        <LazySection>
           <ScrollStackingCards content={aboutUsContent} />
-        </LazyLoadSection>
+        </LazySection>
       </div>
 
       {/* Company Section */}
       <section className="-mt-[290px] w-full">
-        <LazyLoadSection>
+        <LazySection>
           <CompanySection />
-        </LazyLoadSection>
+        </LazySection>
       </section>
 
       {/* Videos & Process */}
       <section className="w-full">
-        <LazyLoadSection>
+        <LazySection>
           <HoverVideoCard2 />
-        </LazyLoadSection>
+        </LazySection>
       </section>
 
       <section className="w-full">
-        <LazyLoadSection>
+        <LazySection>
           <ProcessSteps />
-        </LazyLoadSection>
+        </LazySection>
       </section>
 
       <section className="-mt-16 md:-mt-44 xl:-mt-64 2xl:-mt-96 lg:-mt-72 w-full">
-        <LazyLoadSection>
+        <LazySection>
           <HoverVideoCard3 />
-        </LazyLoadSection>
+        </LazySection>
       </section>
 
       {/* Why Choose Us */}
       <section className="bg-white py-8 px-4 sm:px-6 lg:px-8 -mt-[10px] About w-full">
-        <div className="bg-[#fdf6ee] shadow-xl overflow-x-hidden rounded-none p-5 sm:p-8 md:p-12 w-full">
+        <div className="bg-[#fdf6ee] shadow-xl rounded-none p-5 sm:p-8 md:p-12 w-full">
           <div className="flex flex-col xs:flex-row items-center justify-center gap-3 sm:gap-4 mb-6 text-center sm:text-left">
             <div className="flex items-center gap-3">
               <img
                 src={sunPhoto}
                 alt="Chacha"
-                loading="lazy"
-                className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 object-contain"
+                className="w-12 sm:w-14 md:w-16 h-12 sm:h-14 md:h-16 object-contain"
               />
               <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-red-700 leading-snug">
                 Why Choose Us <br className="sm:hidden" /> as Your Solar
@@ -168,14 +185,13 @@ export default function About() {
               <img
                 src={sunImage}
                 alt="Didi"
-                loading="lazy"
-                className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 object-contain"
+                className="w-12 sm:w-14 md:w-16 h-12 sm:h-14 md:h-16 object-contain"
               />
             </div>
           </div>
 
           <div className="text-gray-800 text-sm sm:text-base md:text-lg leading-relaxed space-y-4 text-left">
-            <p className="text-left">
+            <p>
               At <strong>Divy Power Pvt. Ltd.,</strong> we don't just install
               solar systems — we build{" "}
               <span className="text-green-600 font-semibold">
@@ -183,7 +199,6 @@ export default function About() {
               </span>
               .
             </p>
-
             <ul className="list-disc space-y-3 pl-6">
               <li>
                 <strong>
@@ -192,46 +207,46 @@ export default function About() {
               </li>
               <li>
                 <strong>Post-installation support:</strong> Real-time
-                maintenance and performance monitoring throughout the system's
-                lifecycle.
+                maintenance and monitoring.
               </li>
               <li>
                 <strong>
-                  Top-grade components, certified engineers &
-                  government-approved materials
-                </strong>{" "}
-                ensure maximum durability and safety.
+                  Top-grade components, certified engineers & govt-approved
+                  materials
+                </strong>
               </li>
               <li>
                 <strong>MNRE-approved & UPNEDA-certified;</strong> officially
-                recognized by the government of India.
+                recognized by Govt. of India.
               </li>
               <li>
-                <strong>Proven track record</strong> with solar projects across
-                villages, schools, societies, and institutions.
+                <strong>Proven track record</strong> across villages, schools,
+                societies, and institutions.
               </li>
             </ul>
           </div>
         </div>
       </section>
 
+      {/* Figuring Out */}
       <section className="mt-30 w-full">
-        <LazyLoadSection>
+        <LazySection>
           <FiguringOut />
-        </LazyLoadSection>
+        </LazySection>
       </section>
 
+      {/* Solar Cards */}
       <section className="mt-16 w-full">
-        <LazyLoadSection>
+        <LazySection>
           <SolarCards />
-        </LazyLoadSection>
+        </LazySection>
       </section>
 
-      {/* Footer without extra bottom space */}
-      <section className="-mt-30 min-w-full lg:min-w-[1300px] md:min-w-[1300px] xl:min-w-[1450px] 2xl:min-w-[1600px] w-full mb-0 pb-0">
-        <LazyLoadSection>
+      {/* Footer */}
+      <section className="mt-[400px] mb-[-50px] min-w-full lg:min-w-[1300px] xl:min-w-[1450px] 2xl:min-w-[1600px] w-full mb-0 pb-0">
+        <LazySection>
           <Footer />
-        </LazyLoadSection>
+        </LazySection>
       </section>
     </div>
   );
