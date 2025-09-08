@@ -191,14 +191,14 @@ const BecomeOurIndividualPartner = () => {
           <motion.button
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.98 }}
-            className="bg-green-700 text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-green-800 transition"
+            className="bg-green-700 mb-20 text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-green-800 transition"
           >
             Start Earning as a Partner
           </motion.button>
         </a>
       </section>
 
-      <section className=" mt-60">
+      <section className=" mt-80">
           <Footer />
         </section>
     </div>
