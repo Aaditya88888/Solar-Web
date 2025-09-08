@@ -55,6 +55,7 @@ const SolarPortfolio = () => {
           </button>
         ))}
       </div>
+
       {/* Cards */}
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 px-4 py-10">
         <AnimatePresence>
@@ -87,12 +88,13 @@ const SolarPortfolio = () => {
                 {project.title}
               </h2>
               {project.kwp !== "N/A" && (
-                <p className="text-sm text-gray-500"></p>
+                <p className="text-sm text-gray-500">{project.kwp}</p>
               )}
             </motion.div>
           ))}
         </AnimatePresence>
       </div>
+
       {/* See More Button */}
       {hasMore && (
         <div className="flex justify-center mt-10">
