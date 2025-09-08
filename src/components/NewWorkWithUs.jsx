@@ -9,7 +9,7 @@ function NewWorkWithUs() {
   return (
     <section className="bg-[#f8f7f0]">
       <motion.h2
-        className="text-4xl md:text-5xl font-bold text-center mt-0 pt-5"
+        className="text-4xl md:text-5xl font-bold text-center mt-0 pt-10"
         initial={{ opacity: 0, y: -30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
@@ -18,7 +18,7 @@ function NewWorkWithUs() {
       </motion.h2>
 
       <div className="  ">
-        <section className=" mt-24">
+        <section className="">
           <BecomePartner />
         </section>
 
@@ -27,10 +27,10 @@ function NewWorkWithUs() {
         </section>
         <section className=" ">
           <MasonryGallery />
-          <RatingWorks />
+          
         </section>
 
-        <section className=" mt-20">
+        <section className=" mt-80">
           <Footer />
         </section>
       </div>
