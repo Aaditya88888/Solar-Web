@@ -15,7 +15,7 @@ const AddOurServices = () => {
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-4xl md:text-5xl font-extrabold text-gray-900"
+          className="text-4xl md:text-5xl font-bold text-gray-900"
         >
           Add Our Services
         </motion.h1>
