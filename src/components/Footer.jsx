@@ -26,7 +26,7 @@ const Footer = () => {
   const navigate = useNavigate();
   return (
     <div className="bg-[#00122E] text-white GetfontHomeDash -mt-[340px]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 ">
         {/* Call Back Box - reduced padding and margin */}
         <CallBackSection />
 

@@ -36,7 +36,7 @@ const SolarPortfolio = () => {
   return (
     <section
       className="pb-8 px-4 py-10 bg-gradient-to-br from-white to-gray-100 shadow-lg GetFontSol md:px-12 lg:px-20 xl:px-32 2xl:px-52 
-      mt-[100px]" // ✅ Changed from -mt-[200px] to mt-[100px] to move component down
+  mt-[100px] translate-y-[-500px]"
     >
       {/* Filter Buttons */}
       <div className="flex flex-wrap justify-center gap-4 mb-10">
