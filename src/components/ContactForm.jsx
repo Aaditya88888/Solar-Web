@@ -49,12 +49,12 @@ const ContactForm = () => {
   const handleEmailClick = () => {
     const gmailUrl =
       "https://mail.google.com/mail/?view=cm&fs=1&to=sales@divypower.com";
-    window.open(gmailUrl, "_blank"); // Open Gmail in new tab
+    window.open(gmailUrl, "_blank");
   };
 
   return (
     <main
-      className="bg-gray-900 py-20 -mt-16 About max-h-auto w-screen"
+      className="bg-gray-900 py-20 -mt-16 About max-h-auto w-screen lg:-mt-[170px]"
       style={{ transform: "translateY(-100px)" }}
     >
       <ToastContainer position="top-right" autoClose={3000} />
