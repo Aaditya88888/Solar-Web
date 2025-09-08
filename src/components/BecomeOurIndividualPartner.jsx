@@ -198,7 +198,9 @@ const BecomeOurIndividualPartner = () => {
         </a>
       </section>
 
-      <Footer />
+      <section className=" mt-60">
+          <Footer />
+        </section>
     </div>
   );
 };
