@@ -129,7 +129,7 @@ function Home() {
         {/* PageOne & ChatUI (lazy-loaded) */}
         <LazyLoadSection>
           <Suspense fallback={<div></div>}>
-            <section className="About px-4 sm:px-6 lg:px-12">
+            <section className="About">
               <PageOne />
             </section>
             <section className="About px-4 sm:px-6 lg:px-12">
@@ -143,9 +143,7 @@ function Home() {
           <Suspense fallback={<div></div>}>
             <section className="bg-gray-900 py-16 px-4 sm:px-6 lg:px-16">
               <div className="flex flex-col gap-8 max-w-5xl mx-auto">
-                <div className="bg-white rounded-2xl shadow-lg overflow-hidden cursor-pointer w-full transition-transform duration-300 hover:scale-105">
-                  <SolarProduct />
-                </div>
+                <SolarProduct />
               </div>
             </section>
           </Suspense>
