@@ -80,12 +80,8 @@ const CareersAtDivySolar = () => {
       </h2>
       <p className="text-base leading-relaxed text-justify mb-2">
         Send your resume to{" "}
-        <a
-          href="mailto:career@divypower.com"
-          className="text-brandBlue underline font-medium"
-        >
-          career@divypower.com
-        </a>{" "}
+
+        <a href="mailto:career@divypower.com"  className="text-brandBlue underline font-medium">career@divypower.com{" "} </a>
         or fill out the form below.
       </p>
       <p className="text-base leading-relaxed text-justify">
