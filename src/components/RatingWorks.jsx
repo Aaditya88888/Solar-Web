@@ -71,8 +71,9 @@ const RatingWorks = () => {
 
   return (
     <section
-      style={{ transform: "translateY(-230px)" }}
-      className="GetFontSol relative bg-[#0c2340] rounded-[40px_0_40px_0] max-w-[1200px] mx-auto mt-10 px-4 sm:px-6 md:px-12 py-12 md:py-16 overflow-hidden text-white"
+      className={`GetFontSol relative bg-[#0c2340] rounded-[40px_0_40px_0] max-w-[1200px] mx-auto mt-10 px-4 sm:px-6 md:px-12 py-12 md:py-16 overflow-hidden text-white
+    transform -translate-y-[300px] md:-translate-y-[220px] transition-transform duration-300
+  `}
     >
       {/* Background */}
       <img
@@ -132,7 +133,6 @@ const RatingWorks = () => {
       </div>
 
       {/* Navigation Arrows */}
-      {/* Desktop/Tablet absolute controls */}
       <div className="hidden md:flex absolute top-8 right-8 space-x-3 z-20">
         <button
           aria-label="Previous testimonial"
@@ -150,7 +150,7 @@ const RatingWorks = () => {
         </button>
       </div>
 
-      {/* Mobile inline controls below carousel to avoid overlap */}
+      {/* Mobile inline controls */}
       <div className="md:hidden relative z-10 mt-4 flex justify-center space-x-3">
         <button
           aria-label="Previous testimonial"
