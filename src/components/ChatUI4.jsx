@@ -4,8 +4,14 @@ import solarChachaImg from "../Images/chacha.webp";
 import roshniDidiImg from "../Images/didi.webp";
 
 const conversationData = [
-  { sender: "chacha", text: "Local jugaad se bijli nahi milti, sirf tension milta hai! Divy Solar se paaiye guarantee wali roshni aur chain ka jeevan!" },
-  { sender: "roshni", text: "Haan Chacha! Ab toh EMI pe solar lagwayenge aur bijli ke bill se chutkaara paayenge!" },
+  {
+    sender: "chacha",
+    text: "Local jugaad se bijli nahi milti, sirf tension milta hai! Divy Solar se paaiye guarantee wali roshni aur chain ka jeevan!",
+  },
+  {
+    sender: "roshni",
+    text: "Haan Chacha! Ab toh EMI pe solar lagwayenge aur bijli ke bill se chutkaara paayenge!",
+  },
 ];
 
 const ChatUI4 = () => {
@@ -27,8 +33,7 @@ const ChatUI4 = () => {
 
   return (
     <div className="min-h-screen bg-white flex flex-col items-center p-6">
-     
-
+      <h1 className="text-2xl font-bold mb-4">Solar Chat</h1>
       <div className="w-full max-w-3xl wp rounded-2xl p-6 space-y-4 ">
         {messages.map((msg, i) => (
           <MessageBubble2

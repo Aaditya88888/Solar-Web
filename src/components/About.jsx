@@ -20,7 +20,7 @@ const FiguringOut = lazy(() => import("./FiguringOut"));
 const Footer = lazy(() => import("./Footer"));
 
 // Intersection-based lazy load wrapper
-const LazySection = ({ children }) => {
+const LazySection = ({ children, height = "400px" }) => {
   const ref = useRef();
   const [isVisible, setIsVisible] = useState(false);
 
@@ -39,15 +39,27 @@ const LazySection = ({ children }) => {
   }, []);
 
   return (
-    <div ref={ref} className="w-full">
+    <div ref={ref} className="w-full min-h-[50px]">
       {isVisible ? (
         <Suspense
-          fallback={<div className="text-center py-10">Loading...</div>}
+          fallback={
+            <div
+              className="text-center flex items-center justify-center"
+              style={{ height }}
+            >
+              Loading...
+            </div>
+          }
         >
           {children}
         </Suspense>
       ) : (
-        <div className="text-center py-10">Loading...</div>
+        <div
+          className="text-center flex items-center justify-center"
+          style={{ height }}
+        >
+          Loading...
+        </div>
       )}
     </div>
   );
@@ -130,40 +142,40 @@ export default function About() {
 
       {/* Chat UI */}
       <section className="mt-8 w-full">
-        <LazySection>
+        <LazySection height="450px">
           <ChatUI4 />
         </LazySection>
       </section>
 
       {/* Scroll Stacking Cards */}
       <div className="-mt-[550px] 2xl:-mt-[700px] mb-24 w-full">
-        <LazySection>
+        <LazySection height="900px">
           <ScrollStackingCards content={aboutUsContent} />
         </LazySection>
       </div>
 
       {/* Company Section */}
       <section className="-mt-[290px] w-full">
-        <LazySection>
+        <LazySection height="500px">
           <CompanySection />
         </LazySection>
       </section>
 
       {/* Videos & Process */}
       <section className="w-full">
-        <LazySection>
+        <LazySection height="500px">
           <HoverVideoCard2 />
         </LazySection>
       </section>
 
       <section className="w-full">
-        <LazySection>
+        <LazySection height="600px">
           <ProcessSteps />
         </LazySection>
       </section>
 
       <section className="-mt-16 md:-mt-44 xl:-mt-64 2xl:-mt-96 lg:-mt-72 w-full">
-        <LazySection>
+        <LazySection height="500px">
           <HoverVideoCard3 />
         </LazySection>
       </section>
@@ -230,21 +242,21 @@ export default function About() {
 
       {/* Figuring Out */}
       <section className="mt-30 w-full">
-        <LazySection>
+        <LazySection height="500px">
           <FiguringOut />
         </LazySection>
       </section>
 
       {/* Solar Cards */}
       <section className="mt-16 w-full">
-        <LazySection>
+        <LazySection height="600px">
           <SolarCards />
         </LazySection>
       </section>
 
       {/* Footer */}
       <section className="mt-[400px] mb-[-50px] min-w-full lg:min-w-[1300px] xl:min-w-[1450px] 2xl:min-w-[1600px] w-full mb-0 pb-0">
-        <LazySection>
+        <LazySection height="400px">
           <Footer />
         </LazySection>
       </section>
