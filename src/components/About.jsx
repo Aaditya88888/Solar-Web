@@ -148,7 +148,7 @@ export default function About() {
       </section>
 
       {/* Scroll Stacking Cards */}
-      <div className="-mt-[550px] 2xl:-mt-[700px] mb-24 w-full">
+      <div className="-mt-[450px] 2xl:-mt-[700px] mb-24 w-full">
         <LazySection height="900px">
           <ScrollStackingCards content={aboutUsContent} />
         </LazySection>
