@@ -142,7 +142,7 @@ function Home() {
         <LazyLoadSection>
           <Suspense fallback={<div></div>}>
             <section className="bg-gray-900 py-16 px-4 sm:px-6 lg:px-16">
-              <div className="flex flex-col gap-8 max-w-5xl mx-auto">
+              <div className="flex flex-col gap-8">
                 <SolarProduct />
               </div>
             </section>

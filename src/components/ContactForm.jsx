@@ -53,7 +53,7 @@ const ContactForm = () => {
 
   return (
     <main
-      className="relative -top-[200px] sm:top-0 bg-gray-900 py-20 About max-h-auto w-screen lg:-mt-[170px]"
+      className="relative -top-[200px] sm:top-0 bg-gray-900 py-20 About max-h-auto w-screen sm:-mt-[200px] md:-mt-[200px] lg:-mt-[170px]"
       style={{ transform: "translateY(-100px)" }}
     >
       <ToastContainer position="top-right" autoClose={3000} />

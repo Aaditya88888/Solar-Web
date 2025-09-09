@@ -37,7 +37,7 @@ const cardVariants = {
 
 const SolarProducts = () => {
   return (
-    <section className="relative -top-[130px] sm:top-0 bg-gray-900 py-16 px-4 sm:px-6 lg:px-8 About1">
+    <section className="relative bg-gray-900 py-16 px-4 sm:px-6 lg:px-8 About1">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12 -mt-10">
           <p className="text-gray-100 text-base sm:text-lg font-bold uppercase tracking-widest">
