@@ -105,7 +105,10 @@ const ThirdService = () => {
       </section>
 
       <section>
-        <Footer />
+        <section className="mt-[450px] mb-[-50px]">
+          {" "}
+          <Footer />
+        </section>
       </section>
     </div>
   );
