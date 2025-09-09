@@ -58,13 +58,12 @@ const SolarCostCalculator = () => {
 
   return (
     <motion.div
-      className="bg-[#F8F7F0] GetFontSol px-4 sm:px-6 md:px-10 lg:px-16 py-8 sm:py-10 lg:mt-[250px]"
+      className="bg-[#F8F7F0] GetFontSol px-4 sm:px-6 md:px-10 lg:px-16 py-8 sm:py-10 -translate-y-[50px] sm:translate-y-0 lg:mt-[250px]"
       initial="hidden"
       whileInView="show"
       viewport={{ once: true, amount: 0.3 }}
       variants={containerVariants}
     >
-      {/* Heading */}
       <motion.div className="text-center mb-6 sm:mb-8" variants={cardVariants}>
         <h1 className="text-lg sm:text-xl md:text-2xl font-bold text-[#E50C0C] leading-snug max-w-3xl sm:max-w-5xl mx-auto">
           Aaj hi Solar Lagwao, environment bachao <br />

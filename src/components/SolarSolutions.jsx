@@ -80,7 +80,7 @@ const SolarSolutions = () => {
   };
 
   return (
-    <main className="bg-white text-black max-w-7xl mx-auto p-4 sm:p-6 md:p-10 -mt-16 lg:-mt-[150px]">
+    <main className="bg-white text-black max-w-7xl mx-auto p-4 sm:p-6 md:p-10 -mt-16 -translate-y-[50px] lg:-mt-[150px]">
       {/* Top Section */}
       <motion.section
         className="flex flex-col lg:flex-row items-center justify-center gap-6 md:gap-10"

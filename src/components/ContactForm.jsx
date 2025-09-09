@@ -45,7 +45,6 @@ const ContactForm = () => {
     }
   };
 
-  // ✅ Custom login to open Gmail compose
   const handleEmailClick = () => {
     const gmailUrl =
       "https://mail.google.com/mail/?view=cm&fs=1&to=sales@divypower.com";
@@ -54,7 +53,7 @@ const ContactForm = () => {
 
   return (
     <main
-      className="bg-gray-900 py-20 -mt-16 About max-h-auto w-screen lg:-mt-[170px]"
+      className="relative -top-[200px] sm:top-0 bg-gray-900 py-20 About max-h-auto w-screen lg:-mt-[170px]"
       style={{ transform: "translateY(-100px)" }}
     >
       <ToastContainer position="top-right" autoClose={3000} />
